@@ -2615,14 +2615,10 @@
 <XPD:OBJ name="Operations[3]" type="UMLOperation" guid="+62w5hZMmEOMn2F4XLQqEQAA">
 <XPD:ATTR name="Name" type="string">detailOne</XPD:ATTR>
 <XPD:REF name="Owner">YXNxOIF3NUSvicv5S8QCQwAA</XPD:REF>
-<XPD:ATTR name="#Parameters" type="integer">2</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="42wPTI2igUS9t2SiXGV4pAAA">
+<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="CBpEDZWxqEShHwyyn4D7iAAA">
 <XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">ArrayList()&lt;CurriculumManageDto&gt;</XPD:ATTR>
-<XPD:REF name="BehavioralFeature">+62w5hZMmEOMn2F4XLQqEQAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Parameters[1]" type="UMLParameter" guid="7h2Vh2pxEkGa/Wu+EAhQmgAA">
-<XPD:ATTR name="Name" type="string">int</XPD:ATTR>
 <XPD:REF name="BehavioralFeature">+62w5hZMmEOMn2F4XLQqEQAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
