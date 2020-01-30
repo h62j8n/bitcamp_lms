@@ -75,10 +75,11 @@
 						<%
 						ArrayList<IndexDto> list=null;
 						list=(ArrayList<IndexDto>)request.getAttribute("indexlist");
-						for(int i=0; i<5; i++){
+						for(int i=0; i<list.size(); i++){
+							if(i==5)break;
 							IndexDto bean=list.get(i);
 						%>
-						<li><a href=""><span><%=bean.getSubject() %></span><span><%=bean.getDate() %></span></a></li>
+						<li><a href=""><span><%=bean.getLec_name() %></span><span><%=bean.getRecr_date() %></span></a></li>
 						<%
 						}
 						%>	

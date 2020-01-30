@@ -9,13 +9,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/main/educurriDetail.html")
+import com.bit.main.model.EducurriDetailDao;
+
+
+@WebServlet("/main/educurridetail.html")
 public class EducurriDetailController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		String param=req.getParameter("recr_no");
+		int recr_no=Integer.parseInt(param);
 		
-		RequestDispatcher rd=req.getRequestDispatcher("educurriDetail.jsp");
+		//MODEL
+		EducurriDetailDao dao=new EducurriDetailDao();
+		req.setAttribute("recr_detail", dao.selectOne(recr_no));
+				
+		//VIEW
+		RequestDispatcher rd=req.getRequestDispatcher("educurridetail.jsp");
 		rd.forward(req, resp);
 	}
 }

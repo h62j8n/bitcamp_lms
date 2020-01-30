@@ -1,3 +1,4 @@
+<%@page import="com.bit.main.model.EducurriDetailDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.bit.main.model.IndexDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,6 +7,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+	h2.page-title {
+    	border-bottom: 1px solid #666666;
+  		padding-top:20px;
+    	padding-bottom: 20px;
+    	margin-bottom: 40px;
+    	line-height: 50px;
+    	color: #222222;
+    	font-size: 30px;
+	}
+	.table-style {
+    	border-top: 2px solid #444444;
+    	margin-bottom: 25px;
+	}
+	table {
+    	border-collapse: collapse;
+    	width: 100%;
+    	table-layout: fixed;
+	}
+	.table-style.style2 th{
+		background:#f6f6f7;
+		border-bottom: 1px solid #d6d6d6;
+		border-right: 1px solid #d6d6d6;
+	}
+	.table-style.style2 td{
+		border-bottom:1px solid #d6d6d6;
+		padding: 10px;
+	}
+	.table-style.style2 td .text-box{
+		min-height:220px;
+		padding: 24px;
+	}
+	.button.right{
+		text-align:right;
+	}
+	.button a {
+		margin-bottom: 5px;
+		margin-left: 6px;
+		width: 85px;
+		padding: 7px 0;
+		text-align: center;
+		display: inline-block;
+		border: 1px solid #5c5c5c;
+	}
+</style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../js/site.js"></script>
 <script type="text/javascript" src="../js/swiper.min.js"></script>
@@ -51,7 +97,50 @@
 			</div>
 		</div>
 		<div id="container">
-			123
+			<div class="container">
+				<h2 class="page-title">모집공고 상세</h2>
+				<div class="table-style style2">
+					<table>
+						<colgroup>
+							<col style="width:20%;">
+							<col style="width:30%;">
+							<col style="width:20%;">
+							<col style="width:30%;">
+						</colgroup>
+						<tbody>
+							<%
+							EducurriDetailDto bean=(EducurriDetailDto)request.getAttribute("recr_detail");
+							%>
+							<tr>
+								<th>강의명</th>
+								<td colspan="3"><%=bean.getLec_name() %></td>
+							</tr>
+							<tr>
+								<th>작성일자</th>
+								<td><%=bean.getRecr_date() %></td>
+								<th>조회수</th>
+								<td><%=bean.getRecr_count() %></td>
+							</tr>
+							<tr>
+								<th>신청기간</th>
+								<td><span><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %></span></td>
+								<th>신청인원</th>
+								<td><%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></td>
+							</tr>
+							<tr>
+								<td colspan="4" >
+									<div class="text-box">
+		                            <p><%=bean.getLec_content() %></p>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		        <div class="button right">
+					<a href="">목록</a>
+			    </div>
+			</div>
 		</div>
 		<div id="footer">
 			<div class="container">

@@ -202,6 +202,18 @@ INSERT INTO  emp VALUES(10004,emp_seq.nextval,5);
 INSERT INTO  mb VALUES(mb_seq.nextval, 'mb01', 'mb111111', '학생일', '010-6666-6666', '다시 태어나면 되고 싶은 것은?', '꼬부기', DEFAULT);
 INSERT INTO  mb VALUES(mb_seq.nextval, 'mb02', 'mb222222', '학생이', '010-5555-5555', '다시 태어나면 되고 싶은 것은?', '토게피', DEFAULT);
 INSERT INTO  mb VALUES(mb_seq.nextval, 'mb03', 'mb333333', '학생삼', '010-4444-4444', '다시 태어나면 되고 싶은 것은?', '꼬마돌', DEFAULT);
+INSERT INTO lec VALUES('A1000','디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 2월','설민석','역사시간아닙니다','19/12/27','20/01/31','20/02/01','20/04/30',3,30,0);
+INSERT INTO lec VALUES('B1000','디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월','최진기','역사시간아닙니다','20/01/27','20/02/29','20/03/01','20/05/31',2,30,0);
+INSERT INTO lec VALUES('C1000','디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 4월','최태성','역사시간아닙니다','20/02/27','20/03/31','20/04/01','20/06/30',1,30,0);
+INSERT INTO lec VALUES('D1000','디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 5월','설민석','역사시간아닙니다','20/03/27','20/04/30','20/05/01','20/07/31',3,30,0);
+INSERT INTO lec VALUES('E1000','디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 6월','최진기','역사시간아닙니다','20/04/27','20/05/31','20/06/01','20/08/31',2,30,0);
+INSERT INTO lec VALUES('F1000','디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 7월','최태성','역사시간아닙니다','20/05/27','20/06/30','20/07/01','20/09/30',1,30,0);
+INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'A1000');
+INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'B1000');
+INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'C1000');
+INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'D1000');
+INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'E1000');
+INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'F1000');
 commit;
 -- BIN$ 테이블 삭제
 -- PURGE RECYCLEBIN;
