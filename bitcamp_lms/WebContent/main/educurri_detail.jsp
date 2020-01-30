@@ -1,4 +1,3 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.bit.main.model.IndexDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -51,63 +50,30 @@
 			</div>
 		</div>
 		<div id="container">
-			<section class="banner_area swiper-container">
-			<ul class="swiper-wrapper">
-				<li class="swiper-slide"
-					style="background-image: url(../images/img/main_banner01.jpg)"></li>
-				<li class="swiper-slide"
-					style="background-image: url(../images/img/main_banner02.jpg)"></li>
-				<li class="swiper-slide"
-					style="background-image: url(../images/img/main_banner03.png)"></li>
-			</ul>
-			<button type="button" class="swiper-button-prev">
-				<i class="xi-angle-left-thin"></i>
-			</button>
-			<button type="button" class="swiper-button-next">
-				<i class="xi-angle-right-thin"></i>
-			</button>
-			</section>
-			<section class="board_area">
-			<div class="container">
-				<div class="board box">
-					<h2>교육과정 모집공고</h2>
-					<ul>
-						<%
-						ArrayList<IndexDto> list=null;
-						list=(ArrayList<IndexDto>)request.getAttribute("indexlist");
-						for(int i=0; i<5; i++){
-							IndexDto bean=list.get(i);
-						%>
-						<li><a href=""><span><%=bean.getSubject() %></span><span><%=bean.getDate() %></span></a></li>
-						<%
-						}
-						%>	
-					</ul>
+			<h2>모집공고 상세</h2>
+				<%
+				IndexDto bean=(IndexDto)request.getAttribute("bean");
+				%>
+				<div>
+					<span>제목</span>
+					<span></span>
 				</div>
-				<div class="lms box">
-					<h2 class="hidden">LMS서비스</h2>
-					<p>
-						<a href=""> <i class="xi-school"></i><br> LMS서비스<br>
-							<span>바로가기</span>
-						</a>
-					</p>
+				<div>
+					<span>작성일</span>
+					<span></span>
 				</div>
-				<div class="service box">
-					<div>
-						<h2>고객센터</h2>
-						<p class="call_txt">
-							<strong>02)3486-9600</strong>
-						</p>
-						<p>
-							<span>평일 09:00 ~ 22:00</span>
-						</p>
-						<p>
-							<span>주말/공휴일 10:00 ~ 18:00</span>
-						</p>
-					</div>
+				<div>
+					<span>조회수</span>
+					<span></span>
+				</div>
+				<div>
+					<span>내용</span>
+					<span></span>
+				</div>
+				<div>
+					<a href="">뒤 로</a>
 				</div>
 			</div>
-			</section>
 		</div>
 		<div id="footer">
 			<div class="container">

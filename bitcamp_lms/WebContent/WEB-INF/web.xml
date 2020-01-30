@@ -18,6 +18,10 @@
   	<servlet-name>index</servlet-name>
   	<servlet-class>com.bit.main.controller.IndexController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>educurri_detail</servlet-name>
+  	<servlet-class>com.bit.main.controller.EduCurriDetailController</servlet-class>
+  </servlet>
   <!-- MAIN SERVLET-MAPPING -->
   <servlet-mapping>
   	<servlet-name>educenter</servlet-name>
@@ -26,5 +30,9 @@
   <servlet-mapping>
   	<servlet-name>index</servlet-name>
   	<url-pattern>/main/index.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>educurri_detail</servlet-name>
+  	<url-pattern>/main/educurri_detail.html</url-pattern>
   </servlet-mapping>
 </web-app>
