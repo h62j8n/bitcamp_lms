@@ -79,7 +79,7 @@
 							if(i==5)break;
 							IndexDto bean=list.get(i);
 						%>
-						<li><a href=""><span><%=bean.getLec_name() %></span><span><%=bean.getRecr_date() %></span></a></li>
+						<li><a href="educurridetail.html?idx=<%= bean.getRecr_no()%>"><span><%=bean.getLec_name() %></span><span><%=bean.getRecr_date() %></span></a></li>
 						<%
 						}
 						%>	

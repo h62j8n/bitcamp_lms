@@ -11,7 +11,7 @@ import com.bit.util.BitOracle;
 public class IndexDao {
 	
 	public ArrayList<IndexDto> selectAll(){
-		String sql="SELECT B.LEC_NAME, A.RECR_DATE FROM ";
+		String sql="SELECT B.LEC_NAME, A.RECR_DATE, A.RECR_NO FROM ";
 		sql+="(SELECT RECR_NO, RECR_DATE, LEC_CODE FROM RECR_BBS) A, LEC B ";
 		sql+="WHERE A.LEC_CODE=B.LEC_CODE ORDER BY A.RECR_NO DESC";
 		
@@ -27,6 +27,7 @@ public class IndexDao {
 				IndexDto bean=new IndexDto();
 				bean.setLec_name(rs.getString("lec_name"));
 				bean.setRecr_date(rs.getDate("recr_date"));
+				bean.setRecr_no(rs.getInt("recr_no"));
 				list.add(bean);
 			}
 		} catch (SQLException e) {

@@ -73,7 +73,8 @@ CREATE TABLE lec(
 	lec_roomno            NUMBER(1)  NOT NULL ,
 	lec_lecnum            NUMBER(2)  NOT NULL ,
 	lec_applnum           NUMBER(2)  NOT NULL ,
-	CONSTRAINT lec_pk PRIMARY KEY(lec_code)
+	CONSTRAINT lec_pk PRIMARY KEY(lec_code) , 
+	CONSTRAINT lec_lecnum_ck check(lec_lecnum <= 30) 
 );
 CREATE TABLE recr_bbs(
 	recr_no               NUMBER  NOT NULL ,

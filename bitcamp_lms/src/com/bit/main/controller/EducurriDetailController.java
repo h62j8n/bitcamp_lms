@@ -17,7 +17,7 @@ public class EducurriDetailController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String param=req.getParameter("recr_no");
+		String param=req.getParameter("idx");
 		int recr_no=Integer.parseInt(param);
 		
 		//MODEL
