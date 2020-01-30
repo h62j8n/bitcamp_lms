@@ -1,13 +1,13 @@
 DROP TABLE score;
 DROP TABLE atte;
 DROP TABLE appl;
-DROP TABLE lec;
 DROP TABLE state;
 DROP TABLE cls_bbs;
 DROP TABLE job_bbs;
 DROP TABLE faq_bbs;
 DROP TABLE ntc_bbs;
 DROP TABLE recr_bbs;
+DROP TABLE lec;
 DROP TABLE info;
 DROP TABLE emp;
 DROP TABLE dept;
@@ -61,16 +61,30 @@ CREATE TABLE info(
 	info_license          VARCHAR2(20) ,
 	info_headname         VARCHAR2(15)   
 );
+CREATE TABLE lec(
+	lec_code              VARCHAR2(10)  NOT NULL ,
+	lec_name              VARCHAR2(100)  NOT NULL ,
+	lec_instructor        VARCHAR2(30)  NOT NULL ,
+	lec_content           VARCHAR2(4000)  NOT NULL ,
+	lec_appl_start        DATE  NOT NULL ,
+	lec_appl_end          DATE ,
+	lec_start             DATE ,
+	lec_end               DATE  NOT NULL ,
+	lec_roomno            NUMBER(1)  NOT NULL ,
+	lec_lecnum            NUMBER(2)  NOT NULL ,
+	lec_applnum           NUMBER(2)  NOT NULL ,
+	CONSTRAINT lec_pk PRIMARY KEY(lec_code)
+);
 CREATE TABLE recr_bbs(
 	recr_no               NUMBER  NOT NULL ,
 	mb_no                 NUMBER  NOT NULL ,
 	emp_no                NUMBER  NOT NULL ,
-	recr_subject          VARCHAR2(100)  NOT NULL ,
-	recr_content          VARCHAR2(4000)  NOT NULL ,
 	recr_count            NUMBER  NOT NULL ,
 	recr_date             DATE  NOT NULL ,
+	lec_code              VARCHAR2(10)  NOT NULL ,
 	CONSTRAINT recr_pk PRIMARY KEY(recr_no) ,
-	CONSTRAINT recr_mbno_fk FOREIGN KEY(mb_no , emp_no) references emp(mb_no , emp_no)
+	CONSTRAINT recr_mbno_fk FOREIGN KEY(mb_no , emp_no) references emp(mb_no , emp_no) , 
+	CONSTRAINT recr_leccode_fk FOREIGN KEY(lec_code) references lec(lec_code)
 );
 CREATE SEQUENCE recr_seq;
 CREATE TABLE ntc_bbs(
@@ -101,7 +115,11 @@ CREATE TABLE job_bbs(
 	job_no                NUMBER  NOT NULL ,
 	mb_no                 NUMBER  NOT NULL ,
 	emp_no                NUMBER  NOT NULL ,
-	job_subject           VARCHAR2(100)  NOT NULL ,
+	job_compname          VARCHAR2(60)  NOT NULL ,
+	job_loc               VARCHAR2(30)  NOT NULL ,
+	job_recrnum           NUMBER  NOT NULL ,
+	job_emptype           VARCHAR2(30)  NOT NULL ,
+	job_enddate           VARCHAR2(30)  NOT NULL ,
 	job_content           VARCHAR2(4000)  NOT NULL ,
 	job_count             NUMBER  NOT NULL ,
 	job_date              DATE  NOT NULL ,
@@ -125,19 +143,6 @@ CREATE TABLE state(
 	sta_code              NUMBER  NOT NULL ,
 	sta_name              VARCHAR2(20)  NOT NULL ,
 	CONSTRAINT sta_pk PRIMARY KEY(sta_code)
-);
-CREATE TABLE lec(
-	lec_code              VARCHAR2(10)  NOT NULL ,
-	lec_name              VARCHAR2(100)  NOT NULL ,
-	lec_instructor        VARCHAR2(30)  NOT NULL ,
-	lec_content           VARCHAR2(4000)  NOT NULL ,
-	lec_appl_start        DATE  NOT NULL ,
-	lec_appl_end          DATE ,
-	lec_start             DATE ,
-	lec_end               DATE  NOT NULL ,
-	lec_roomno            NUMBER(1)  NOT NULL ,
-	lec_people            NUMBER(2)  NOT NULL ,
-	CONSTRAINT lec_pk PRIMARY KEY(lec_code)
 );
 CREATE TABLE appl(
 	mb_no                 NUMBER  NOT NULL ,
@@ -184,12 +189,19 @@ INSERT INTO  state VALUES(1,'등록대기');
 INSERT INTO  state VALUES(2,'신청대기');
 INSERT INTO  state VALUES(3,'수강중');
 INSERT INTO  state VALUES(4,'수료');
-INSERT INTO  mb VALUES(mb_seq.nextval, 'admin', 'admin123', '관리자', '010-9999-9999', '내가 좋아하는 캐릭터는?', '토토로', DEFAULT);
-INSERT INTO  mb VALUES(mb_seq.nextval, 'emp01', 'emp11111', '직원일', '010-8888-8888', '내가 좋아하는 캐릭터는?', '올라프', DEFAULT);
-INSERT INTO  mb VALUES(mb_seq.nextval, 'emp02', 'emp22222', '직원이', '010-7777-7777', '내가 좋아하는 캐릭터는?', '둘리', DEFAULT);
-INSERT INTO  mb VALUES(mb_seq.nextval, 'mb01', 'mb111111', '학생일', '010-6666-6666', '다시 태어나면 되고 싶은 것은?', '토토로', DEFAULT);
-INSERT INTO  mb VALUES(mb_seq.nextval, 'mb02', 'mb222222', '학생이', '010-5555-5555', '다시 태어나면 되고 싶은 것은?', '올라프', DEFAULT);
-INSERT INTO  mb VALUES(mb_seq.nextval, 'mb03', 'mb333333', '학생삼', '010-4444-4444', '다시 태어나면 되고 싶은 것은?', '둘리', DEFAULT);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'admin1', 'admin111', '관리일', '010-9999-9999', '내가 좋아하는 캐릭터는?', '토토로', 1);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'admin2', 'admin222', '관리이', '010-8888-8888', '내가 좋아하는 캐릭터는?', '올라프', 1);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'admin3', 'admin333', '관리삼', '010-7777-7777', '내가 좋아하는 캐릭터는?', '둘리', 1);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'admin4', 'admin444', '관리사', '010-6666-6666', '내가 좋아하는 캐릭터는?', '피카츄', 1);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'admin5', 'admin555', '관리오', '010-5555-5555', '내가 좋아하는 캐릭터는?', '파이리', 1);
+INSERT INTO  emp VALUES(10000,emp_seq.nextval,1);
+INSERT INTO  emp VALUES(10001,emp_seq.nextval,2);
+INSERT INTO  emp VALUES(10002,emp_seq.nextval,3);
+INSERT INTO  emp VALUES(10003,emp_seq.nextval,4);
+INSERT INTO  emp VALUES(10004,emp_seq.nextval,5);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'mb01', 'mb111111', '학생일', '010-6666-6666', '다시 태어나면 되고 싶은 것은?', '꼬부기', DEFAULT);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'mb02', 'mb222222', '학생이', '010-5555-5555', '다시 태어나면 되고 싶은 것은?', '토게피', DEFAULT);
+INSERT INTO  mb VALUES(mb_seq.nextval, 'mb03', 'mb333333', '학생삼', '010-4444-4444', '다시 태어나면 되고 싶은 것은?', '꼬마돌', DEFAULT);
 commit;
 -- BIN$ 테이블 삭제
 -- PURGE RECYCLEBIN;
