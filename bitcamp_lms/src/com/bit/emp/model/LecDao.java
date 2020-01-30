@@ -23,8 +23,8 @@ public class LecDao {
 			rs=pstmt.executeQuery();
 			while(rs.next()){
 				LecDto bean=new LecDto();
-				bean.setLec_applnum(rs.getInt("APPLNUM"));
-				bean.setLec_lecnum(rs.getInt("LECNUM"));
+				bean.setLec_applnum(rs.getInt("LEC_APPLNUM"));
+				bean.setLec_lecnum(rs.getInt("LEC_LECNUM"));
 				bean.setLec_start(rs.getDate("LEC_START"));
 				bean.setLec_end(rs.getDate("LEC_END"));
 				list.add(bean);

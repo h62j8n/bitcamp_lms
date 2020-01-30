@@ -6,10 +6,9 @@ public class EducurriculumDto {
 	private int recr_no;
 	private int mb_no;
 	private int emp_no;
-	private String recr_subject;
-	private String recr_content;
 	private int recr_count;
 	private Date recr_date;
+	private String lec_code;
 	
 	public EducurriculumDto() {
 	}
@@ -38,22 +37,6 @@ public class EducurriculumDto {
 		this.emp_no = emp_no;
 	}
 
-	public String getRecr_subject() {
-		return recr_subject;
-	}
-
-	public void setRecr_subject(String recr_subject) {
-		this.recr_subject = recr_subject;
-	}
-
-	public String getRecr_content() {
-		return recr_content;
-	}
-
-	public void setRecr_content(String recr_content) {
-		this.recr_content = recr_content;
-	}
-
 	public int getRecr_count() {
 		return recr_count;
 	}
@@ -69,4 +52,14 @@ public class EducurriculumDto {
 	public void setRecr_date(Date recr_date) {
 		this.recr_date = recr_date;
 	}
+
+	public String getLec_code() {
+		return lec_code;
+	}
+
+	public void setLec_code(String lec_code) {
+		this.lec_code = lec_code;
+	}
+	
+	
 }

@@ -104,32 +104,29 @@
 			<%
 			ArrayList<EducurriculumDto> list=null;
 			list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+			
 			for(int i=0; i<list.size(); i++){
 				EducurriculumDto bean=list.get(i);
 			%>
 				<tr>
-					<td><%=bean.getRecr_subject() %></td>
+					<td><%=bean.getRecr_date() %></td>
 					<!-- <td>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</td> -->
 				</tr>
-			<%}
-			ArrayList<LecDto> leclist=null;
-			leclist=(ArrayList<LecDto>)request.getAttribute("leclist");
-			for(int i=0;i<leclist.size();i++){
-				LecDto bean=leclist.get(i);
-			%>
 				<tr>
-					<td><%=bean.getLec_start() %> ~ <%=bean.getLec_end() %> | <%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></td>
+					<%-- <td><%=lecbean.getLec_start() %> ~ <%=lecbean.getLec_end() %> | <%=lecbean.getLec_applnum() %>/<%=lecbean.getLec_lecnum() %></td> --%>
 				</tr>
 			<%} %>
 			</tbody>
 		</table>
 		</div>
 		<div class="paging">
-			<a class="on" href="">1</a>
-			<a href="">2</a>
-			<a href="">3</a>
-			<a href="" class="paginimg"><img alt=">" src="../images/img/paging_03.gif"></a>
-			<a href="" class="paginimg"><img alt=">>" src="../images/img/paging_04.gif"></a>
+			<jsp:include page="/util/paging.jsp">
+				<jsp:param value="${paging.page}" name="page"/>
+		        <jsp:param value="${paging.beginPage}" name="begin"/>
+		        <jsp:param value="${paging.endPage}" name="end"/>
+		        <jsp:param value="${paging.prev}" name="prev"/>
+		        <jsp:param value="${paging.next}" name="next"/>
+			</jsp:include>
 		</div>
 	</div>
 </div>
