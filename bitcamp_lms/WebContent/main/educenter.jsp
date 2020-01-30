@@ -37,9 +37,9 @@
 				</ul>
 			</li>
 			<li>
-				<a href="">교육과정</a>
+				<a href="/bitcamp_lms/main/educurriculum.html">교육과정</a>
 				<ul>
-					<li><a href="">모집공고</a></li>
+					<li><a href="/bitcamp_lms/main/educurriculum.html">모집공고</a></li>
 				</ul>
 			</li>
 			<li>
