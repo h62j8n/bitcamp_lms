@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.bit.main.model.IndexDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -21,13 +23,13 @@
 					<a href=""><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
-					<li><a href="">교육센터</a>
+					<li><a href="/bitcamp_lms/main/educenter.html">교육센터</a>
 						<ul>
-							<li><a href="">센터 소개</a></li>
+							<li><a href="/bitcamp_lms/main/educenter.html">센터 소개</a></li>
 						</ul></li>
-					<li><a href="">교육과정</a>
+					<li><a href="/bitcamp_lms/main/educurriculum.html">교육과정</a>
 						<ul>
-							<li><a href="">모집공고</a></li>
+							<li><a href="/bitcamp_lms/main/educurriculum.html">모집공고</a></li>
 						</ul></li>
 					<li><a href="">취업지원</a>
 						<ul>
@@ -70,17 +72,18 @@
 				<div class="board box">
 					<h2>교육과정 모집공고</h2>
 					<ul>
-						<li><a href=""><span>프론트엔드 개발을 위한 UI/UX전문가 과정 A -
-									2월</span><span>2020-01-01</span></a></li>
-						<li><a href=""><span>디지털컨버전스 기반 자바 Open Source Web
-									application 전문 개발자 양성과정 - 2월</span><span>2020-01-01</span></a></li>
-						<li><a href=""><span>디지털컨버전스 기반 UIUX Front 전문 개발자
-									양성과정 A - 3월</span><span>2020-01-01</span></a></li>
-						<li><a href=""><span>디지털컨버전스 기반 UIUX Front 전문 개발자
-									양성과정 A - 3월</span><span>2020-01-01</span></a></li>
-						<li><a href=""><span>디지털컨버전스 기반 UIUX Front 전문 개발자
-									양성과정 A - 3월</span><span>2020-01-01</span></a></li>
+						<%
+						ArrayList<IndexDto> list=null;
+						list=(ArrayList<IndexDto>)request.getAttribute("indexlist");
+						for(int i=0; i<list.size(); i++){
+							IndexDto bean=list.get(i);
+						%>
+						<li><a href=""><span><%=bean.getSubject() %></span><span><%=bean.getDate() %></span></a></li>
+						<%
+						}
+						%>	
 					</ul>
+					
 				</div>
 				<div class="lms box">
 					<h2 class="hidden">LMS서비스</h2>
