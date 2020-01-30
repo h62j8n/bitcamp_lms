@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.bit.main.model.*,com.bit.emp.model.*,java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +14,34 @@
 		line-height:50px;
 		color:#222222;
 		font-size:30px;
+	}
+	.table{
+		border-top:2px solid #444444;
+		margin-bottom:25px;
+	}
+	table>tbody>tr>td{
+		border-bottom: 1px solid #ddd;
+		width:1024px;
+	}
+	.paging{
+		width:100px;
+		margin:0px auto;
+		padding:0;
+		list-style:none;
+		font-size:15px;
+		color:#666666;
+	}
+	.paging >a{
+		width:36px;
+		heigth:36px;
+		line-height:35px;
+		text-align: center;
+		margin : 0 3px;
+	}
+	.pagin>a.on, .paging>a:hover{
+		color:#ffffff;
+		border:1px solid #666666;
+		background:#4f5aa9;
 	}
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
@@ -67,8 +96,41 @@
 </div>
 <div id="container">
 	<div class="container">
-		<h2 class="page-title">교육센터 소개</h2>
-		<img alt="교육센터 소개" src="../images/img/educenter.jpg">
+		<h2 class="page-title">모집공고 목록</h2>
+		<button>수강신청 바로가기</button>
+		<div class="table">
+		<table>
+			<tbody>
+			<%
+			ArrayList<EducurriculumDto> list=null;
+			list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+			for(int i=0; i<list.size(); i++){
+				EducurriculumDto bean=list.get(i);
+			%>
+				<tr>
+					<td><%=bean.getRecr_subject() %></td>
+					<!-- <td>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</td> -->
+				</tr>
+			<%}
+			ArrayList<LecDto> leclist=null;
+			leclist=(ArrayList<LecDto>)request.getAttribute("leclist");
+			for(int i=0;i<leclist.size();i++){
+				LecDto bean=leclist.get(i);
+			%>
+				<tr>
+					<td><%=bean.getLec_start() %> ~ <%=bean.getLec_end() %> | <%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></td>
+				</tr>
+			<%} %>
+			</tbody>
+		</table>
+		</div>
+		<div class="paging">
+			<a class="on" href="">1</a>
+			<a href="">2</a>
+			<a href="">3</a>
+			<a href="" class="paginimg"><img alt=">" src="../images/img/paging_03.gif"></a>
+			<a href="" class="paginimg"><img alt=">>" src="../images/img/paging_04.gif"></a>
+		</div>
 	</div>
 </div>
 <div id="footer">

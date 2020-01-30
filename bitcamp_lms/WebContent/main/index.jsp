@@ -20,16 +20,16 @@
 		<div id="header">
 			<div class="container">
 				<h1>
-					<a href=""><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
+					<a href="/bitcamp_lms/main"><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
-					<li><a href="">교육센터</a>
+					<li><a href="/bitcamp_lms/main/educenter.html">교육센터</a>
 						<ul>
-							<li><a href="">센터 소개</a></li>
+							<li><a href="/bitcamp_lms/main/educenter.html">센터 소개</a></li>
 						</ul></li>
-					<li><a href="">교육과정</a>
+					<li><a href="/bitcamp_lms/main/educurriculum.html">교육과정</a>
 						<ul>
-							<li><a href="">모집공고</a></li>
+							<li><a href="/bitcamp_lms/main/educurriculum.html">모집공고</a></li>
 						</ul></li>
 					<li><a href="">취업지원</a>
 						<ul>
@@ -75,7 +75,7 @@
 						<%
 						ArrayList<IndexDto> list=null;
 						list=(ArrayList<IndexDto>)request.getAttribute("indexlist");
-						for(int i=0; i<5; i++){
+						for(int i=0; i<list.size(); i++){
 							IndexDto bean=list.get(i);
 						%>
 						<li><a href=""><span><%=bean.getSubject() %></span><span><%=bean.getDate() %></span></a></li>
@@ -83,6 +83,7 @@
 						}
 						%>	
 					</ul>
+					
 				</div>
 				<div class="lms box">
 					<h2 class="hidden">LMS서비스</h2>

@@ -8,12 +8,12 @@ import java.util.ArrayList;
 
 import com.bit.util.BitOracle;
 
-public class IndexDao {
-	
-	public ArrayList<IndexDto> selectAll(){
+public class EducurriculumDao {
+	public ArrayList<EducurriculumDto> selectAll(){
 		String sql="SELECT * FROM RECR_BBS";
 		
-		ArrayList<IndexDto> list=new ArrayList<IndexDto>();
+		ArrayList<EducurriculumDto> list=null;
+		list =new ArrayList<EducurriculumDto>();
 		Connection conn=BitOracle.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -22,23 +22,21 @@ public class IndexDao {
 			pstmt=conn.prepareStatement(sql);
 			rs=pstmt.executeQuery();
 			while(rs.next()){
-				IndexDto bean=new IndexDto();
-				bean.setSubject(rs.getString("recr_subject"));
-				bean.setDate(rs.getDate("recr_date"));
+				EducurriculumDto bean=new EducurriculumDto();
+				bean.setRecr_subject(rs.getString("RECR_SUBJECT"));
+				bean.setRecr_date(rs.getDate("RECR_DATE"));
 				list.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally{
 			try {
-				if(rs!=null)rs.close();
-				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
+		
 		return list;
 	}
-	
 }
