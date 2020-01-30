@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.bit.main.model.*,com.bit.emp.model.*,java.util.*" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -56,7 +57,7 @@
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href=""><img alt="비트캠프 구리센터" src="../images/comm/logo.png"></a></h1>
+		<h1><a href="/bitcamp_lms/main"><img alt="비트캠프 구리센터" src="../images/comm/logo.png"></a></h1>
 		<ul id="gnb"><!-- Global Navigation Bar -->
 			<li>
 				<a href="/bitcamp_lms/main/educenter.html">교육센터</a>
@@ -100,12 +101,26 @@
 		<div class="table">
 		<table>
 			<tbody>
+			<%
+			ArrayList<EducurriculumDto> list=null;
+			list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+			for(int i=0; i<list.size(); i++){
+				EducurriculumDto bean=list.get(i);
+			%>
 				<tr>
-					<td>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</td>
+					<td><%=bean.getRecr_subject() %></td>
+					<!-- <td>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</td> -->
 				</tr>
+			<%}
+			ArrayList<LecDto> leclist=null;
+			leclist=(ArrayList<LecDto>)request.getAttribute("leclist");
+			for(int i=0;i<leclist.size();i++){
+				LecDto bean=leclist.get(i);
+			%>
 				<tr>
-					<td>2020. 02. 01 ~ 2020. 04. 30 | 0/30</td>
+					<td><%=bean.getLec_start() %> ~ <%=bean.getLec_end() %> | <%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></td>
 				</tr>
+			<%} %>
 			</tbody>
 		</table>
 		</div>

@@ -20,7 +20,7 @@
 		<div id="header">
 			<div class="container">
 				<h1>
-					<a href=""><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
+					<a href="/bitcamp_lms/main"><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
 					<li><a href="/bitcamp_lms/main/educenter.html">교육센터</a>

@@ -11,18 +11,10 @@
   </welcome-file-list>
   <!-- MAIN SERVLET -->
   <servlet>
-  	<servlet-name>educenter</servlet-name>
-  	<servlet-class>com.bit.main.controller.EducenterController</servlet-class>
-  </servlet>
-  <servlet>
   	<servlet-name>hire</servlet-name>
   	<servlet-class>com.bit.main.controller.HireController</servlet-class>
   </servlet>
   <!-- MAIN SERVLET-MAPPING -->
-  <servlet-mapping>
-  	<servlet-name>educenter</servlet-name>
-  	<url-pattern>/main/educenter.html</url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>hire</servlet-name>
   	<url-pattern>/main/hire.html</url-pattern>
