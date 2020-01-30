@@ -14,6 +14,34 @@
 		color:#222222;
 		font-size:30px;
 	}
+	.table{
+		border-top:2px solid #444444;
+		margin-bottom:25px;
+	}
+	table>tbody>tr>td{
+		border-bottom: 1px solid #ddd;
+		width:1024px;
+	}
+	.paging{
+		width:100px;
+		margin:0px auto;
+		padding:0;
+		list-style:none;
+		font-size:15px;
+		color:#666666;
+	}
+	.paging >a{
+		width:36px;
+		heigth:36px;
+		line-height:35px;
+		text-align: center;
+		margin : 0 3px;
+	}
+	.pagin>a.on, .paging>a:hover{
+		color:#ffffff;
+		border:1px solid #666666;
+		background:#4f5aa9;
+	}
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../js/site.js"></script>
@@ -67,8 +95,27 @@
 </div>
 <div id="container">
 	<div class="container">
-		<h2 class="page-title">교육센터 소개</h2>
-		<img alt="교육센터 소개" src="../images/img/educenter.jpg">
+		<h2 class="page-title">모집공고 목록</h2>
+		<button>수강신청 바로가기</button>
+		<div class="table">
+		<table>
+			<tbody>
+				<tr>
+					<td>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</td>
+				</tr>
+				<tr>
+					<td>2020. 02. 01 ~ 2020. 04. 30 | 0/30</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div class="paging">
+			<a class="on" href="">1</a>
+			<a href="">2</a>
+			<a href="">3</a>
+			<a href="" class="paginimg"><img alt=">" src="../images/img/paging_03.gif"></a>
+			<a href="" class="paginimg"><img alt=">>" src="../images/img/paging_04.gif"></a>
+		</div>
 	</div>
 </div>
 <div id="footer">

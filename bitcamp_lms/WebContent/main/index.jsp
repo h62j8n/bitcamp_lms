@@ -23,13 +23,13 @@
 					<a href=""><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
-					<li><a href="">교육센터</a>
+					<li><a href="/bitcamp_lms/main/educenter.html">교육센터</a>
 						<ul>
-							<li><a href="">센터 소개</a></li>
+							<li><a href="/bitcamp_lms/main/educenter.html">센터 소개</a></li>
 						</ul></li>
-					<li><a href="">교육과정</a>
+					<li><a href="/bitcamp_lms/main/educurriculum.html">교육과정</a>
 						<ul>
-							<li><a href="">모집공고</a></li>
+							<li><a href="/bitcamp_lms/main/educurriculum.html">모집공고</a></li>
 						</ul></li>
 					<li><a href="">취업지원</a>
 						<ul>
