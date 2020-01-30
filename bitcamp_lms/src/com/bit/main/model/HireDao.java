@@ -13,7 +13,7 @@ public class HireDao {
 	public ArrayList<HireDto> HireSelectAll(){
 		String sql="select * from job_bbs";
 		ArrayList<HireDto> list=null;
-		list=new ArrayList<HireDto>(0);
+		list=new ArrayList<HireDto>();
 		Connection conn=BitOracle.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -23,9 +23,11 @@ public class HireDao {
 			while(rs.next()){
 				HireDto bean=new HireDto();
 				bean.setJob_no(rs.getInt("job_no"));
-				bean.setJob_subject(rs.getString("job_subject"));
-				bean.setJob_date(rs.getDate("job_date"));
-				bean.setJob_count(rs.getInt("job_count"));
+				bean.setJob_compname(rs.getString("job_compname"));
+				bean.setJob_loc(rs.getString("job_loc"));
+				bean.setJob_recrnum(rs.getInt("job_recrnum"));
+				bean.setJob_emptype(rs.getString("job_emptype"));
+				bean.setJob_enddate(rs.getString("job_enddate"));
 				list.add(bean);
 			}
 		} catch (SQLException e) {

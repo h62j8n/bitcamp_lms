@@ -45,7 +45,7 @@
 			<li>
 				<a href="">취업지원</a>
 				<ul>
-					<li><a href="">채용공고</a></li>
+					<li><a href="hire.html">채용공고</a></li>
 				</ul>
 			</li>
 			<li>
@@ -68,32 +68,37 @@
 <div id="container">
 	<div class="container">
 		<h2 class="page-title">채용공고 목록</h2>
-		<div id="content">
-			<table>
+		<div id="content" align="center">
+			<table width="800px">
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>업체명</th>
-						<th>마감날짜</th>
-						<th>조회수</th>
+						<th width="50px">번호</th>
+						<th width="200px">업체명</th>
+						<th width="50px">지역</th>
+						<th width="50px">모집인원</th>
+						<th width="50px">고용형태</th>
+						<th width="50px">마감날짜</th>
 					</tr>
 				</thead>
 				<tbody>
 					<%
 					ArrayList<HireDto> list=null;
-					list=(ArrayList<HireDto>)request.getAttribute("alist");
+					list=(ArrayList<HireDto>)request.getAttribute("hirelist");
 					for(int i=0; i<list.size(); i++){
 						HireDto bean=list.get(i);
 					%>
 					<tr>
-						<td><%=bean.getJob_no()%></td>
-						<td><%=bean.getJob_subject()%></td>
-						<td><%=bean.getJob_date()%></td>
-						<td><%=bean.getJob_count()%></td>
+						<td align="center"><%=bean.getJob_no()%></td>
+						<td align="center"><a href="hireDetail.html"><%=bean.getJob_compname()%></td>
+						<td align="center"><%=bean.getJob_loc()%></td>
+						<td align="center"><%=bean.getJob_recrnum()%></td>
+						<td align="center"><%=bean.getJob_emptype()%></td>
+						<td align="center"><%=bean.getJob_enddate()%></td>
 					</tr>
 					<%} %>
 				</tbody>
 			</table>
+			<br>
 		</div>
 	</div>
 </div>

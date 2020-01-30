@@ -67,8 +67,7 @@
 </div>
 <div id="container">
 	<div class="container">
-		<h2 class="page-title">교육센터 소개</h2>
-		<img alt="교육센터 소개" src="../images/img/educenter.jpg">
+		<h2 class="page-title">채용공고 상세</h2>
 	</div>
 </div>
 <div id="footer">

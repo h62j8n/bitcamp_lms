@@ -10,13 +10,7 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <!-- MAIN SERVLET -->
-  <servlet>
-  	<servlet-name>hire</servlet-name>
-  	<servlet-class>com.bit.main.controller.HireController</servlet-class>
-  </servlet>
+ 
   <!-- MAIN SERVLET-MAPPING -->
-  <servlet-mapping>
-  	<servlet-name>hire</servlet-name>
-  	<url-pattern>/main/hire.html</url-pattern>
-  </servlet-mapping>
+ 
 </web-app>
