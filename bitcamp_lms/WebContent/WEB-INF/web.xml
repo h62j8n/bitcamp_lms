@@ -14,9 +14,17 @@
   	<servlet-name>educenter</servlet-name>
   	<servlet-class>com.bit.main.controller.EducenterController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>index</servlet-name>
+  	<servlet-class>com.bit.main.controller.IndexController</servlet-class>
+  </servlet>
   <!-- MAIN SERVLET-MAPPING -->
   <servlet-mapping>
   	<servlet-name>educenter</servlet-name>
   	<url-pattern>/main/educenter.html</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>index</servlet-name>
+  	<url-pattern>/main/index.html</url-pattern>
   </servlet-mapping>
 </web-app>
