@@ -11,7 +11,7 @@ import com.bit.util.BitOracle;
 public class IndexDao {
 	
 	public ArrayList<IndexDto> selectAll(){
-		String sql="SELECT * FROM RECR_BBS";
+		String sql="SELECT * FROM RECR_BBS ORDER BY RECR_NO DESC";
 		
 		ArrayList<IndexDto> list=new ArrayList<IndexDto>();
 		Connection conn=BitOracle.getConnection();
