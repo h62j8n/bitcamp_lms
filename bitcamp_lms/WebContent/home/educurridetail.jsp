@@ -83,10 +83,10 @@
 						<ul>
 							<li><a href="/bitcamp_lms/home/hire.html">채용공고</a></li>
 						</ul></li>
-					<li><a href="">학생지원</a>
+					<li><a href="/bitcamp_lms/home/notice.html">학생지원</a>
 						<ul>
-							<li><a href="">공지사항</a></li>
-							<li><a href="">FAQ</a></li>
+							<li><a href="/bitcamp_lms/home/notice.html">공지사항</a></li>
+							<li><a href="/bitcamp_lms/home/faq.html">FAQ</a></li>
 						</ul></li>
 				</ul>
 				<ul class="quick">

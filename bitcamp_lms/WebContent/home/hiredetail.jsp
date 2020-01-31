@@ -86,10 +86,10 @@ h2.page-title {
 				</ul>
 			</li>
 			<li>
-				<a href="">학생지원</a>
+				<a href="/bitcamp_lms/home/notice.html">학생지원</a>
 				<ul>
-					<li><a href="">공지사항</a></li>
-					<li><a href="">FAQ</a></li>
+					<li><a href="/bitcamp_lms/home/notice.html">공지사항</a></li>
+					<li><a href="/bitcamp_lms/home/faq.html">FAQ</a></li>
 				</ul>
 			</li>
 		</ul>
