@@ -11,7 +11,7 @@ import com.bit.util.BitOracle;
 public class HireDao {
 	
 	public ArrayList<HireDto> HireSelectAll(){
-		String sql="select * from job_bbs";
+		String sql="select * from job_bbs order by job_no desc";
 		ArrayList<HireDto> list=null;
 		list=new ArrayList<HireDto>();
 		Connection conn=BitOracle.getConnection();
