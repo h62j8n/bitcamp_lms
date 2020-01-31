@@ -137,7 +137,7 @@ h2.page-title {
 								<th>모집인원</th>
 								<td><%=bean.getJob_recrnum()%></td>
 								<th>모집마감일</th>
-								<td><span><%=bean.getJob_emptype()%></span></td>
+								<td><span><%=bean.getJob_enddate()%></span></td>
 							</tr>
 							<tr>
 								<td colspan="4" >

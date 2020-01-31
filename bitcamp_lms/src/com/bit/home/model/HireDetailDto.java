@@ -4,8 +4,6 @@ import java.sql.Date;
 
 public class HireDetailDto {
 	private int job_no;
-	private int mb_no;
-	private int emp_no;
 	private String job_compname;
 	private String job_loc;
 	private int job_recrnum;
@@ -22,18 +20,6 @@ public class HireDetailDto {
 	}
 	public void setJob_no(int job_no) {
 		this.job_no = job_no;
-	}
-	public int getMb_no() {
-		return mb_no;
-	}
-	public void setMb_no(int mb_no) {
-		this.mb_no = mb_no;
-	}
-	public int getEmp_no() {
-		return emp_no;
-	}
-	public void setEmp_no(int emp_no) {
-		this.emp_no = emp_no;
 	}
 	public String getJob_compname() {
 		return job_compname;
@@ -83,5 +69,7 @@ public class HireDetailDto {
 	public void setJob_date(Date job_date) {
 		this.job_date = job_date;
 	}
+	
+	
 	
 }
