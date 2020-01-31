@@ -78,9 +78,9 @@ h2.page-title {
 				</ul>
 			</li>
 			<li>
-				<a href="">취업지원</a>
+				<a href="/bitcamp_lms/main/hire.html">취업지원</a>
 				<ul>
-					<li><a href="hire.html">채용공고</a></li>
+					<li><a href="/bitcamp_lms/main/hire.html">채용공고</a></li>
 				</ul>
 			</li>
 			<li>

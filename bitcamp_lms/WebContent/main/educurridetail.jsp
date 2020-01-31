@@ -77,9 +77,9 @@
 						<ul>
 							<li><a href="/bitcamp_lms/main/educurriculum.html">모집공고</a></li>
 						</ul></li>
-					<li><a href="">취업지원</a>
+					<li><a href="/bitcamp_lms/main/hire.html">취업지원</a>
 						<ul>
-							<li><a href="">채용공고</a></li>
+							<li><a href="/bitcamp_lms/main/hire.html">채용공고</a></li>
 						</ul></li>
 					<li><a href="">학생지원</a>
 						<ul>
