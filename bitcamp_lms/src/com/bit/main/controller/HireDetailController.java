@@ -10,19 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bit.main.model.HireDao;
-import com.bit.main.model.HireDto;
+import com.bit.main.model.HireDetailDao;
+import com.bit.main.model.HireDetailDto;
 
-@WebServlet("/main/hire.html")
-public class HireController extends HttpServlet{
+@WebServlet("/main/hiredetail.html")
+public class HireDetailController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		HireDao dao=new HireDao();
-		ArrayList<HireDto> list=dao.HireSelectAll();
-		req.setAttribute("hirelist", list);
+		
+		int job_no=Integer.parseInt(req.getParameter("idx"));
+		
+		HireDetailDao dao=new HireDetailDao();
+		req.setAttribute("hiredetail", dao.selectOne(job_no));
+		
 		RequestDispatcher rd=null;
-		rd=req.getRequestDispatcher("hire.jsp");
+		rd=req.getRequestDispatcher("hiredetail.jsp");
 		rd.forward(req, resp);
 	}
 }

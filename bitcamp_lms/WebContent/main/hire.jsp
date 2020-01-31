@@ -12,8 +12,35 @@
 		margin-bottom:40px;
 		line-height:50px;
 		color:#222222;
+		font-size:30px;
 	}
-
+	.table{
+		border-top:2px solid #444444;
+		margin-bottom:25px;
+	}
+	table>tbody>tr>td{
+		border-bottom: 1px solid #ddd;
+		width:1024px;
+	}
+	table>tbody>tr>th{
+		border-bottom: 1px solid #ddd;
+	}
+	.paging{
+		width:100px;
+		margin:0px auto;
+		padding:0;
+		list-style:none;
+		font-size:15px;
+		color:#666666;
+	}
+	.paging >a{
+		width:36px;
+		heigth:36px;
+		line-height:35px;
+		text-align: center;
+		margin : 0 3px;
+	}
+	
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../js/site.js"></script>
@@ -68,19 +95,17 @@
 <div id="container">
 	<div class="container">
 		<h2 class="page-title">채용공고 목록</h2>
-		<div id="content" align="center">
-			<table width="800px">
-				<thead>
-					<tr>
-						<th width="50px">번호</th>
-						<th width="200px">업체명</th>
-						<th width="50px">지역</th>
-						<th width="50px">모집인원</th>
-						<th width="50px">고용형태</th>
-						<th width="50px">마감날짜</th>
-					</tr>
-				</thead>
+		<div class="table">
+			<table>
 				<tbody>
+					<tr>
+						<th>번호</th>
+						<th>업체명</th>
+						<th>지역</th>
+						<th>모집인원</th>
+						<th>고용형태</th>
+						<th>마감날짜</th>
+					</tr>
 					<%
 					ArrayList<HireDto> list=null;
 					list=(ArrayList<HireDto>)request.getAttribute("hirelist");
@@ -89,7 +114,7 @@
 					%>
 					<tr>
 						<td align="center"><%=bean.getJob_no()%></td>
-						<td align="center"><a href="hireDetail.html"><%=bean.getJob_compname()%></td>
+						<td align="center"><a href="hiredetail.html?idx=<%=bean.getJob_no()%>"><%=bean.getJob_compname() %></a></td>
 						<td align="center"><%=bean.getJob_loc()%></td>
 						<td align="center"><%=bean.getJob_recrnum()%></td>
 						<td align="center"><%=bean.getJob_emptype()%></td>
@@ -98,6 +123,15 @@
 					<%} %>
 				</tbody>
 			</table>
+			<div class="paging">
+			<jsp:include page="/util/paging.jsp">
+				<jsp:param value="${paging.page}" name="page"/>
+		        <jsp:param value="${paging.beginPage}" name="begin"/>
+		        <jsp:param value="${paging.endPage}" name="end"/>
+		        <jsp:param value="${paging.prev}" name="prev"/>
+		        <jsp:param value="${paging.next}" name="next"/>
+			</jsp:include>
+			</div>
 			<br>
 		</div>
 	</div>

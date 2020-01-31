@@ -38,11 +38,7 @@
 		text-align: center;
 		margin : 0 3px;
 	}
-	.pagin>a.on, .paging>a:hover{
-		color:#ffffff;
-		border:1px solid #666666;
-		background:#4f5aa9;
-	}
+	
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="../js/site.js"></script>

@@ -1,3 +1,4 @@
+<%@page import="com.bit.main.model.HireDetailDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,14 +6,48 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
-	h2.page-title{
-		border-bottom:1px solid #666666;
-		padding-top:20px;
-		padding-bottom:20px;
-		margin-bottom:40px;
-		line-height:50px;
-		color:#222222;
-		font-size:30px;
+h2.page-title {
+    	border-bottom: 1px solid #666666;
+  		padding-top:20px;
+    	padding-bottom: 20px;
+    	margin-bottom: 40px;
+    	line-height: 50px;
+    	color: #222222;
+    	font-size: 30px;
+	}
+	.table-style {
+    	border-top: 2px solid #444444;
+    	margin-bottom: 25px;
+	}
+	table {
+    	border-collapse: collapse;
+    	width: 100%;
+    	table-layout: fixed;
+	}
+	.table-style.style2 th{
+		background:#f6f6f7;
+		border-bottom: 1px solid #d6d6d6;
+		border-right: 1px solid #d6d6d6;
+	}
+	.table-style.style2 td{
+		border-bottom:1px solid #d6d6d6;
+		padding: 10px;
+	}
+	.table-style.style2 td .text-box{
+		min-height:220px;
+		padding: 24px;
+	}
+	.button.right{
+		text-align:right;
+	}
+	.button a {
+		margin-bottom: 5px;
+		margin-left: 6px;
+		width: 85px;
+		padding: 7px 0;
+		text-align: center;
+		display: inline-block;
+		border: 1px solid #5c5c5c;
 	}
 </style>
 <script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
@@ -66,10 +101,57 @@
 	</div>
 </div>
 <div id="container">
-	<div class="container">
-		<h2 class="page-title">채용공고 상세</h2>
-	</div>
-</div>
+			<div class="container">
+				<h2 class="page-title">채용공고 상세</h2>
+				<div class="table-style style2">
+					<table>
+						<colgroup>
+							<col style="width:20%;">
+							<col style="width:30%;">
+							<col style="width:20%;">
+							<col style="width:30%;">
+						</colgroup>
+						<tbody>
+							<%
+							HireDetailDto bean=(HireDetailDto)request.getAttribute("hiredetail");
+							%>
+							<tr>
+								<th>업체명</th>
+								<td colspan="3"><%=bean.getJob_compname() %></td>
+							</tr>
+							<tr>
+								<th>작성일자</th>
+								<td><%=bean.getJob_date() %></td>
+								<th>조회수</th>
+								<td><%=bean.getJob_count()%></td>
+							</tr>
+							<tr>
+								<th>고용형태</th>
+								<td><span><%=bean.getJob_emptype()%></span></td>
+								<th>근무지</th>
+								<td><%=bean.getJob_loc() %></td>
+							</tr>
+							<tr>
+								<th>모집인원</th>
+								<td><%=bean.getJob_recrnum()%></td>
+								<th>모집마감일</th>
+								<td><span><%=bean.getJob_emptype()%></span></td>
+							</tr>
+							<tr>
+								<td colspan="4" >
+									<div class="text-box">
+		                            <p><%=bean.getJob_content()%></p>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+		        <div class="button right">
+					<a href="hire.html">목록</a>
+			    </div>
+			</div>
+		</div>
 <div id="footer">
 	<div class="container">
 		<p class="foot_logo">
