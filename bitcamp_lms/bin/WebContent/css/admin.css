@@ -1,0 +1,340 @@
+/*
+---------------------------------------------------------------
+*
+* base
+*
+---------------------------------------------------------------
+*/
+/* css reset */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub,
+sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section,
+summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body, div, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, p, form, fieldset, input, button, table, tr, th, td {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+th, b, strong {
+  font-weight: normal;
+}
+
+fieldset, img {
+  border: none;
+  vertical-align: top;
+}
+
+address {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+a:hover, a:active, a:focus {
+  text-decoration: none;
+}
+
+legend {
+  display: none;
+}
+
+button, input[type=submit] {
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/*
+---------------------------------------------------------------
+*
+* common
+*
+---------------------------------------------------------------
+*/
+@font-face {
+  font-family: "noto-sans-scott-t";
+  src: url("../fonts/NotoSansCJKkr-Thin.eot");
+  src: url("../fonts/NotoSansCJKkr-Thin.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Thin.woff") format("woff"), url("../fonts/NotoSansCJKkr-Thin.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "noto-sans-scott-l";
+  src: url("../fonts/NotoSansCJKkr-Light.eot");
+  src: url("../fonts/NotoSansCJKkr-Light.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Light.woff") format("woff"), url("../fonts/NotoSansCJKkr-Light.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "noto-sans-scott-dl";
+  src: url("../fonts/NotoSansCJKkr-DemiLight.eot");
+  src: url("../fonts/NotoSansCJKkr-DemiLight.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-DemiLight.woff") format("woff"), url("../fonts/NotoSansCJKkr-DemiLight.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "noto-sans-scott-r";
+  src: url("../fonts/NotoSansCJKkr-Regular.eot");
+  src: url("../fonts/NotoSansCJKkr-Regular.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Regular.woff") format("woff"), url("../fonts/NotoSansCJKkr-Regular.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "noto-sans-scott-m";
+  src: url("../fonts/NotoSansCJKkr-Medium.eot");
+  src: url("../fonts/NotoSansCJKkr-Medium.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Medium.woff") format("woff"), url("../fonts/NotoSansCJKkr-Medium.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "noto-sans-scott-b";
+  src: url("../fonts/NotoSansCJKkr-Bold.eot");
+  src: url("../fonts/NotoSansCJKkr-Bold.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Bold.woff") format("woff"), url("../fonts/NotoSansCJKkr-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "noto-sans-scott-bk";
+  src: url("../fonts/NotoSansCJKkr-Black.eot");
+  src: url("../fonts/NotoSansCJKkr-Black.eot") format("embedded-opentype"), url("../fonts/NotoSansCJKkr-Black.woff") format("woff"), url("../fonts/NotoSansCJKkr-Black.otf") format("truetype");
+}
+
+body {
+  background: #fff;
+  font-family: "noto-sans-scott-dl";
+  font-size: 16px;
+  color: #333;
+}
+
+a {
+  color: #222;
+}
+
+select, button, input, textarea {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "noto-sans-scott-dl";
+  color: #666;
+}
+
+th, b, strong {
+  font-family: "noto-sans-scott-m";
+}
+
+::-moz-selection {
+  background: #222;
+  color: #fff;
+}
+
+::selection {
+  background: #222;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: #222;
+  color: #fff;
+}
+
+::-webkit-input-placeholder {
+  font-size: 13px;
+  color: #ccc;
+}
+
+::-moz-placeholder {
+  font-size: 13px;
+  color: #ccc;
+}
+
+:-ms-input-placeholder {
+  font-size: 13px;
+  color: #ccc;
+}
+
+.lock {
+  overflow-y: hidden;
+}
+
+#wrap {
+  min-width: 1024px;
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.hidden {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+/*
+---------------------------------------------------------------
+*
+* layout
+*
+---------------------------------------------------------------
+*/
+/* lms */
+#header {
+  padding: 10px 0;
+  -webkit-box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+#header > div:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#header h1 {
+  border-bottom: 1px solid #ddd;
+  float: left;
+}
+
+#header .quick {
+  float: right;
+  overflow: hidden;
+}
+
+#header .quick li {
+  float: left;
+  width: 45px;
+  height: 45px;
+  font-size: 30px;
+}
+
+#footer {
+  text-align: center;
+}
+
+#container {
+  margin: 30px 0 80px;
+}
+
+#container > .container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.gnb_area {
+  float: left;
+  background: #083c72;
+}
+
+.gnb_area li {
+  width: 180px;
+  color: #fff;
+}
+
+.gnb_area button {
+  width: 45px;
+  height: 45px;
+  border: none;
+  background: none;
+  text-align: left;
+  color: #fff;
+}
+
+.gnb_area a {
+  display: block;
+  overflow: hidden;
+  height: 45px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px 5px;
+  font-family: "noto-sans-scott-l";
+  font-size: 15px;
+  color: #fff;
+}
+
+.gnb_area a i, .gnb_area a span {
+  float: left;
+}
+
+.gnb_area i {
+  font-size: 25px;
+}
+
+.gnb_area span {
+  text-indent: 5px;
+}
+
+.content_area {
+  float: right;
+  width: 800px;
+}
+
+.content_area h2 {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #333;
+  font-family: "noto-sans-scott-m";
+}
+
+.dashboard > div {
+  margin: 0 0 -20px -20px;
+}
+
+.dashboard > div:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.dashboard .box {
+  position: relative;
+  float: left;
+  width: 390px;
+  height: 200px;
+  margin: 0 0 20px 20px;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 15px;
+  -webkit-box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard .box h3 {
+  font-family: "noto-sans-scott-m";
+}
+
+.dashboard .box > a {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=admin.css.map */
