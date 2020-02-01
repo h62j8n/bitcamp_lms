@@ -48,7 +48,7 @@
 					<li><a href="https://www.bitcamp.co.kr/gn" target="_blank">강남센터</a></li>
 					<li><a href="https://www.bitcamp.co.kr/sc" target="_blank">신촌센터</a></li>
 					<li><a href="https://www.bitcamp.co.kr/cr" target="_blank">종로센터</a></li>
-					<li><a href="" target="_blank">LMS서비스</a></li>
+					<li><a href="../lms/login.html" target="_blank">LMS서비스</a></li>
 				</ul>
 			</div>
 		</div>
@@ -90,7 +90,7 @@
 				<div class="lms box">
 					<h2 class="hidden">LMS서비스</h2>
 					<p>
-						<a href=""> <i class="xi-school"></i><br> LMS서비스<br>
+						<a href="../lms/login.html"> <i class="xi-school"></i><br> LMS서비스<br>
 							<span>바로가기</span>
 						</a>
 					</p>

@@ -45,8 +45,8 @@
 					<button type="submit">로그인</button>
 				</form>
 				<ul class="list_others">
-					<li><a href="">아이디</a> / <a href="">비밀번호 찾기</a></li>
-					<li>아직 회원이 아니신가요? <a href="join_step1.html">회원가입</a></li>
+					<li><a href="../lms/find_id.jsp">아이디</a> / <a href="../lms/find_pw.jsp">비밀번호 찾기</a></li>
+					<li>아직 회원이 아니신가요? <a href="../lms/join.html">회원가입</a></li>
 				</ul>
 			</div>
 		</div>
