@@ -19,44 +19,43 @@
 			<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
 		</div>
 		<div id="container">
-			<form class="form_join">
+			<form class="form_join" method="post">
 				<h2>회원가입</h2>
 				<ul class="list_ipts">
 					<li>
 						<label for="logName" class="hidden">이름</label>
-						<input type="text" id="logName" placeholder="이름">
+						<input type="text" id="logName" placeholder="이름" name="join_name">
 						<p class="msg err"></p>
 					</li>
 					<li>
 						<label for="logId" class="hidden">아이디(이메일)</label>
-						<input type="email" id="logId" placeholder="아이디(이메일)">
+						<input type="email" id="logId" placeholder="아이디(이메일)" name="join_id">
 						<p class="msg err"></p>
 					</li>
 					<li>
 						<label for="logPw1" class="hidden">비밀번호</label>
-						<input type="password" id="logPw1" placeholder="비밀번호 (8자리 이상 20자리 이하, 영문+숫자)"
-						>
+						<input type="password" id="logPw1" placeholder="비밀번호 (8자리 이상 20자리 이하, 영문+숫자)" name="join_pw">
 						<p class="msg err"></p>
 					</li>
 					<li>
 						<label for="logPw2" class="hidden">비밀번호 확인</label>
-						<input type="password" id="logPw2" placeholder="비밀번호 확인">
+						<input type="password" id="logPw2" placeholder="비밀번호 확인" name="join_pwcheck">
 						<p class="msg err"></p>
 					</li>
 					<li>
 						<label for="logNum" class="hidden">연락처</label>
-						<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)">
+						<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)" name="join_tel">
 						<p class="msg err"></p>
 					</li>
 					<li>
 						<label for="logQuest" class="hidden">비밀번호 확인 질문</label>
-						<select id="logQuest">
-							<option value="">비밀번호 확인 질문</option>
+						<select id="logQuest" name="join_question">
+							<option value="asd">비밀번호 확인 질문</option>
 						</select>
 					</li>
 					<li>
 						<label for="logAnswer" class="hidden">비밀번호 확인 답변</label>
-						<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변">
+						<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변" name="join_answer">
 						<p class="msg err"></p>
 					</li>
 				</ul>
@@ -69,7 +68,7 @@
 						</p>
 					</li>
 					<li>
-						<button type="button">개인정보처리방침 (<span>보기</span>)</button type="button">
+						<button type="button">개인정보처리방침 (<span>보기</span>)</button>
 						<p>
 							<input type="checkbox" id="logTerms2">
 							<label for="logTerms2">동의합니다</label>

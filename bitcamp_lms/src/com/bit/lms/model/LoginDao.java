@@ -10,8 +10,8 @@ import com.bit.util.BitOracle;
 
 public class LoginDao {
 	public LoginDto login(String id, String pw){
-		String sql="select count(mb_id) as \"cnt\", max(mb_id) as \"id\"";
-		sql+=", max(mb_pw) as \"pw\" from mb where mb_id=? and mb_pw=?";
+		String sql="SELECT COUNT(MB_ID) AS \"CNT\", MAX(MB_ID) AS \"ID\"";
+		sql+=", MAX(MB_PW) AS \"PW\" FROM MB WHERE MB_ID=? AND MB_PW=?";
 		
 		LoginDto bean=new LoginDto();
 		Connection conn=BitOracle.getConnection();
