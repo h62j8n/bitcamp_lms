@@ -32,16 +32,12 @@ public class EducurriculumController extends HttpServlet {
 		}
 		Paging paging = new Paging();
 		paging.setPage(page);
-		paging.setTotalCount(44);
+		paging.setTotalCount(134);
 		
 		ArrayList<EducurriculumDto> list=dao.selectAll(page);
 		
 		req.setAttribute("educurriculumlist", list);
 		req.setAttribute("paging", paging);
-		
-		/*LecDao lecdao=new LecDao();
-		ArrayList<LecDto> leclist=lecdao.selectAll();
-		req.setAttribute("leclist", leclist);*/
 		
 		//VIEW
 		RequestDispatcher rd=req.getRequestDispatcher("educurriculum.jsp");

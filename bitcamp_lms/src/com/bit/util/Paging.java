@@ -5,8 +5,8 @@ public class Paging {
 	private int totalCount;
 	private int beginPage;
 	private int endPage;
-	private int displayRow=10;
-	private int displayPage=10;
+	private int displayRow=5;
+	private int displayPage=5;
 	boolean prev;
 	boolean next;
 	
@@ -20,12 +20,12 @@ public class Paging {
 		
 		int totalPage=totalCount/displayRow;
 		
-		if(totalCount%displayRow>0){
+		/*if(totalCount%displayRow>0){
 			totalPage++;
 		}
 		if(totalPage<page){
 			page=totalPage;
-		}
+		}*/
 		if(totalPage<endPage){
 			endPage=totalPage;
 			next=false;

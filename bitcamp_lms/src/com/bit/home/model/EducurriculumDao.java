@@ -10,9 +10,9 @@ import com.bit.util.BitOracle;
 
 public class EducurriculumDao {
 	public ArrayList<EducurriculumDto> selectAll(int page){
-		int startNum=(page-1)*10+1;
-		int endNum=page*10;
-		System.out.println(startNum+"//"+endNum);
+		int startNum=(page-1)*5+1;
+		int endNum=page*5;
+		System.out.println(startNum+"/"+endNum);
 		
 		String sql="SELECT X.RNUM, X.* FROM(SELECT ROWNUM AS RNUM, A.* FROM(SELECT * FROM RECR_BBS ORDER BY RECR_NO DESC) A WHERE ROWNUM<=?) X WHERE X.RNUM>=?";
 		
