@@ -7,8 +7,12 @@ public class Paging {
 	private int endPage;
 	private int displayRow=5;
 	private int displayPage=5;
+	private int startNum;
+	private int endNum;
+	private int totalPage;
 	boolean prev;
 	boolean next;
+	
 	
 	public void setTotalCount(int totalCount){
 		this.totalCount=totalCount;
@@ -17,8 +21,11 @@ public class Paging {
 	private void paging(){
 		beginPage=((page-1)/displayPage)*displayPage+1;
 		endPage=beginPage+displayPage-1;
+		startNum=(page-1)*displayRow+1;
+		endNum=page*displayRow;
 		
-		int totalPage=totalCount/displayRow;
+		/*int totalPage=totalCount/displayRow;*/
+		totalPage=(int)Math.ceil(totalCount/(double)displayRow);
 		
 		/*if(totalCount%displayRow>0){
 			totalPage++;
@@ -33,6 +40,25 @@ public class Paging {
 			next=true;
 		}
 		prev=(beginPage==1)?false:true;
+	}
+	
+	public int getTotalPage() {
+		return totalPage;
+	}
+	public void setTotalPage(int totalPage) {
+		this.totalPage = totalPage;
+	}
+	public int getStartNum() {
+		return startNum;
+	}
+	public void setStartNum(int startNum) {
+		this.startNum = startNum;
+	}
+	public int getEndNum() {
+		return endNum;
+	}
+	public void setEndNum(int endNum) {
+		this.endNum = endNum;
 	}
 	public int getPage() {
 		return page;

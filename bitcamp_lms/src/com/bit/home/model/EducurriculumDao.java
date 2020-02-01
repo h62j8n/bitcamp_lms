@@ -7,11 +7,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.bit.util.BitOracle;
+import com.bit.util.Paging;
 
 public class EducurriculumDao {
-	public ArrayList<EducurriculumDto> selectAll(int page){
-		int startNum=(page-1)*5+1;
-		int endNum=page*5;
+	public ArrayList<EducurriculumDto> selectAll(Paging paging){
+		int startNum=paging.getStartNum();
+		int endNum=paging.getEndNum();
 		System.out.println(startNum+"/"+endNum);
 		
 		String sql="SELECT X.RNUM, X.* FROM(SELECT ROWNUM AS RNUM, A.* FROM(SELECT * FROM RECR_BBS ORDER BY RECR_NO DESC) A WHERE ROWNUM<=?) X WHERE X.RNUM>=?";
@@ -36,6 +37,8 @@ public class EducurriculumDao {
 			e.printStackTrace();
 		} finally{
 			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
 				if(conn!=null)conn.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -43,5 +46,32 @@ public class EducurriculumDao {
 		}
 		
 		return list;
+	}
+	public int getAllCount(){
+		String sql="SELECT COUNT(*) AS COUNT FROM RECR_BBS";
+		Connection conn=BitOracle.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		int count=0;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				count=rs.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return count;
 	}
 }

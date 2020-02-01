@@ -26,7 +26,7 @@
 		width:1024px;
 	}
 	.paging{
-		width:100px;
+		width:50%;
 		margin:0px auto;
 		padding:0;
 		list-style:none;
@@ -124,6 +124,7 @@
 		        <jsp:param value="${paging.endPage}" name="end"/>
 		        <jsp:param value="${paging.prev}" name="prev"/>
 		        <jsp:param value="${paging.next}" name="next"/>
+		        <jsp:param value="${paging.totalPage}" name="total"/>
 			</jsp:include>
 		</div>
 	</div>
