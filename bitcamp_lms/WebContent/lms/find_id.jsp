@@ -20,17 +20,17 @@
 				<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
 			</div>
 			<div id="container">
-				<form class="form_join">
+				<form class="form_join" method="post">
 					<h2>아이디 찾기</h2>
 					<ul class="list_ipts">
 						<li>
 							<label for="logName" class="hidden">이름</label>
-							<input type="text" id="logName" placeholder="이름">
+							<input type="text" id="logName" placeholder="이름" name="findid_name">
 							<p class="msg err"></p>
 						</li>
 						<li>
 							<label for="logNum" class="hidden">연락처</label>
-							<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)">
+							<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)" name="findid_tel">
 							<p class="msg err">연락처 정보가 올바르지 않습니다.</p>
 						</li>
 					</ul>

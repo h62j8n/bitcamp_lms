@@ -2,7 +2,6 @@ package com.bit.lms.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.bit.util.BitOracle;
@@ -17,14 +16,6 @@ public class JoinDao {
 		Connection conn=BitOracle.getConnection();
 		PreparedStatement pstmt=null;
 		int result=0;
-		
-		System.out.println("---------------------------------dao");
-		System.out.println(id);
-		System.out.println(pw);
-		System.out.println(name);
-		System.out.println(tel);
-		System.out.println(question);
-		System.out.println(answer);
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

@@ -36,14 +36,6 @@ public class JoinController extends HttpServlet{
 		String question=req.getParameter("join_question").trim();
 		String answer=req.getParameter("join_answer").trim();
 		
-		System.out.println("---------------------------------controller");
-		System.out.println(id);
-		System.out.println(pw);
-		System.out.println(name);
-		System.out.println(tel);
-		System.out.println(question);
-		System.out.println(answer);
-		
 		JoinDao dao=new JoinDao();
 		int result=dao.insertJoin(name, id, pw, tel, question, answer);
 		if(result>0){
