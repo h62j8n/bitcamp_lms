@@ -140,7 +140,7 @@
 					</table>
 				</div>
 		        <div class="button right">
-					<a href="">목록</a>
+					<a href="educurriculum.html">목록</a>
 			    </div>
 			</div>
 		</div>

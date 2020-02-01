@@ -27,8 +27,8 @@ public class LoginController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		String id=req.getParameter("logid").trim();
-		String pw=req.getParameter("logPw").trim();
+		String id=req.getParameter("loginid").trim();
+		String pw=req.getParameter("loginpw").trim();
 		
 		LoginDao dao=new LoginDao();
 		LoginDto bean=dao.login(id, pw);

@@ -21,7 +21,7 @@
 			</div>
 			<div id="container">
 				<h2 class="hidden">로그인</h2>
-				<form class="form_login">
+				<form class="form_login" method="post">
 					<dl class="list_ipts">
 						<dt>
 							<label for="logId">
@@ -29,7 +29,7 @@
 								<em class="hidden">아이디</em>
 							</label>
 						</dt>
-						<dd><input type="text" id="logId" placeholder="e-mail"></dd>
+						<dd><input type="text" id="logId" placeholder="e-mail" name=loginid></dd>
 					</dl>
 					<dl class="list_ipts">
 						<dt>
@@ -38,7 +38,7 @@
 								<em class="hidden">비밀번호</em>
 							</label>
 						</dt>
-						<dd><input type="password" id="logPw" placeholder="password"></dd>
+						<dd><input type="password" id="logPw" placeholder="password" name=loginpw></dd>
 					</dl>
 					<!-- #툴팁 -->
 					<p class="msg err"></p>
