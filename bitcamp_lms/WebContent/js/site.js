@@ -72,6 +72,29 @@ function validation() {
 			msgInit(tooltip);
 		}
 	});
+	pw1.on("change", function() {
+		var tooltip = $(this).siblings(".msg");
+		var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+		var value = pw1.val();
+		if(value != "" && !re.test(value)){
+			tooltip.text("8~16자 영문과 숫자를 조합하세요");
+			tooltip.css("opacity", 1);
+		} else {
+			msgInit(tooltip);
+		}
+	});
+	pw2.on("change", function(){
+		var tooltip = $(this).siblings(".msg");
+		var value1 =pw1.val();
+		var value2 =pw2.val();
+		if (value1 != value2) {
+			tooltip.text("비밀번호가 일치하지 않습니다.");
+			tooltip.css("opacity", 1);
+		} else {
+			msgInit(tooltip);
+		}
+	});
+	
 }
 
 /* 임시 (완료 후 삭제 예정) { */

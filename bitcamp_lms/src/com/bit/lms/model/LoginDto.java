@@ -3,6 +3,8 @@ package com.bit.lms.model;
 public class LoginDto {
 	private String id;
 	private String pw;
+	private String name;
+	private String tel;
 	private int cnt;
 	
 	public LoginDto() {
@@ -16,19 +18,28 @@ public class LoginDto {
 		this.id = id;
 	}
 
-	public String getPw() {
-		return pw;
+	public String getName() {
+		return name;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setName(String name) {
+		this.name = name;
 	}
 
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	
 	public int getCnt() {
 		return cnt;
 	}
-
+	
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+	
 }

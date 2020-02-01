@@ -25,23 +25,22 @@
 					<ul class="list_ipts">
 						<li>
 							<label for="logId" class="hidden">아이디(이메일)</label>
-							<input type="email" id="logId" placeholder="아이디(이메일)">
+							<input type="email" id="logId" placeholder="아이디(이메일)" name="findpw_id">
 							<p class="msg err"></p>
 						</li>
 						<li class="step2">
 							<label for="logQuest" class="hidden">비밀번호 확인 질문</label>
-							<select id="logQuest">
+							<select id="logQuest" name="findpw_question">
 								<option value="">비밀번호 확인 질문</option>
 							</select>
 						</li>
 						<li class="step2">
 							<label for="logAnswer" class="hidden">비밀번호 확인 답변</label>
-							<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변">
+							<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변" name="findpw_answer">
 						</li>
 						<li class="step3">
 							<label for="logPw1" class="hidden">비밀번호</label>
-							<input type="password" id="logPw1" placeholder="비밀번호 (8자리 이상 20자리 이하, 영문+숫자)"
-							>
+							<input type="password" id="logPw1" placeholder="비밀번호 (8자리 이상 20자리 이하, 영문+숫자)" name="findpw_pw">
 							<p class="msg err"></p>
 						</li>
 						<li class="step3">
