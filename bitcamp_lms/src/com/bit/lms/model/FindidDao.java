@@ -12,7 +12,7 @@ public class FindidDao {
 	
 	public FindidDto findId(String name, String tel){
 		String sql="SELECT COUNT(MB_NAME) AS \"CNT\", MAX(MB_ID) AS \"ID\"";
-		sql+=" FROM MB WHERE MB_NAME=? AND MB_TEL=?";
+		sql+=", MAX(MB_NAME) AS \"NAME\" FROM MB WHERE MB_NAME=? AND MB_TEL=?";
 
 		FindidDto bean=new FindidDto();
 		Connection conn=BitOracle.getConnection();
@@ -25,6 +25,7 @@ public class FindidDao {
 			rs=pstmt.executeQuery();
 			if(rs.next()){
 				bean.setId(rs.getString("id"));
+				bean.setName(rs.getString("name"));
 				bean.setCnt(rs.getInt("cnt"));
 			}
 		} catch (SQLException e) {

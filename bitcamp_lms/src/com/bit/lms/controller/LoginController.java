@@ -32,8 +32,8 @@ public class LoginController extends HttpServlet{
 		
 		LoginDao dao=new LoginDao();
 		LoginDto bean=dao.login(id, pw);
+		HttpSession session=req.getSession();
 		if(bean.getCnt()>0){
-			HttpSession session=req.getSession();
 			session.setAttribute("login", bean);
 			
 			//회원 직원 수정 해야함
@@ -41,5 +41,6 @@ public class LoginController extends HttpServlet{
 		}else{
 			resp.sendRedirect("login.html");
 		}
+		
 	}
 }

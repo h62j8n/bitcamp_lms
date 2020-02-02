@@ -43,9 +43,15 @@ function termsView() {
 /* 유효성검사 */
 function validation() {
 	var id = $("#logId"),
-		pwAll = $("input[type=password]");
+		pwAll = $("input[type=password]"),
 		pw1 = $("#logPw1"),
-		pw2 = $("#logPw2");
+		pw2 = $("#logPw2"),
+		tel =$("#logNum"),
+		quest = $("#logQuest"),
+		Answer = $("#logAnswer"),
+		name1 = $("#logName"),
+		ck1 = $("#logTerms1"),
+		ck2 = $("#logTerms2");
 	
 	function msgInit(tooltip) {
 		tooltip.text("");
@@ -72,23 +78,70 @@ function validation() {
 			msgInit(tooltip);
 		}
 	});
+	/* 비밀번호 영문+숫자 8자리 이상 */
 	pw1.on("change", function() {
 		var tooltip = $(this).siblings(".msg");
 		var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
 		var value = pw1.val();
-		if(value != "" && !re.test(value)){
-			tooltip.text("8~16자 영문과 숫자를 조합하세요");
+		if(!re.test(value)){
+			tooltip.text("8~20자 영문과 숫자를 조합하세요.");
 			tooltip.css("opacity", 1);
 		} else {
 			msgInit(tooltip);
 		}
 	});
+	/* 비밀번호 확인 */
 	pw2.on("change", function(){
 		var tooltip = $(this).siblings(".msg");
 		var value1 =pw1.val();
 		var value2 =pw2.val();
 		if (value1 != value2) {
 			tooltip.text("비밀번호가 일치하지 않습니다.");
+			tooltip.css("opacity", 1);
+		} else {
+			msgInit(tooltip);
+		}
+	});
+	/* 연락처 */
+	tel.on("change", function(){
+		var tooltip = $(this).siblings(".msg");
+		var re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+		var value = tel.val();
+		if (!re.test(value)) {
+			tooltip.text("연락처 형식이 올바르지 않습니다.");
+			tooltip.css("opacity", 1);
+		} else {
+			msgInit(tooltip);
+		}
+	});
+	/* 질문 */
+	quest.on("change", function(){
+		var tooltip = $(this).siblings(".msg");
+		var value = quest.val();
+		if (value == "x") {
+			tooltip.text("질문을 선택해 주세요.");
+			tooltip.css("opacity", 1);
+		} else {
+			msgInit(tooltip);
+		}
+	});
+	/* 답변 */
+	Answer.on("change", function(){
+		var tooltip = $(this).siblings(".msg");
+		var value = Answer.val();
+		if (value != "") {
+			tooltip.text("");
+			tooltip.css("opacity", 1);
+		} else {
+			msgInit(tooltip);
+		}
+	});
+	/* 이름 */
+	name1.on("change", function(){
+		var tooltip = $(this).siblings(".msg");
+		var value = name1.val();
+		if (value != "") {
+			tooltip.text("");
 			tooltip.css("opacity", 1);
 		} else {
 			msgInit(tooltip);

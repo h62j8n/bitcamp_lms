@@ -5,6 +5,7 @@ public class FindidDto {
 	private String name;
 	private String tel;
 	private int cnt;
+	private String err;
 	
 	public FindidDto() {
 	}
@@ -39,6 +40,14 @@ public class FindidDto {
 
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+
+	public String getErr() {
+		return err;
+	}
+
+	public void setErr(String err) {
+		this.err = err;
 	}
 	
 }

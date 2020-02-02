@@ -31,7 +31,7 @@ CREATE TABLE mb(
 	mb_pw                 VARCHAR2(20)  NOT NULL ,
 	mb_name               VARCHAR2(30)  NOT NULL ,
 	mb_tel                VARCHAR2(13)  NOT NULL ,
-	mb_question           VARCHAR2(100)  NOT NULL ,
+	mb_question¤§           VARCHAR2(100)  NOT NULL ,
 	mb_answer             VARCHAR2(100)  NOT NULL ,
 	cate_no               NUMBER  DEFAULT 0  NOT NULL ,
 	CONSTRAINT mb_pk PRIMARY KEY(mb_no) ,

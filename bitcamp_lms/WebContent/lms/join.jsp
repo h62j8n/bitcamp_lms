@@ -50,8 +50,14 @@
 					<li>
 						<label for="logQuest" class="hidden">비밀번호 확인 질문</label>
 						<select id="logQuest" name="join_question">
-							<option value="asd">비밀번호 확인 질문</option>
+							<option value="x">비밀번호 확인 질문</option>
+							<option value="자신의 인생 좌우명은?">자신의 인생 좌우명은?</option>
+							<option value="자신이 두번째로 존경하는 인물은?">자신이 두번째로 존경하는 인물은?</option>
+							<option value="인상 깊게 읽은 책 이름은?">인상 깊게 읽은 책 이름은?</option>
+							<option value="내가 좋아하는 캐릭터는?">내가 좋아하는 캐릭터는?</option>
+							<option value="다시 태어나면 되고 싶은 것은?">다시 태어나면 되고 싶은 것은?</option>
 						</select>
+						<p class="msg err"></p>
 					</li>
 					<li>
 						<label for="logAnswer" class="hidden">비밀번호 확인 답변</label>
@@ -66,6 +72,7 @@
 							<input type="checkbox" id="logTerms1">
 							<label for="logTerms1">동의합니다</label>
 						</p>
+						<textarea></textarea>
 					</li>
 					<li>
 						<button type="button">개인정보처리방침 (<span>보기</span>)</button>
@@ -73,12 +80,13 @@
 							<input type="checkbox" id="logTerms2">
 							<label for="logTerms2">동의합니다</label>
 						</p>
+						<textarea></textarea>
 					</li>
 					<li class="msg err"></li>
 				</ul>
 				<ul class="list_btns">
 					<li><button type="button">돌아가기</button></li>
-					<li><button type="submit">가입하기</button></li>
+					<li><button type="button">가입하기</button></li>
 				</ul>
 			</form>
 		</div>

@@ -31,13 +31,13 @@
 						<li>
 							<label for="logNum" class="hidden">연락처</label>
 							<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)" name="findid_tel">
-							<p class="msg err">연락처 정보가 올바르지 않습니다.</p>
+							<p class="msg err"></p>
 						</li>
 					</ul>
-					<p class="msg err">올바르지 않습니다.</p>
+					<p class="msg err"></p>
 					<ul class="list_btns">
 						<li><button type="button">취소</button></li>
-						<li><button type="submit">확인</button></li>
+						<li><button type="submit" onclick="popup()">확인</button></li>
 					</ul>
 				</form>
 			</div>
@@ -50,12 +50,15 @@
 </div>
 <div id="popup">
 	<p class="alert">
-		홍길동 님의 ID는 <b>user01@email.com</b> 입니다.<br>
+		홍길동 님의 ID는 <b>${findid.id }</b> 입니다.<br>
 		확인을 누르시면 로그인 페이지로 이동합니다.
 	</p>
 	<div class="btns">
 		<button type="button" class="btn_off yes">확인</button>
 	</div>
 </div>
+<script type="text/javascript">
+	validation();
+</script>
 </body>
 </html>

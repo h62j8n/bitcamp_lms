@@ -33,9 +33,14 @@ public class FindIdController extends HttpServlet{
 		
 		FindidDao dao=new FindidDao();
 		FindidDto bean=dao.findId(name, tel);
+		HttpSession session=req.getSession();
 		if(bean.getCnt()>0){
+			req.setAttribute("findid", bean);
 			resp.sendRedirect("login.html");
 		}else{
+			bean.setErr("이름과 연락처가 일치하지 않습니다.");
+			System.out.println(bean.getErr());
+			session.setAttribute("errFindid", bean);
 			resp.sendRedirect("find_id.html");
 		}
 	}

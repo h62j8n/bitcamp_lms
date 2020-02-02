@@ -2,7 +2,6 @@ package com.bit.lms.model;
 
 public class LoginDto {
 	private String id;
-	private String pw;
 	private String name;
 	private String tel;
 	private int cnt;
