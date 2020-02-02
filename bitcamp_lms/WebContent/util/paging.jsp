@@ -8,10 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<!-- 1~10까지 있는 페이지의 페이징 -->
+<!-- 한페이지에 게시글이 5개씩있는 페이지의 페이징 -->
 <c:url value="/home/educurriculum.html" var="root"/>
 <c:if test="${param.prev }">
-<a href="${root }?page=1">prev</a>
+<a href="${root }?page=1">맨앞으로</a>
+<a href="${root }?page=${param.begin-1}">prev</a>
 </c:if>
 <c:forEach begin="${param.begin }" end="${param.end }" step="1" var="index">
 	<c:choose>
@@ -24,7 +25,8 @@
 	</c:choose>
 </c:forEach>
 <c:if test="${param.next }">
-<a href="${root }">next</a>
+<a href="${root }?page=${param.end+1}">next</a>
+<a href="${root }?page=${param.total}">맨뒤로</a>
 </c:if>
 </body>
 </html>

@@ -26,7 +26,7 @@
 		width:1024px;
 	}
 	.paging{
-		width:100px;
+		width:50%;
 		margin:0px auto;
 		padding:0;
 		list-style:none;
@@ -107,13 +107,11 @@
 				EducurriculumDto bean=list.get(i);
 			%>
 				<tr>
-					<td><%=bean.getRecr_date() %></td>
-					<!-- <td>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</td> -->
+					<td><a href="educurridetail.html?idx=<%=bean.getRecr_no()%>"><%=bean.getLec_name() %><br><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %> | <%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></a></td>
 				</tr>
-				<tr>
-					<%-- <td><%=lecbean.getLec_start() %> ~ <%=lecbean.getLec_end() %> | <%=lecbean.getLec_applnum() %>/<%=lecbean.getLec_lecnum() %></td> --%>
-				</tr>
-			<%} %>
+			<%
+			}
+			%>
 			</tbody>
 		</table>
 		</div>
@@ -124,6 +122,7 @@
 		        <jsp:param value="${paging.endPage}" name="end"/>
 		        <jsp:param value="${paging.prev}" name="prev"/>
 		        <jsp:param value="${paging.next}" name="next"/>
+		        <jsp:param value="${paging.totalPage}" name="total"/>
 			</jsp:include>
 		</div>
 	</div>
