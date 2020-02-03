@@ -156,6 +156,62 @@ input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, sel
   border-color: #0b5098;
 }
 
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #0b5098;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  visibility: hidden;
+}
+
+input[type=checkbox] + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 28px;
+  line-height: 20px;
+}
+
+input[type=checkbox] + label:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+input[type=checkbox] + label:after {
+  content: '';
+  display: none;
+  position: absolute;
+  top: 3px;
+  left: 2px;
+  width: 15px;
+  height: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-left: 3px solid #0b5098;
+  border-bottom: 3px solid #0b5098;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+input[type=checkbox]:checked + label:after {
+  display: block;
+}
+
 ::-moz-selection {
   background: #0b5098;
   color: #fff;
