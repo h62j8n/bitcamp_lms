@@ -34,7 +34,7 @@
 							<p class="msg err"></p>
 						</li>
 					</ul>
-					<input type="hidden" id="hiddenfind" value="${param.err}">
+					<input type="hidden" id="hiddenFindid" value="${param.result}">
 					<p class="msg err"></p>
 					<ul class="list_btns">
 						<li><button type="button">취소</button></li>

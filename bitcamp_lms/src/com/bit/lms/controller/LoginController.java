@@ -39,9 +39,9 @@ public class LoginController extends HttpServlet{
 			session.setAttribute("login", bean);
 			
 			//회원 직원 수정 해야함
-			resp.sendRedirect("index.html");
+			resp.sendRedirect("login.html?result="+bean.getCnt());
 		}else{
-			resp.sendRedirect("login.html");
+			resp.sendRedirect("login.html?result="+bean.getCnt());
 		}
 		
 	}

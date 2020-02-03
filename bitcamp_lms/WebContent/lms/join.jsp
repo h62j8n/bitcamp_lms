@@ -19,7 +19,7 @@
 			<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
 		</div>
 		<div id="container">
-			<form class="form_join" method="post">
+			<form class="form_join" method="post" onsubmit="return validJoin()">
 				<h2>회원가입</h2>
 				<ul class="list_ipts">
 					<li>
@@ -86,7 +86,7 @@
 				</ul>
 				<ul class="list_btns">
 					<li><button type="button">돌아가기</button></li>
-					<li><button type="button">가입하기</button></li>
+					<li><button type="submit">가입하기</button></li>
 				</ul>
 			</form>
 		</div>

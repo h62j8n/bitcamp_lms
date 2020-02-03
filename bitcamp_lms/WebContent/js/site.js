@@ -48,7 +48,7 @@ function validation() {
 		pw2 = $("#logPw2"),
 		tel =$("#logNum"),
 		quest = $("#logQuest"),
-		Answer = $("#logAnswer"),
+		answer = $("#logAnswer"),
 		name1 = $("#logName"),
 		ck1 = $("#logTerms1"),
 		ck2 = $("#logTerms2");
@@ -126,9 +126,9 @@ function validation() {
 		}
 	});
 	/* 답변 */
-	Answer.on("change", function(){
+	answer.on("change", function(){
 		var tooltip = $(this).siblings(".msg");
-		var value = Answer.val();
+		var value = answer.val();
 		if (value != "") {
 			tooltip.text("");
 			tooltip.css("opacity", 1);
@@ -144,22 +144,79 @@ function validation() {
 		} 
 	});
 }
+
+/* ????????? */
+function validJoin() {
+	var jname = $("#logName"),
+		jid = $("#logId"),
+		jpw1= $("#logPw1"),
+		jpw2= $("#logPw2"),
+		jtel= $("#logNum"),
+		jquest = $("#logQuest"),
+		janswer= $("#logAnswer");
+	
+	if(jname.val() == ""){
+		var tooltip = jname.siblings(".msg");
+		tooltip.text("이름을 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+	if(!re.test(jid.val())){
+		var tooltip = jid.siblings(".msg");
+		tooltip.text("이메일주소 형식이 올바르지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+	if(!re.test(jpw1.val())){
+		var tooltip = jpw1.siblings(".msg");
+		tooltip.text("8~20자 영문과 숫자를 조합한 비밀번호를 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(jpw1.val() != jpw2.val()){
+		var tooltip = jpw2.siblings(".msg");
+		tooltip.text("비밀번호가 일치하지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	var re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+	if(!re.test(jtel.val())){
+		var tooltip = jtel.siblings(".msg");
+		tooltip.text("연락처 형식이 올바르지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(jquest.val() == "x"){
+		var tooltip = jquest.siblings(".msg");
+		tooltip.text("질문을 선택해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(janswer == ""){
+		var tooltip = janswer.siblings(".msg");
+		tooltip.text("답변을 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+}
+
 /* 아이디 찾기 submit */
 function validationFindid() {
 	var tel = $("#logNum"),
 		name = $("#logName");
-	
 	if(name.val() == ""){
-		var tooltip1 = name.siblings(".msg");
-		tooltip1.text("이름을 입력해주세요");
-		tooltip1.css("opacity", 1);
+		var tooltip = name.siblings(".msg");
+		tooltip.text("이름을 입력해주세요");
+		tooltip.css("opacity", 1);
 		return false;
 	}
 	var re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 	if(!re.test(tel.val())){
-		var tooltip2 = tel.siblings(".msg");
-		tooltip2.text("연락처 형식이 올바르지 않습니다.");
-		tooltip2.css("opacity", 1);
+		var tooltip = tel.siblings(".msg");
+		tooltip.text("연락처 형식이 올바르지 않습니다.");
+		tooltip.css("opacity", 1);
 		return false;
 	}
 }
@@ -191,7 +248,7 @@ function popup() {
 	});
 }
 /* 아이디 찾기 팝업*/
-function popupfindid() {
+function popupFindid() {
 	$("#popup").bPopup({
 		closeClass: "btn_off",
 		modalClose: false,
@@ -228,13 +285,21 @@ function attend() {
 /* } 메인 */
 
 $(document).ready(function() {
-	/* 아이디 찾기 */
-	if($("#hiddenfind").val() == "0"){
-		var tooltip = $("#hiddenfind").siblings(".msg");
-		tooltip.text("이름과 연락처가 일치하지 않습니다.");
+	/* 로그인  */
+	if($("#hiddenLogin").val() == "0"){
+		var tooltip = $("#hiddenLogin").siblings(".msg");
+		tooltip.text("아이디 또는 비밀번호가 일치하지 않습니다.");
 		tooltip.css("opacity", 1);
-	}else if ($("#hiddenfind").val() == "1"){
-		popupfindid();
+	}else if ($("#hiddenLogin").val() == "1"){
+		location.href="index.html";
+	}
+	/* 아이디 찾기 */
+	if($("#hiddenFindid").val() == "0"){
+		var tooltip = $("#hiddenFindid").siblings(".msg");
+		tooltip.text("이름 또는 연락처가 일치하지 않습니다.");
+		tooltip.css("opacity", 1);
+	}else if ($("#hiddenFindid").val() == "1"){
+		popupFindid();
 	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {

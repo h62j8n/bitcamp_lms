@@ -37,9 +37,9 @@ public class FindIdController extends HttpServlet{
 		
 		if(bean.getCnt()>0){
 			session.setAttribute("findid", bean);
-			resp.sendRedirect("find_id.html?err="+bean.getCnt());
+			resp.sendRedirect("find_id.html?result="+bean.getCnt());
 		}else{
-			resp.sendRedirect("find_id.html?err="+bean.getCnt());
+			resp.sendRedirect("find_id.html?result="+bean.getCnt());
 		}
 	}
 }

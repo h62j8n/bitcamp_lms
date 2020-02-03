@@ -41,6 +41,7 @@
 						<dd><input type="password" id="logPw" placeholder="password" name=loginpw></dd>
 					</dl>
 					<!-- #툴팁 -->
+					<input type="hidden" id="hiddenLogin" value="${param.result}">
 					<p class="msg err"></p>
 					<button type="submit">로그인</button>
 				</form>
