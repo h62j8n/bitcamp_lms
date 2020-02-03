@@ -84,7 +84,7 @@ function validation() {
 		var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
 		var value = pw1.val();
 		if(!re.test(value)){
-			tooltip.text("8~20자 영문과 숫자를 조합하세요.");
+			tooltip.text("8~20자 영문과 숫자를 조합한 비밀번호를 입력해주세요");
 			tooltip.css("opacity", 1);
 		} else {
 			msgInit(tooltip);
@@ -153,8 +153,10 @@ function validJoin() {
 		jpw2= $("#logPw2"),
 		jtel= $("#logNum"),
 		jquest = $("#logQuest"),
-		janswer= $("#logAnswer");
-	
+		janswer = $("#logAnswer"),
+		jch1= $("#logTerms1"),
+		jch2= $("#logTerms2");
+
 	if(jname.val() == ""){
 		var tooltip = jname.siblings(".msg");
 		tooltip.text("이름을 입력해주세요");
@@ -194,9 +196,16 @@ function validJoin() {
 		tooltip.css("opacity", 1);
 		return false;
 	}
-	if(janswer == ""){
+	if(janswer.val() == ""){
 		var tooltip = janswer.siblings(".msg");
 		tooltip.text("답변을 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(!jch1.prop("checked") || !jch2.prop("checked")){
+		var tooltip = jch1.parents("li").siblings(".msg");
+		console.log(tooltip);
+		tooltip.text("약관에 동의해주세요");
 		tooltip.css("opacity", 1);
 		return false;
 	}
