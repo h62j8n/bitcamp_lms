@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.bit.lms.model.LoginDto" %>
+<%
+LoginDto login =(LoginDto)session.getAttribute("login");
+if(login!=null){
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -21,7 +26,7 @@
 				</h1>
 				<ul class="quick">
 					<li><a href=""><i class="xi-profile-o"></i></a></li>
-					<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
+					<li><button type="button" class="btn_logout" onclick="popup()"><i class="xi-log-out"></i></button></li>
 				</ul>
 			</div>
 		</div>
@@ -42,10 +47,10 @@
 								<div>
 									<dl>
 										<dt>
-											<b>홍길동</b> 님, 환영합니다
+											<b>${login.name }</b> 님, 환영합니다
 										</dt>
-										<dd>이메일 : user01@email.com</dd>
-										<dd>연락처 : 010-0000-0000</dd>
+										<dd>이메일 : ${login.id }</dd>
+										<dd>연락처 : ${login.tel }</dd>
 									</dl>
 								</div>
 								<p class="btn_go">
@@ -94,6 +99,21 @@
 			</div>
 		</div>
 	</div>
-
+<div id="popup">
+	<p class="alert">
+		로그아웃 하시겠습니까?
+	</p>
+	<div class="btns">
+		<form method="POST">
+			<button type="submit" class="yes">예</button>
+			<button type="button" class="btn_off no">아니오</button>
+		</form>
+	</div>
+</div>
 </body>
 </html>
+<%
+}else{
+	response.sendRedirect("login.html?msg=AccessDenied");
+}
+%>

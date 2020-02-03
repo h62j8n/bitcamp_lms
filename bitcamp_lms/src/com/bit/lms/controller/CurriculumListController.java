@@ -1,6 +1,7 @@
 package com.bit.lms.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,18 +11,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/lms/index_student2.html")
-public class IndexStudent2Controller extends HttpServlet{
+import com.bit.home.model.EducurriculumDao;
+import com.bit.home.model.EducurriculumDto;
+import com.bit.util.Paging;
+
+@WebServlet("/lms/curriculum_list.html")
+public class CurriculumListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		//VIEW
-		RequestDispatcher rd=req.getRequestDispatcher("index_student2.jsp");
-		rd.forward(req, resp);
+		EducurriculumDao dao=new EducurriculumDao();
 		
-		//Session
-		HttpSession session=req.getSession();
-		System.out.println(session.getId());
+		int page=1;
+		if(req.getParameter("page")!=null){
+			page=Integer.parseInt(req.getParameter("page"));
+		}
+		int count=dao.getAllCount();
+		
+		Paging paging = new Paging();
+		paging.setPage(page);
+		paging.setTotalCount(count);
+		
+		ArrayList<EducurriculumDto> list=dao.selectAll(paging);
+		
+		req.setAttribute("educurriculumlist", list);
+		
+		RequestDispatcher rd = req.getRequestDispatcher("curriculum_list.jsp");
+		rd.forward(req, resp);
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
