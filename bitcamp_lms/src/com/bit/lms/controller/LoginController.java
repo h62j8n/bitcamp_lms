@@ -19,6 +19,8 @@ public class LoginController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		HttpSession session=req.getSession();
+		session.setAttribute("findid", null);
 		//VIEW
 		RequestDispatcher rd=req.getRequestDispatcher("login.jsp");
 		rd.forward(req, resp);

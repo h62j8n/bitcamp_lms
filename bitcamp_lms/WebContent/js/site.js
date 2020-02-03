@@ -119,7 +119,7 @@ function validation() {
 		var tooltip = $(this).siblings(".msg");
 		var value = quest.val();
 		if (value == "x") {
-			tooltip.text("질문을 선택해 주세요.");
+			tooltip.text("질문을 선택해주세요.");
 			tooltip.css("opacity", 1);
 		} else {
 			msgInit(tooltip);
@@ -132,8 +132,6 @@ function validation() {
 		if (value != "") {
 			tooltip.text("");
 			tooltip.css("opacity", 1);
-		} else {
-			msgInit(tooltip);
 		}
 	});
 	/* 이름 */
@@ -143,11 +141,27 @@ function validation() {
 		if (value != "") {
 			tooltip.text("");
 			tooltip.css("opacity", 1);
-		} else {
-			msgInit(tooltip);
-		}
+		} 
 	});
+}
+/* 아이디 찾기 submit */
+function validationFindid() {
+	var tel = $("#logNum"),
+		name = $("#logName");
 	
+	if(name.val() == ""){
+		var tooltip1 = name.siblings(".msg");
+		tooltip1.text("이름을 입력해주세요");
+		tooltip1.css("opacity", 1);
+		return false;
+	}
+	var re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+	if(!re.test(tel.val())){
+		var tooltip2 = tel.siblings(".msg");
+		tooltip2.text("연락처 형식이 올바르지 않습니다.");
+		tooltip2.css("opacity", 1);
+		return false;
+	}
 }
 
 /* 임시 (완료 후 삭제 예정) { */
@@ -173,7 +187,16 @@ function popup() {
 	$("#popup").bPopup({
 		closeClass: "btn_off",
 		modalClose: false,
-		positionStyle: 'fixed'
+		positionStyle: 'fixed',
+	});
+}
+/* 아이디 찾기 팝업*/
+function popupfindid() {
+	$("#popup").bPopup({
+		closeClass: "btn_off",
+		modalClose: false,
+		positionStyle: 'fixed',
+		onClose:function(){location.href="login.html";}
 	});
 }
 
@@ -205,6 +228,14 @@ function attend() {
 /* } 메인 */
 
 $(document).ready(function() {
+	/* 아이디 찾기 */
+	if($("#hiddenfind").val() == "0"){
+		var tooltip = $("#hiddenfind").siblings(".msg");
+		tooltip.text("이름과 연락처가 일치하지 않습니다.");
+		tooltip.css("opacity", 1);
+	}else if ($("#hiddenfind").val() == "1"){
+		popupfindid();
+	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {
 		popup();
