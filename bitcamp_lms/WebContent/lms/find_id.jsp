@@ -37,14 +37,13 @@
 					<input type="hidden" id="hiddenFindid" value="${param.result}">
 					<p class="msg err"></p>
 					<ul class="list_btns">
-						<li><button type="button">취소</button></li>
+						<li><button type="button" onclick="history.back(-1);">취소</button></li>
 						<li><button type="submit">확인</button></li>
 					</ul>
 				</form>
 			</div>
 		</div>
 	</div>
-	<button class="btn_pop">팝업창</button>
 	<div id="footer">
 		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
 	</div>

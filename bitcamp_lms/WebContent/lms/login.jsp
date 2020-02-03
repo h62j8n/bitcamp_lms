@@ -52,13 +52,9 @@
 			</div>
 		</div>
 	</div>
-	<button type="button" class="btn_temp">툴팁</button>
 	<div id="footer">
 		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
 	</div>
 </div>
-<script type="text/javascript">
-	addCommMsg("아이디 또는 비밀번호가 일치하지 않습니다.");
-</script>
 </body>
 </html>

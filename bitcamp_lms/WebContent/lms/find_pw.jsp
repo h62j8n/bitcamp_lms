@@ -20,8 +20,12 @@
 				<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
 			</div>
 			<div id="container">
-				<form class="form_join">
+				<form class="form_join" method="post">
 					<h2>비밀번호 찾기/변경</h2>
+					<input type="hidden" id="hiddenfindpw" value="${findpwID.id }">
+					<input type="hidden" id="hiddenfindpwID" value="${param.result_id }">
+					<input type="hidden" id="hiddenfindpwQA" value="${param.result_qa }">
+					<input type="hidden" id="hiddenfindpwPW" value="${param.result_pw }">
 					<ul class="list_ipts">
 						<li>
 							<label for="logId" class="hidden">아이디(이메일)</label>
@@ -51,7 +55,7 @@
 					</ul>
 					<p class="msg err"></p>
 					<ul class="list_btns">
-						<li><button type="button">취소</button></li>
+						<li><button type="button" onclick="history.back(-1);">취소</button></li>
 						<li><button type="submit">확인</button></li>
 					</ul>
 				</form>
@@ -74,5 +78,8 @@
 		<button type="button" class="btn_off yes">확인</button>
 	</div>
 </div>
+<script type="text/javascript">
+	validation();
+</script>
 </body>
 </html>

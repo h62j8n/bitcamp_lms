@@ -145,7 +145,7 @@ function validation() {
 	});
 }
 
-/* ????????? */
+/* 유효성검사 Submit */
 function validJoin() {
 	var jname = $("#logName"),
 		jid = $("#logId"),
@@ -256,8 +256,8 @@ function popup() {
 		positionStyle: 'fixed',
 	});
 }
-/* 아이디 찾기 팝업*/
-function popupFindid() {
+/* 팝업 후 로그인페이지*/
+function popupResult() {
 	$("#popup").bPopup({
 		closeClass: "btn_off",
 		modalClose: false,
@@ -314,6 +314,15 @@ function ref() {
 
 /* } 메인 */
 $(document).ready(function() {
+	/* 회원가입*/
+	if($("#hiddenDupliID").val() =="1"){
+		var tooltip = $("#logId").siblings(".msg");
+		tooltip.text("이미 사용중인 아이디입니다. 다시 입력해주세요");
+		tooltip.css("opacity", 1);
+	}else if($("#hiddenDupliID").val() =="0" && $("#hiddenJoinName").val() == "1"){
+		popupResult();
+	}
+	
 	/* 로그인  */
 	if($("#hiddenLogin").val() == "0"){
 		var tooltip = $("#hiddenLogin").siblings(".msg");
@@ -328,7 +337,17 @@ $(document).ready(function() {
 		tooltip.text("이름 또는 연락처가 일치하지 않습니다.");
 		tooltip.css("opacity", 1);
 	}else if ($("#hiddenFindid").val() == "1"){
-		popupFindid();
+		popupResult();
+	}
+	/* 비밀번호 찾기*/
+	if($("#hiddenfindpwID").val == "1"){
+		("#logId").val("#hiddenfindpw".val());
+		$(".step2").slideDown(300);
+		$("#logId").addClass("block").prop("readonly", true);
+	}
+	if($("#hiddenfindpwPW").val == "1"){
+		$(".step2").slideUp(300);
+		$(".step3").slideDown(300);
 	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {

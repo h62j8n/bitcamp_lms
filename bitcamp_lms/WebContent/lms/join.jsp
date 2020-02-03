@@ -85,20 +85,21 @@
 					<li class="msg err"></li>
 				</ul>
 				<ul class="list_btns">
-					<li><button type="button">돌아가기</button></li>
+					<li><button type="button" onclick="history.back(-1);">돌아가기</button></li>
 					<li><button type="submit">가입하기</button></li>
 				</ul>
+				<input type="hidden" id="hiddenJoinName" value="${param.result}">
+				<input type="hidden" id="hiddenDupliID" value="${dupliId.cnt}">
 			</form>
 		</div>
 	</div>
-	<button class="btn_pop">팝업창</button>
 	<div id="footer">
 		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
 	</div>
 </div>
 <div id="popup">
 	<p class="alert">
-		<b>홍길동</b> 님의 회원가입이 완료되었습니다.<br>
+		<b>${joinName.name }</b> 님의 회원가입이 완료되었습니다.<br>
 		확인을 누르시면 로그인 페이지로 이동합니다.
 	</p>
 	<div class="btns">

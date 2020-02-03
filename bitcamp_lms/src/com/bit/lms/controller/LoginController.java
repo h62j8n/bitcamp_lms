@@ -21,6 +21,7 @@ public class LoginController extends HttpServlet{
 			throws ServletException, IOException {
 		HttpSession session=req.getSession();
 		session.setAttribute("findid", null);
+		session.setAttribute("joinName", null);
 		//VIEW
 		RequestDispatcher rd=req.getRequestDispatcher("login.jsp");
 		rd.forward(req, resp);

@@ -33,15 +33,36 @@ public class FindPwController extends HttpServlet{
 		String answer=req.getParameter("findpw_answer");
 		String pw=req.getParameter("findpw_pw");
 		
+		HttpSession session=req.getSession();
 		FindPwDao dao=new FindPwDao();
-		FindPwDto beanID=dao.checkID(id);
-		FindPwDto beanQA=dao.checkQA(question, answer);
-		int cntPW=dao.updatePW(pw);
-		
-		if(cntPW>0){
-			resp.sendRedirect("login.html");
-		}else{
-			resp.sendRedirect("find_pw.html");
+		FindPwDto beanID=new FindPwDto();
+		FindPwDto beanQA=new FindPwDto();
+		int cntPW=0;
+		if(id!=null){
+			beanID=dao.checkID(id);
+			if(beanID.getCnt_id()>0){
+				session.setAttribute("findpwID", beanID);
+				resp.sendRedirect("find_pw.html?result_id="+beanID.getCnt_id());
+			}else{
+				resp.sendRedirect("find_pw.html?result_id="+beanID.getCnt_id());
+			}
 		}
+//		if(question!=null && answer!=null){
+//			beanQA=dao.checkQA(question, answer);
+//			if(beanQA.getCnt_qa()>0){
+//				session.setAttribute("findpwQA", beanQA);
+//				resp.sendRedirect("find_pw.html?result_qa"+beanQA.getCnt_qa());
+//			}else{
+//				resp.sendRedirect("find_pw.html?result_qa"+beanQA.getCnt_qa());
+//			}
+//		}
+//		if(pw!=null){
+//			cntPW=dao.updatePW(pw);
+//			if(cntPW>0){
+//				resp.sendRedirect("find_pw.html?result_pw"+cntPW);
+//			}else{
+//				resp.sendRedirect("find_pw.html?result_pw"+cntPW);
+//			}
+//		}
 	}
 }
