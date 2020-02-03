@@ -282,8 +282,28 @@ function attend() {
 		}
 	});
 }
-/* } 메인 */
+/* datepicker */
+function datepick() {
+   $(".btn_date").datepicker({
+      dateFormat: "yy-mm-dd"
+   });
+}
+/* member */
+function ref() {
+   $(".mb_curriculum").each(function() {
+      var tooltip = $(this).find("span"),
+         text = $(this).text();
+      tooltip.text(text);
+      $(this).on("mouseenter", function() {
+         tooltip.css("opacity", 1);
+      });
+      $(this).on("mouseleave", function() {
+         tooltip.css("opacity", 0);
+      });
+   });
+}
 
+/* } 메인 */
 $(document).ready(function() {
 	/* 로그인  */
 	if($("#hiddenLogin").val() == "0"){
