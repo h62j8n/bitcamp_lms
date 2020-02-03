@@ -16,4 +16,46 @@ insert into faq_bbs values(faq_seq.nextval,10002,1002,'근로자 직업능력개발훈련 �
 insert into faq_bbs values(faq_seq.nextval,10003,1003,'근로자 직업능력개발훈련이란?','test4',0,sysdate);
 insert into faq_bbs values(faq_seq.nextval,10004,1004,'국비무료과정 국가기간전략산업기간이란?','test5',0,sysdate);
 
-select * from JOB_BBS
+INSERT INTO LEC VALUES ('G1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 8월','설민석','프론트엔드 개발 하고싶습니다.','20/06/27','20/07/31','20/08/01','20/10/31',1,30,0);
+INSERT INTO LEC VALUES ('H1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 8월','최진기','프론트엔드 개발 하고싶습니다.','20/06/27','20/07/31','20/08/01','20/10/31',2,30,0);
+INSERT INTO LEC VALUES ('I1000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 8월','최태성','프론트엔드 개발 하고싶습니다.','20/06/27','20/07/31','20/08/01','20/10/31',3,30,0);
+INSERT INTO LEC VALUES ('J1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 9월','설민석','프론트엔드 개발 하고싶습니다.','20/07/27','20/08/31','20/09/01','20/11/30',1,30,0);
+INSERT INTO LEC VALUES ('K1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 9월','설민석','프론트엔드 개발 하고싶습니다.','20/07/27','20/08/31','20/09/01','20/11/30',2,30,0);
+INSERT INTO LEC VALUES ('L1000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 9월','설민석','프론트엔드 개발 하고싶습니다.','20/07/27','20/08/31','20/09/01','20/11/30',3,30,0);
+INSERT INTO LEC VALUES ('M1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 10월','설민석','프론트엔드 개발 하고싶습니다.','20/08/27','20/09/30','20/10/01','20/12/31',1,30,0);
+INSERT INTO LEC VALUES ('N1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 10월','설민석','프론트엔드 개발 하고싶습니다.','20/08/27','20/09/30','20/10/01','20/12/31',2,30,0);
+INSERT INTO LEC VALUES ('O1000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 10월','설민석','프론트엔드 개발 하고싶습니다.','20/08/27','20/09/30','20/10/01','20/12/31',3,30,0);
+INSERT INTO LEC VALUES ('P1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 11월','설민석','프론트엔드 개발 하고싶습니다.','20/09/27','20/10/31','20/11/01','21/01/31',1,30,0);
+INSERT INTO LEC VALUES ('Q1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 11월','설민석','프론트엔드 개발 하고싶습니다.','20/09/27','20/10/31','20/11/01','21/01/31',2,30,0);
+INSERT INTO LEC VALUES ('R1000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 11월','설민석','프론트엔드 개발 하고싶습니다.','20/09/27','20/10/31','20/11/01','21/01/31',3,30,0);
+INSERT INTO LEC VALUES ('S1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 12월','설민석','프론트엔드 개발 하고싶습니다.','20/10/27','20/11/30','20/12/01','21/02/28',1,30,0);
+INSERT INTO LEC VALUES ('T1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 12월','설민석','프론트엔드 개발 하고싶습니다.','20/10/27','20/11/30','20/12/01','21/02/28',2,30,0);
+INSERT INTO LEC VALUES ('U1000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 12월','설민석','프론트엔드 개발 하고싶습니다.','20/10/27','20/11/30','20/12/01','21/02/28',3,30,0);
+INSERT INTO LEC VALUES ('V1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 1월','설민석','프론트엔드 개발 하고싶습니다.','20/11/27','20/12/31','21/01/02','21/03/31',1,30,0);
+INSERT INTO LEC VALUES ('W1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 1월','설민석','프론트엔드 개발 하고싶습니다.','20/11/27','20/12/31','21/01/02','21/03/31',2,30,0);
+INSERT INTO LEC VALUES ('X1000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 1월','설민석','프론트엔드 개발 하고싶습니다.','20/11/27','20/12/31','21/01/02','21/03/31',3,30,0);
+INSERT INTO LEC VALUES ('Y1000','프론트엔드 개발을 위한 UI/UX전문가 전문가 과정 A - 2월','설민석','프론트엔드 개발 하고싶습니다.','20/12/27','21/01/31','21/02/01','21/04/30',1,30,0);
+INSERT INTO LEC VALUES ('Z1000','디지털컨버전스 기반 UI/UX Front 전문 개발자 양성과정 A - 2월','설민석','프론트엔드 개발 하고싶습니다.','20/12/27','21/01/31','21/02/01','21/04/30',2,30,0);
+INSERT INTO LEC VALUES ('A2000','디지털컨버전스 기반 Smart Web & Content 개발자 양성 과정 A - 2월','설민석','프론트엔드 개발 하고싶습니다.','20/12/27','21/01/31','21/02/01','21/04/30',3,30,0);
+
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'H1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'G1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'I1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'J1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'K1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'L1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'M1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'N1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'O1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'P1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'Q1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'R1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'S1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'T1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'U1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'V1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'W1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'X1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'Y1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'Z1000');
+INSERT INTO RECR_BBS VALUES(RECR_SEQ.NEXTVAL,'10004','1004',0,SYSDATE,'A2000');

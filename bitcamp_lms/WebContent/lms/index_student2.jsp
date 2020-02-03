@@ -17,15 +17,11 @@
 		<div id="header">
 			<div class="container">
 				<h1>
-					<a href=""><img
-						src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a>
+					<a href="index_student2.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul class="quick">
-					<li><a href=""><i
-							class="xi-profile-o"></i></a></li>
-					<li><button type="button" class="btn_logout">
-							<i class="xi-log-out"></i>
-						</button></li>
+					<li><a href=""><i class="xi-profile-o"></i></a></li>
+					<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
 				</ul>
 			</div>
 		</div>
@@ -33,9 +29,7 @@
 			<div class="container">
 				<div id="gnb" class="gnb_area">
 					<ul>
-						<li><a
-							href=""> <i class="xi-school"></i> <span>모집공고</span>
-						</a></li>
+						<li><a href="curriculum_list.html"> <i class="xi-school"></i> <span>모집공고</span></a></li>
 					</ul>
 				</div>
 				<div class="content_area">
