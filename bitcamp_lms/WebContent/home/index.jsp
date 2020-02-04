@@ -22,7 +22,7 @@
 		<div id="header">
 			<div class="container">
 				<h1>
-					<a href="/bitcamp_lms"><img src="images/comm/logo.png" alt="비트캠프 구리센터"></a>
+					<a href="/bitcamp_lms"><img src="images/ico/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
 					<li><a href="/bitcamp_lms/home/educenter.html">교육센터</a>
@@ -60,7 +60,7 @@
 				<li class="swiper-slide"
 					style="background-image: url(images/img/main_banner02.jpg)"></li>
 				<li class="swiper-slide"
-					style="background-image: url(images/img/main_banner03.png)"></li>
+					style="background-image: url(images/img/main_banner03.jpg)"></li>
 			</ul>
 			<button type="button" class="swiper-button-prev">
 				<i class="xi-angle-left-thin"></i>
