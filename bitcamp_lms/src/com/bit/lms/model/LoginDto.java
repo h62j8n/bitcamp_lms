@@ -4,6 +4,8 @@ public class LoginDto {
 	private String id;
 	private String name;
 	private String tel;
+	private String question;
+	private String answer;
 	private int cnt;
 	
 	public LoginDto() {
@@ -39,6 +41,22 @@ public class LoginDto {
 	
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+
+	public String getQuestion() {
+		return question;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
+
+	public String getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 	
 }

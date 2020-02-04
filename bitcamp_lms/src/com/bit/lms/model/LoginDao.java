@@ -11,7 +11,8 @@ import com.bit.util.BitOracle;
 public class LoginDao {
 	public LoginDto login(String id, String pw){
 		String sql="SELECT COUNT(MB_ID) AS \"CNT\", MAX(MB_ID) AS \"ID\"";
-		sql+=", MAX(MB_NAME) AS \"NAME\", MAX(MB_TEL) AS \"TEL\" FROM MB WHERE MB_ID=? AND MB_PW=?";
+		sql+=", MAX(MB_NAME) AS \"NAME\", MAX(MB_TEL) AS \"TEL\"";
+		sql+=", MAX(MB_QUESTION) AS \"QUESTION\", MAX(MB_ANSWER) AS \"ANSWER\" FROM MB WHERE MB_ID=? AND MB_PW=?";
 		
 		LoginDto bean=new LoginDto();
 		Connection conn=BitOracle.getConnection();
@@ -27,6 +28,8 @@ public class LoginDao {
 				bean.setId(rs.getString("id"));
 				bean.setName(rs.getString("name"));
 				bean.setTel(rs.getString("tel"));
+				bean.setQuestion(rs.getString("question"));
+				bean.setAnswer(rs.getString("answer"));
 				bean.setCnt(rs.getInt("cnt"));
 			}
 		} catch (SQLException e) {

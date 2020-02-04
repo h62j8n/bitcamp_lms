@@ -29,10 +29,10 @@ public class FindPwController extends HttpServlet{
 			throws ServletException, IOException {
 		
 		req.setCharacterEncoding("utf-8");
-		String id=req.getParameter("findpw_id");
-		String question=req.getParameter("findpw_question");
-		String answer=req.getParameter("findpw_answer");
-		String pw=req.getParameter("findpw_pw");
+		String id=req.getParameter("findpw_id").trim();
+		String question=req.getParameter("findpw_question").trim();
+		String answer=req.getParameter("findpw_answer").trim();
+		String pw=req.getParameter("findpw_pw").trim();
 		
 		int count=0;
 		if(id!=null)count++;
