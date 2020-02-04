@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="com.bit.lms.model.LoginDto,java.util.ArrayList" %>
+<%
+LoginDto login =(LoginDto)session.getAttribute("login");
+if(login!=null){
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,13 +16,13 @@
 	<script type="text/javascript" src="../js/site.js"></script>
 	<link href="../css/site.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-	<title>Document</title>
+	<title>비트캠프 구리센터</title>
 </head>
 <body>
 <div id="wrap">
 	<div id="header">
 		<div class="container">
-			<h1><a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
+			<h1><a href="index.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 			<ul class="quick">
 				<li><a href="lock.html"><i class="xi-profile-o"></i></a></li>
 				<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
@@ -74,7 +80,7 @@
 								<p class="status">과정 진행 중</p>
 								<p>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</p>
 								<p>2020.01.01 ~ 2020.03.31</p>
-								<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
+								<p class="btn_go"><a href="my_curriculum.html">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 							</div>
 						</div>
 						<div class="attend box">
@@ -180,3 +186,8 @@
 </script>
 </body>
 </html>
+<%
+}else{
+	response.sendRedirect("login.html?msg=AccessDenied");
+}
+%>
