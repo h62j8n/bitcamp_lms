@@ -36,7 +36,7 @@
 			<div class="container">
 
 				<h1>
-					<a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a>
+					<a href="index_teacher.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a>
 				</h1>
 
 				<ul class="quick">
@@ -71,7 +71,7 @@
 
 						</a></li>
 
-						<li><a href="/lms/teachernotice.html"> <i class="xi-list-square"></i> <span>강의실
+						<li><a href="teachernotice.html"> <i class="xi-list-square"></i> <span>강의실
 									공지사항</span>
 
 						</a></li>

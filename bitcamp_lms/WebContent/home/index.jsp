@@ -8,11 +8,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/swiper.min.js"></script>
-<link href="../css/swiper.min.css" rel="stylesheet" type="text/css">
-<link href="../css/home.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<link href="css/swiper.min.css" rel="stylesheet" type="text/css">
+<link href="css/home.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <link rel="shortcut icon" href="/favicon.ico">
 <title>비트캠프 구리센터</title>
@@ -22,7 +22,7 @@
 		<div id="header">
 			<div class="container">
 				<h1>
-					<a href="/bitcamp_lms/home"><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a>
+					<a href="/bitcamp_lms/home/index.html"><img src="images/comm/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
 					<li><a href="/bitcamp_lms/home/educenter.html">교육센터</a>
@@ -48,7 +48,7 @@
 					<li><a href="https://www.bitcamp.co.kr/gn" target="_blank">강남센터</a></li>
 					<li><a href="https://www.bitcamp.co.kr/sc" target="_blank">신촌센터</a></li>
 					<li><a href="https://www.bitcamp.co.kr/cr" target="_blank">종로센터</a></li>
-					<li><a href="../lms/login.html" target="_blank">LMS서비스</a></li>
+					<li><a href="lms/login.html" target="_blank">LMS서비스</a></li>
 				</ul>
 			</div>
 		</div>
@@ -56,11 +56,11 @@
 			<section class="banner_area swiper-container">
 			<ul class="swiper-wrapper">
 				<li class="swiper-slide"
-					style="background-image: url(../images/img/main_banner01.jpg)"></li>
+					style="background-image: url(images/img/main_banner01.jpg)"></li>
 				<li class="swiper-slide"
-					style="background-image: url(../images/img/main_banner02.jpg)"></li>
+					style="background-image: url(images/img/main_banner02.jpg)"></li>
 				<li class="swiper-slide"
-					style="background-image: url(../images/img/main_banner03.png)"></li>
+					style="background-image: url(images/img/main_banner03.png)"></li>
 			</ul>
 			<button type="button" class="swiper-button-prev">
 				<i class="xi-angle-left-thin"></i>
@@ -90,7 +90,7 @@
 				<div class="lms box">
 					<h2 class="hidden">LMS서비스</h2>
 					<p>
-						<a href="../lms/login.html"> <i class="xi-school"></i><br> LMS서비스<br>
+						<a href="lms/login.html"> <i class="xi-school"></i><br> LMS서비스<br>
 							<span>바로가기</span>
 						</a>
 					</p>
@@ -115,7 +115,7 @@
 		<div id="footer">
 			<div class="container">
 				<p class="foot_logo">
-					<img src="../images/comm/logo.png" alt="비트캠프 구리센터">
+					<img src="images/comm/logo.png" alt="비트캠프 구리센터">
 				</p>
 				<div class="foot_info">
 					<p>

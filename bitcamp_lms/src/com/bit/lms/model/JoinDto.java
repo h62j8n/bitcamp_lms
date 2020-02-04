@@ -7,6 +7,7 @@ public class JoinDto {
 	private String tel;
 	private String question;
 	private String answer;
+	private int cnt;
 	
 	public JoinDto() {
 	}
@@ -57,6 +58,14 @@ public class JoinDto {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+
+	public int getCnt() {
+		return cnt;
+	}
+
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 	
 }

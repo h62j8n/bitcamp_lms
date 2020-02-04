@@ -1,3 +1,4 @@
+<%@page import="com.bit.lms.model.TeacherNoticeDetailDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -32,7 +33,7 @@
 
 		<div class="container">
 
-			<h1><a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
+			<h1><a href="index_teacher.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 
 			<ul class="quick">
 
@@ -81,14 +82,16 @@
 						</div>
 
 						<div class="title box">
-
-							<h3>게시물 상세페이지입니다. 제목을 입력해주세요. 게시물 상세페이지입니다. 제목을 입력해주세요.</h3>
+						<%
+						TeacherNoticeDetailDto bean=(TeacherNoticeDetailDto)request.getAttribute("teachernoticedetail");
+						%>
+							<h3><%=bean.getCls_subject() %></h3>
 
 							<ul>
 
-								<li>2020-01-01</li>
+								<li><%=bean.getCls_date() %></li>
 
-								<li>000</li>
+								<li><%=bean.getCls_count() %></li>
 
 							</ul>
 
@@ -98,7 +101,7 @@
 
 						<div class="content box">
 
-							<p>게시물 내용</p>
+							<p><%=bean.getCls_content() %></p>
 
 						</div>
 
@@ -106,7 +109,7 @@
 
 							<ul class="bd_btns">
 
-								<li><a href="">목록</a></li>
+								<li><a href="teachernotice.html">목록</a></li>
 
 								<li><button type="submit" class="btn_submit">수정</button></li>
 

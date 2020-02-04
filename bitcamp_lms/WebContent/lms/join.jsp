@@ -50,7 +50,7 @@
 					<li>
 						<label for="logQuest" class="hidden">비밀번호 확인 질문</label>
 						<select id="logQuest" name="join_question">
-							<option value="x">비밀번호 확인 질문</option>
+							<option value="">비밀번호 확인 질문</option>
 							<option value="자신의 인생 좌우명은?">자신의 인생 좌우명은?</option>
 							<option value="자신이 두번째로 존경하는 인물은?">자신이 두번째로 존경하는 인물은?</option>
 							<option value="인상 깊게 읽은 책 이름은?">인상 깊게 읽은 책 이름은?</option>
@@ -85,20 +85,21 @@
 					<li class="msg err"></li>
 				</ul>
 				<ul class="list_btns">
-					<li><button type="button">돌아가기</button></li>
+					<li><button type="button" onclick="history.back(-1);">돌아가기</button></li>
 					<li><button type="submit">가입하기</button></li>
 				</ul>
+				<input type="hidden" id="hiddenJoinName" value="${param.result}">
+				<input type="hidden" id="hiddenDupliID" value="${dupliId.cnt}">
 			</form>
 		</div>
 	</div>
-	<button class="btn_pop">팝업창</button>
 	<div id="footer">
 		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
 	</div>
 </div>
 <div id="popup">
 	<p class="alert">
-		<b>홍길동</b> 님의 회원가입이 완료되었습니다.<br>
+		<b>${joinName.name }</b> 님의 회원가입이 완료되었습니다.<br>
 		확인을 누르시면 로그인 페이지로 이동합니다.
 	</p>
 	<div class="btns">
