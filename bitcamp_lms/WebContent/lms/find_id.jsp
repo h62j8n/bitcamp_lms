@@ -20,7 +20,7 @@
 				<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
 			</div>
 			<div id="container">
-				<form class="form_join" method="post">
+				<form class="form_join" method="post" onsubmit="return validationFindid()">
 					<h2>아이디 찾기</h2>
 					<ul class="list_ipts">
 						<li>
@@ -34,23 +34,23 @@
 							<p class="msg err"></p>
 						</li>
 					</ul>
+					<input type="hidden" id="hiddenFindid" value="${param.result}">
 					<p class="msg err"></p>
 					<ul class="list_btns">
-						<li><button type="button">취소</button></li>
-						<li><button type="submit" onclick="popup()">확인</button></li>
+						<li><button type="button" onclick="history.back(-1);">취소</button></li>
+						<li><button type="submit">확인</button></li>
 					</ul>
 				</form>
 			</div>
 		</div>
 	</div>
-	<button class="btn_pop">팝업창</button>
 	<div id="footer">
 		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
 	</div>
 </div>
 <div id="popup">
 	<p class="alert">
-		홍길동 님의 ID는 <b>${findid.id }</b> 입니다.<br>
+		${findid.name } 님의 ID는 <b>${findid.id }</b> 입니다.<br>
 		확인을 누르시면 로그인 페이지로 이동합니다.
 	</p>
 	<div class="btns">

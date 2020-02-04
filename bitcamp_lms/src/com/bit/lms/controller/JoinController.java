@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bit.lms.model.JoinDao;
 import com.bit.lms.model.JoinDto;
@@ -37,11 +38,20 @@ public class JoinController extends HttpServlet{
 		String answer=req.getParameter("join_answer").trim();
 		
 		JoinDao dao=new JoinDao();
-		int result=dao.insertJoin(name, id, pw, tel, question, answer);
-		if(result>0){
-			resp.sendRedirect("login.html");
+		HttpSession session=req.getSession();
+		
+		JoinDto beanId=dao.selectID(id);
+		session.setAttribute("dupliId", beanId);
+		if(beanId.getCnt()<=0){
+			int result=dao.insertJoin(name, id, pw, tel, question, answer);
+			if(result>0){
+				JoinDto beanName=dao.selectOne(name);
+				session.setAttribute("joinName", beanName);
+				resp.sendRedirect("join.html?result="+result);
+			}else{
+				resp.sendRedirect("join.html?result="+result);
+			}
 		}else{
-			//유효성 검사 후 삭제?
 			resp.sendRedirect("join.html");
 		}
 	}

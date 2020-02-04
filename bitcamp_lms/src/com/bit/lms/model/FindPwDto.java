@@ -4,7 +4,6 @@ public class FindPwDto {
 	private String id;
 	private int cnt_id;
 	private int cnt_qa;
-	private int cnt_update;
 	
 	public FindPwDto() {
 	}
@@ -31,14 +30,6 @@ public class FindPwDto {
 
 	public void setCnt_qa(int cnt_qa) {
 		this.cnt_qa = cnt_qa;
-	}
-
-	public int getCnt_update() {
-		return cnt_update;
-	}
-
-	public void setCnt_update(int cnt_update) {
-		this.cnt_update = cnt_update;
 	}
 	
 }

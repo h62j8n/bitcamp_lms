@@ -1,41 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-	h2.page-title{
-		border-bottom:1px solid #666666;
-		padding-top:20px;
-		padding-bottom:20px;
-		margin-bottom:40px;
-		line-height:50px;
-		color:#222222;
-		font-size:30px;
-	}
-</style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/swiper.min.js"></script>
-<link href="../css/swiper.min.css" rel="stylesheet" type="text/css">
-<link href="../css/home.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="shortcut icon" href="/favicon.ico">
-<title>비트캠프 구리센터</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link href="../css/home.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<title>비트캠프 구리센터</title>
 </head>
 <body>
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms/home"><img alt="비트캠프 구리센터" src="../images/comm/logo.png"></a></h1>
+		<h1><a href="/bitcamp_lms"><img src="../images/ico/logo.png" alt="비트캠프 구리센터"></a></h1>
 		<ul id="gnb"><!-- Global Navigation Bar -->
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
 				<ul>
-					<li><a href="/bitcamp_lms/home/educenter.html">센터 소개</a></li>
+					<li><a href="/bitcamp_lms/home/educenter.html">교육센터 소개</a></li>
 				</ul>
 			</li>
 			<li>
@@ -68,15 +55,27 @@
 	</div>
 </div>
 <div id="container">
-	<div class="container">
-		<h2 class="page-title">교육센터 소개</h2>
-		<img alt="교육센터 소개" src="../images/img/educenter.jpg">
-	</div>
+	<section class="title_area">
+		<div class="container">
+			<div>
+				<h3>교육센터</h3>
+				<p>실무중심 교육 및 신기술을 선도하는 교육센터, 비트캠프</p>
+			</div>
+		</div>
+	</section>
+	<section id="center" class="content_area">
+		<div class="container">
+			<h2>교육센터 소개</h2>
+			<div class="img_wrap">
+				<img src="../images/img/sub_center.jpg" alt="개요">
+			</div>
+		</div>
+	</section>
 </div>
 <div id="footer">
 	<div class="container">
 		<p class="foot_logo">
-			<img src="../images/comm/logo.png" alt="비트캠프 구리센터">
+			<img src="../images/ico/logo_w.png" alt="비트캠프 구리센터">
 		</p>
 		<div class="foot_info">
 			<p>

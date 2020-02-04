@@ -8,6 +8,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.bit.lms.model.LoginDao;
 
 @WebServlet("/lms/index.html")
 public class LmsIndexController extends HttpServlet{
@@ -17,5 +20,9 @@ public class LmsIndexController extends HttpServlet{
 		//VIEW
 		RequestDispatcher rd=req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
+		
+		//Session
+		HttpSession session=req.getSession();
+		System.out.println(session.getId());
 	}
 }

@@ -10,7 +10,7 @@ import com.bit.util.BitOracle;
 public class FindPwDao {
 	
 	public FindPwDto checkID(String id){
-		String sql="select count(mb_id) as \"cnt\", max(mb_id) as \"id\" from mb where mb_id=?";
+		String sql="SELECT COUNT(MB_ID) AS \"CNT\", MAX(MB_ID) AS \"ID\" FROM MB WHERE MB_ID=?";
 		
 		FindPwDto bean=new FindPwDto();
 		Connection conn=BitOracle.getConnection();
@@ -38,8 +38,8 @@ public class FindPwDao {
 		return bean;
 	}
 	
-	public FindPwDto checkQA(String question, String answer){
-		String sql="select count(mb_answer) as \"cnt\" from mb where mb_question=? and mb_answer=?";
+	public FindPwDto checkQA(String question, String answer, String id){
+		String sql="SELECT COUNT(MB_ANSWER) AS \"CNT\" FROM MB WHERE MB_QUESTION=? AND MB_ANSWER=? AND MB_ID=?";
 		
 		FindPwDto bean=new FindPwDto();
 		Connection conn=BitOracle.getConnection();
@@ -49,6 +49,7 @@ public class FindPwDao {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, question);
 			pstmt.setString(2, answer);
+			pstmt.setString(3, id);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
 				bean.setCnt_qa(rs.getInt("cnt"));
@@ -67,8 +68,8 @@ public class FindPwDao {
 		return bean;
 	}
 	
-	public int updatePW(String pw){
-		String sql="update mb set mb_pw=?";
+	public int updatePW(String id, String pw){
+		String sql="UPDATE MB SET MB_PW=? where mb_id=?";
 		
 		int result=0;
 		Connection conn=BitOracle.getConnection();
@@ -76,6 +77,7 @@ public class FindPwDao {
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, pw);
+			pstmt.setString(2, id);
 			result=pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

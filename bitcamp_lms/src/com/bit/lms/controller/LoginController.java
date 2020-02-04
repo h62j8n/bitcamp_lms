@@ -19,6 +19,11 @@ public class LoginController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		HttpSession session=req.getSession();
+		session.setAttribute("dupliId", null);
+		session.setAttribute("joinName", null);
+		session.setAttribute("findid", null);
+		session.setAttribute("findpwID", null);
 		//VIEW
 		RequestDispatcher rd=req.getRequestDispatcher("login.jsp");
 		rd.forward(req, resp);
@@ -27,6 +32,7 @@ public class LoginController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
 		String id=req.getParameter("loginid").trim();
 		String pw=req.getParameter("loginpw").trim();
 		
@@ -37,9 +43,9 @@ public class LoginController extends HttpServlet{
 			session.setAttribute("login", bean);
 			
 			//회원 직원 수정 해야함
-			resp.sendRedirect("index.html");
+			resp.sendRedirect("login.html?result="+bean.getCnt());
 		}else{
-			resp.sendRedirect("login.html");
+			resp.sendRedirect("login.html?result="+bean.getCnt());
 		}
 		
 	}
