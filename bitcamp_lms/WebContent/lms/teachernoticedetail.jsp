@@ -66,21 +66,6 @@
 					<h2>게시판명 글 상세</h2>
 
 					<form>
-
-						<div class="top box">
-
-							<select id="bdSelect">
-
-								<option value="채용공고">채용공고</option>
-
-								<option value="공지사항">공지사항</option>
-
-								<option value="FAQ">FAQ</option>
-
-							</select>
-
-						</div>
-
 						<div class="title box">
 						<%
 						TeacherNoticeDetailDto bean=(TeacherNoticeDetailDto)request.getAttribute("teachernoticedetail");

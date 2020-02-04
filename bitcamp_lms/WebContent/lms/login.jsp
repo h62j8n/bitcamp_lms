@@ -17,7 +17,7 @@
 	<div class="login_wrap mid">
 		<div>
 			<div id="header">
-				<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="비트캠프 구리센터"></a></h1>
+				<h1><a href="../"><img src="../images/ico/logo_big.png" alt="비트캠프 구리센터"></a></h1>
 			</div>
 			<div id="container">
 				<h2 class="hidden">로그인</h2>

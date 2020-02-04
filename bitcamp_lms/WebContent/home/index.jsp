@@ -22,7 +22,7 @@
 		<div id="header">
 			<div class="container">
 				<h1>
-					<a href="/bitcamp_lms/home/index.html"><img src="images/comm/logo.png" alt="비트캠프 구리센터"></a>
+					<a href="/bitcamp_lms"><img src="images/comm/logo.png" alt="비트캠프 구리센터"></a>
 				</h1>
 				<ul id="gnb">
 					<li><a href="/bitcamp_lms/home/educenter.html">교육센터</a>
@@ -81,7 +81,7 @@
 							if(i==5)break;
 							IndexDto bean=list.get(i);
 						%>
-						<li><a href="educurridetail.html?idx=<%= bean.getRecr_no()%>"><span><%=bean.getLec_name() %></span><span><%=bean.getRecr_date() %></span></a></li>
+						<li><a href="/bitcamp_lms/home/educurridetail.html?idx=<%= bean.getRecr_no()%>"><span><%=bean.getLec_name() %></span><span><%=bean.getRecr_date() %></span></a></li>
 						<%
 						}
 						%>	

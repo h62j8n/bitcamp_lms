@@ -35,12 +35,7 @@
 				<div class="board_wrap list">
 					<h2>게시판명</h2>
 					<div class="top box">
-						<p>총 게시물 : 000</p>
-						<select id="bdSelect">
-							<option value="채용공고">채용공고</option>
-							<option value="공지사항">공지사항</option>
-							<option value="FAQ">FAQ</option>
-						</select>
+						
 					</div>
 					<table class="table box">
 						<thead>
