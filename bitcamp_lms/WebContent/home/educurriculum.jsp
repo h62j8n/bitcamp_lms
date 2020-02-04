@@ -88,7 +88,7 @@
 					%>
 				</ul>
 				<div class="bottom box">
-					<p class="bd_btns"><button type="button">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></button></p>
+					<p class="bd_btns"><a href="../lms/login.html">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
 					<!-- <ul class="bd_pages">
 						<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
 						<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>

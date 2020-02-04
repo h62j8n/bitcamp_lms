@@ -264,6 +264,22 @@ input[type=checkbox]:checked + label:after {
   overflow: hidden;
 }
 
+.msg {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0;
+  -webkit-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+}
+
+.msg.err {
+  color: #ff0000;
+}
+
+.msg.ok {
+  color: #08a600;
+}
+
 /* popup */
 #popup {
   display: none;
@@ -510,6 +526,39 @@ input[type=checkbox]:checked + label:after {
 
 .board_wrap.detail .title.box ul li:first-child:before {
   display: none;
+}
+
+.board_wrap.detail .table.box {
+  border-top: none;
+  border-bottom-color: #bbb;
+}
+
+.board_wrap.detail .table.box tr:first-child {
+  border: none;
+}
+
+.board_wrap.detail .table.box th, .board_wrap.detail .table.box td {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-left: 1px solid #ddd;
+}
+
+.board_wrap.detail .table.box th {
+  width: 120px;
+  background: #f7f7f7;
+}
+
+.board_wrap.detail .table.box th:first-child {
+  border: none;
+}
+
+.board_wrap.detail .table.box td {
+  width: 680px;
+}
+
+.board_wrap.detail .table.box .bd_half td {
+  width: 280px;
 }
 
 .board_wrap.detail .content.box {
@@ -913,16 +962,17 @@ input[type=checkbox]:checked + label:after {
   clear: both;
 }
 
-#curriculum .bottom.box .bd_btns button {
+#curriculum .bottom.box .bd_btns a {
   float: right;
   width: 200px;
   height: 40px;
+  line-height: 40px;
   border-radius: 40px;
   -webkit-box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
           box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
-  background: #0b5098;
   border: none;
-  font-family: "noto-sans-scott-m";
+  background: #0b5098;
+  font-family: "noto-sans-scott-r";
   font-size: 16px;
   color: #fff;
 }
