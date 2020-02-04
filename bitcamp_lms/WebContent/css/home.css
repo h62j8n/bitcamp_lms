@@ -372,6 +372,7 @@ input[type=checkbox]:checked + label:after {
 .board_wrap .bd_pages li {
   display: table-cell;
   vertical-align: middle;
+  padding: 0 2px;
   text-align: center;
 }
 
