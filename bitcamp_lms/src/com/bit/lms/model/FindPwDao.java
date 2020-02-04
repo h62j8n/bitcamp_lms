@@ -38,8 +38,8 @@ public class FindPwDao {
 		return bean;
 	}
 	
-	public FindPwDto checkQA(String question, String answer){
-		String sql="SELECT COUNT(MB_ANSWER) AS \"CNT\" FROM MB WHERE MB_QUESTION=? AND MB_ANSWER=?";
+	public FindPwDto checkQA(String question, String answer, String id){
+		String sql="SELECT COUNT(MB_ANSWER) AS \"CNT\" FROM MB WHERE MB_QUESTION=? AND MB_ANSWER=? AND MB_ID=?";
 		
 		FindPwDto bean=new FindPwDto();
 		Connection conn=BitOracle.getConnection();
@@ -49,6 +49,7 @@ public class FindPwDao {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, question);
 			pstmt.setString(2, answer);
+			pstmt.setString(3, id);
 			rs=pstmt.executeQuery();
 			if(rs.next()){
 				bean.setCnt_qa(rs.getInt("cnt"));

@@ -266,14 +266,6 @@ function validationFindpw3(){
 	}
 }
 
-/* 임시 (완료 후 삭제 예정) { */
-function addCommMsg(msg) {
-	var commMsg = $(".msg");
-	$(".btn_temp").on("click", function() {
-		commMsg.text(msg);
-		commMsg.css("opacity", 1);
-	});
-}
 function step2() {
 	$(".step2").slideDown(300);
 	$("#logId").addClass("block").prop("readonly", true);
@@ -373,14 +365,14 @@ $(document).ready(function() {
 	if($("#hiddenfindpwQA").val() == "1"){
 		$("#formFindpw").attr("onsubmit", "return validationFindpw3()");
 		$("#logId").val($("#hiddenfindpw").val());
-		$(".step2").slideDown(300);
+		$(".step2").show();
 		$("#logId").addClass("block").prop("readonly", true);
 		$(".step2").slideUp(300);
 		$(".step3").slideDown(300);
 	}else if($("#hiddenfindpwQA").val() == "0"){
 		$("#formFindpw").attr("onsubmit", "return validationFindpw2()");
 		$("#logId").val($("#hiddenfindpw").val());
-		$(".step2").slideDown(300);
+		$(".step2").show();
 		$("#logId").addClass("block").prop("readonly", true);
 		var tooltip = $("#logAnswer").siblings(".msg");
 		tooltip.text("질문 또는 답변이 일치하지 않습니다. 다시 입력해주세요.");
@@ -388,6 +380,14 @@ $(document).ready(function() {
 	}
 	if($("#hiddenfindpwPW").val() == "1"){
 		popupResult();
+	}
+	/* 회원정보수정 비밀번호 확인*/
+	if($("#hiddenLockResult").val() == "0"){
+		var tooltip = $("#logPw2").siblings(".msg");
+		tooltip.text("비밀번호가 일치하지 않습니다.");
+		tooltip.css("opacity", 1);
+	}else if($("#hiddenLockResult").val() == "1"){
+		location.href="profile.html";
 	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {

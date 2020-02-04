@@ -56,7 +56,7 @@ public class FindPwController extends HttpServlet{
 			}
 		}
 		if(count==3){
-			beanQA=dao.checkQA(question, answer);
+			beanQA=dao.checkQA(question, answer, id);
 			if(beanQA.getCnt_qa()>0){
 				resp.sendRedirect("find_pw.html?result_qa="+beanQA.getCnt_qa());
 			}else{

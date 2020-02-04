@@ -16,7 +16,7 @@
 <div id="wrap">
 	<div id="header">
 		<div class="container">
-			<h1><a href="index.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
+			<h1><a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 			<ul class="quick">
 				<li><a href="lock.html"><i class="xi-profile-o"></i></a></li>
 				<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
@@ -56,19 +56,21 @@
 			<div class="content_area">
 				<div class="lock_wrap">
 					<h2>회원정보수정</h2>
-					<form>
+					<form method="post">
 						<dl class="list_ipts">
 							<dt><i class="xi-lock"></i></dt>
 							<dd>
 								<label for="logPw2" class="hidden">비밀번호 확인</label>
-								<input type="password" id="logPw2" placeholder="비밀번호 확인">
+								<input type="password" id="logPw2" placeholder="비밀번호 확인" name="lockPw">
 								<p class="msg err"></p>
 							</dd>
 						</dl>
 						<ul class="list_btns">
-							<li><button type="button">취소</button></li>
+							<li><button type="button" onclick="history.back(-1);">취소</button></li>
 							<li><button type="submit">확인</button></li>
 						</ul>
+						<input type="hidden" id="lockSessionId" value="${login.id}" name="lockId">
+						<input type="hidden" id="hiddenLockResult" value="${param.result}">
 					</form>
 				</div>
 			</div>
