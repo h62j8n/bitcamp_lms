@@ -8,6 +8,8 @@ public class LoginDto {
 	private String answer;
 	private int cnt;
 	private int mbNo;
+	private int cateNo;
+	private int deptNo;
 	
 	public LoginDto() {
 	}
@@ -66,6 +68,22 @@ public class LoginDto {
 
 	public void setMbNo(int mbNo) {
 		this.mbNo = mbNo;
+	}
+
+	public int getCateNo() {
+		return cateNo;
+	}
+
+	public void setCateNo(int cateNo) {
+		this.cateNo = cateNo;
+	}
+
+	public int getDeptNo() {
+		return deptNo;
+	}
+
+	public void setDeptNo(int deptNo) {
+		this.deptNo = deptNo;
 	}
 	
 }
