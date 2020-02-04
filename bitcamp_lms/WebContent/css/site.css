@@ -265,6 +265,22 @@ input[type=checkbox]:checked + label:after {
   overflow: hidden;
 }
 
+.msg {
+  margin-top: 5px;
+  font-size: 14px;
+  opacity: 0;
+  -webkit-transition: opacity .3s linear;
+  transition: opacity .3s linear;
+}
+
+.msg.err {
+  color: #ff0000;
+}
+
+.msg.ok {
+  color: #08a600;
+}
+
 /* popup */
 #popup {
   display: none;
@@ -513,6 +529,39 @@ input[type=checkbox]:checked + label:after {
   display: none;
 }
 
+.board_wrap.detail .table.box {
+  border-top: none;
+  border-bottom-color: #bbb;
+}
+
+.board_wrap.detail .table.box tr:first-child {
+  border: none;
+}
+
+.board_wrap.detail .table.box th, .board_wrap.detail .table.box td {
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-left: 1px solid #ddd;
+}
+
+.board_wrap.detail .table.box th {
+  width: 120px;
+  background: #f7f7f7;
+}
+
+.board_wrap.detail .table.box th:first-child {
+  border: none;
+}
+
+.board_wrap.detail .table.box td {
+  width: 680px;
+}
+
+.board_wrap.detail .table.box .bd_half td {
+  width: 280px;
+}
+
 .board_wrap.detail .content.box {
   border-bottom: 1px solid #333;
   min-height: 300px;
@@ -525,6 +574,72 @@ input[type=checkbox]:checked + label:after {
 
 .board_wrap.detail .bd_btns li:first-child {
   float: left;
+}
+
+#curriculum .list.box {
+  border-top: 2px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+#curriculum .list.box li {
+  position: relative;
+  padding: 10px 100px 10px 10px;
+  border-top: 1px solid #ddd;
+}
+
+#curriculum .list.box li:first-child {
+  border: none;
+}
+
+#curriculum .list.box a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#curriculum .list.box a:hover {
+  text-decoration: underline;
+  color: #0b5098;
+}
+
+#curriculum .list.box span {
+  display: block;
+  font-size: 14px;
+  color: #666;
+}
+
+#curriculum .list.box .cr_count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 80px;
+  text-align: center;
+}
+
+#curriculum .list.box .cr_end, #curriculum .list.box button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 30px;
+  font-size: 13px;
+}
+
+#curriculum .list.box .cr_end {
+  line-height: 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #eee;
+  text-align: center;
+}
+
+#curriculum .list.box button {
+  background: #0b5098;
+  color: #fff;
+}
+
+#curriculum.cr2 .list.box li {
+  padding: 10px;
 }
 
 /*
@@ -1281,72 +1396,6 @@ body {
 
 .board_wrap.detail .title.box h3:before {
   display: none;
-}
-
-#curriculum.board_wrap .list.box {
-  border-top: 2px solid #333;
-  border-bottom: 1px solid #333;
-}
-
-#curriculum.board_wrap .list.box li {
-  position: relative;
-  padding: 10px 100px 10px 10px;
-  border-top: 1px solid #ddd;
-}
-
-#curriculum.board_wrap .list.box li:first-child {
-  border: none;
-}
-
-#curriculum.board_wrap .list.box a {
-  display: block;
-  margin-bottom: 5px;
-}
-
-#curriculum.board_wrap .list.box a:hover {
-  text-decoration: underline;
-  color: #0b5098;
-}
-
-#curriculum.board_wrap .list.box span {
-  display: block;
-  font-size: 14px;
-  color: #666;
-}
-
-#curriculum.board_wrap .list.box .cr_count {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 80px;
-  text-align: center;
-}
-
-#curriculum.board_wrap .list.box .cr_end, #curriculum.board_wrap .list.box button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 80px;
-  height: 30px;
-  font-size: 13px;
-}
-
-#curriculum.board_wrap .list.box .cr_end {
-  line-height: 28px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 1px solid #ddd;
-  background: #eee;
-  text-align: center;
-}
-
-#curriculum.board_wrap .list.box button {
-  background: #0b5098;
-  color: #fff;
-}
-
-#curriculum.board_wrap.cr2 .list.box li {
-  padding: 10px;
 }
 
 #inform.board_wrap h3 {

@@ -1,66 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.bit.home.model.*,com.bit.lms.model.*,java.util.*" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page import="com.bit.home.model.*, com.bit.lms.model.*, java.util.*" %>
+<!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-	h2.page-title{
-		border-bottom:1px solid #666666;
-		padding-top:20px;
-		padding-bottom:20px;
-		margin-bottom:40px;
-		line-height:50px;
-		color:#222222;
-		font-size:30px;
-	}
-	.table{
-		border-top:2px solid #444444;
-		margin-bottom:25px;
-	}
-	table>tbody>tr>td{
-		border-bottom: 1px solid #ddd;
-		width:1024px;
-	}
-	.paging{
-		width:50%;
-		margin:0px auto;
-		padding:0;
-		list-style:none;
-		font-size:15px;
-		color:#666666;
-	}
-	.paging >a{
-		width:36px;
-		heigth:36px;
-		line-height:35px;
-		text-align: center;
-		margin : 0 3px;
-	}
-	
-</style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/swiper.min.js"></script>
-<link href="../css/swiper.min.css" rel="stylesheet" type="text/css">
-<link href="../css/home.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="shortcut icon" href="/favicon.ico">
-<title>비트캠프 구리센터</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link href="../css/home.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<title>비트캠프 구리센터</title>
 </head>
 <body>
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms"><img alt="비트캠프 구리센터" src="../images/comm/logo.png"></a></h1>
-		<ul id="gnb"><!-- Global Navigation Bar -->
+		<h1><a href="/bitcamp_lms"><img alt="비트캠프 구리센터" src="../images/ico/logo.png"></a></h1>
+		<ul id="gnb">
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
 				<ul>
-					<li><a href="/bitcamp_lms/home/educenter.html">센터 소개</a></li>
+					<li><a href="/bitcamp_lms/home/educenter.html">교육센터 소개</a></li>
 				</ul>
 			</li>
 			<li>
@@ -93,44 +56,69 @@
 	</div>
 </div>
 <div id="container">
-	<div class="container">
-		<h2 class="page-title">모집공고 목록</h2>
-		<button>수강신청 바로가기</button>
-		<div class="table">
-		<table>
-			<tbody>
-			<%
-			ArrayList<EducurriculumDto> list=null;
-			list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
-			
-			for(int i=0; i<list.size(); i++){
-				EducurriculumDto bean=list.get(i);
-			%>
-				<tr>
-					<td><a href="educurridetail.html?idx=<%=bean.getRecr_no()%>"><%=bean.getLec_name() %><br><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %> | <%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></a></td>
-				</tr>
-			<%
-			}
-			%>
-			</tbody>
-		</table>
+	<section class="title_area">
+		<div class="container">
+			<div>
+				<h3>교육과정</h3>
+				<p>IT전문가, 최고의 교육과정을 통해 여러분의 꿈을 지원하는 비트캠프가 되겠습니다.</p>
+			</div>
 		</div>
-		<div class="paging">
-			<jsp:include page="/util/paging.jsp">
-				<jsp:param value="${paging.page}" name="page"/>
-		        <jsp:param value="${paging.beginPage}" name="begin"/>
-		        <jsp:param value="${paging.endPage}" name="end"/>
-		        <jsp:param value="${paging.prev}" name="prev"/>
-		        <jsp:param value="${paging.next}" name="next"/>
-		        <jsp:param value="${paging.totalPage}" name="total"/>
-			</jsp:include>
+	</section>
+	<section id="curriculum" class="content_area">
+		<div class="container">
+			<h2>모집공고</h2>
+			<div class="board_wrap list">
+				<div class="top box">
+					<p>총 게시물 : 000</p>
+				</div>
+				<ul class="list box">
+					<%
+					ArrayList<EducurriculumDto> list=null;
+					list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+					
+					for(int i=0; i<list.size(); i++){
+						EducurriculumDto bean=list.get(i);
+					%>
+					<li>
+						<a href="educurridetail.html?idx=<%= bean.getRecr_no() %>"><%= bean.getLec_name() %></a>
+						<span><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %>　|　<%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></span>
+					</li>
+					<%
+					}
+					%>
+				</ul>
+				<div class="bottom box">
+					<p class="bd_btns"><a href="../lms/login.html">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
+					<!-- <ul class="bd_pages">
+						<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
+						<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
+						<li><a href="">1</a></li>
+						<li><a href="">2</a></li>
+						<li><b>3</b></li>
+						<li><a href="">4</a></li>
+						<li><a href="">5</a></li>
+						<li><a href="" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
+						<li><a href="" class="pg_end"><span class="hidden">마지막 페이지</span></a></li>
+					</ul> -->
+				</div>
+				<div class="paging">
+					<jsp:include page="/util/paging.jsp">
+						<jsp:param value="${paging.page}" name="page"/>
+				        <jsp:param value="${paging.beginPage}" name="begin"/>
+				        <jsp:param value="${paging.endPage}" name="end"/>
+				        <jsp:param value="${paging.prev}" name="prev"/>
+				        <jsp:param value="${paging.next}" name="next"/>
+				        <jsp:param value="${paging.totalPage}" name="total"/>
+					</jsp:include>
+				</div>
+			</div>
 		</div>
-	</div>
+	</section>
 </div>
 <div id="footer">
 	<div class="container">
 		<p class="foot_logo">
-			<img src="../images/comm/logo.png" alt="비트캠프 구리센터">
+			<img src="../images/ico/logo_w.png" alt="비트캠프 구리센터">
 		</p>
 		<div class="foot_info">
 			<p>
