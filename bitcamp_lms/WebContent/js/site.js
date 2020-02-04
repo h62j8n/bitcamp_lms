@@ -314,6 +314,13 @@ function popup() {
 		positionStyle: 'fixed',
 	});
 }
+function popupAttend() {
+	$("#popupAttend").bPopup({
+		closeClass: "btn_off",
+		modalClose: false,
+		positionStyle: 'fixed',
+	});
+}
 /* 팝업 후 로그인페이지*/
 function popupResult() {
 	$("#popup").bPopup({
@@ -450,7 +457,7 @@ $(document).ready(function() {
 	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {
-		popup();
+		popupAttend();
 	});
 	historyBack();
 });

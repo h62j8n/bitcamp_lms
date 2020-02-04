@@ -36,4 +36,11 @@ public class LmsIndexController extends HttpServlet{
 		rd.forward(req, resp);
 		
 	}
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		session.invalidate();//세션갱신
+		resp.sendRedirect("login.html");
+	}
 }

@@ -26,7 +26,7 @@ if(login!=null){
 			<h1><a href="index.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 			<ul class="quick">
 				<li><a href="lock.html"><i class="xi-profile-o"></i></a></li>
-				<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
+				<li><button type="button" class="btn_logout" onclick="popup()"><i class="xi-log-out"></i></button></li>
 			</ul>
 		</div>
 	</div>
@@ -169,7 +169,7 @@ if(login!=null){
 		</div>
 	</div>
 </div>
-<div id="popup">
+<div id="popupAttend">
 	<p class="alert">
 		현재 시간 : [2020년 01월 01일 08:59:00]<br>
 		입/퇴실 체크하시겠습니까?<br>
@@ -178,6 +178,17 @@ if(login!=null){
 	<div class="btns">
 		<button type="button" class="btn_off yes">확인</button>
 		<button type="button" class="btn_off no">확인</button>
+	</div>
+</div>
+<div id="popup">
+	<p class="alert">
+		로그아웃 하시겠습니까?
+	</p>
+	<div class="btns">
+		<form method="POST">
+			<button type="submit" class="yes">예</button>
+			<button type="button" class="btn_off no">아니오</button>
+		</form>
 	</div>
 </div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
