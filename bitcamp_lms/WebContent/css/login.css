@@ -588,6 +588,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
+#curriculum.cr2 .list.box li {
+  padding: 10px;
+}
+
 /* header , footer */
 #header {
   text-align: center;

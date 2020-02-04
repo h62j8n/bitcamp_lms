@@ -588,6 +588,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
+#curriculum.cr2 .list.box li {
+  padding: 10px;
+}
+
 /* header */
 #header {
   position: relative;
@@ -867,7 +871,7 @@ input[type=checkbox]:checked + label:after {
 }
 
 .content_area {
-  margin: 50px 0 80px;
+  margin: 50px auto 80px;
 }
 
 .content_area h2 {
@@ -878,13 +882,49 @@ input[type=checkbox]:checked + label:after {
   font-size: 26px;
 }
 
+.content_area .container {
+  width: 800px;
+}
+
 #center .img_wrap {
   margin-top: 80px;
   text-align: center;
 }
 
+#center img {
+  max-width: 100%;
+}
+
 .board_wrap.list .table.box td a {
   max-width: 775px;
+}
+
+#curriculum .cr2 .list.box li {
+  padding: 10px;
+}
+
+#curriculum .bottom.box .bd_btns {
+  overflow: visible;
+}
+
+#curriculum .bottom.box .bd_btns:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#curriculum .bottom.box .bd_btns button {
+  float: right;
+  width: 200px;
+  height: 40px;
+  border-radius: 40px;
+  -webkit-box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 2px 5px 1px rgba(0, 0, 0, 0.3);
+  background: #0b5098;
+  border: none;
+  font-family: "noto-sans-scott-m";
+  font-size: 16px;
+  color: #fff;
 }
 
 #recruit.board_wrap.list .table.box th:nth-child(1) {

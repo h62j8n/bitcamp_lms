@@ -589,6 +589,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
+#curriculum.cr2 .list.box li {
+  padding: 10px;
+}
+
 /*
 ---------------------------------------------------------------
 *
@@ -1343,10 +1347,6 @@ body {
 
 .board_wrap.detail .title.box h3:before {
   display: none;
-}
-
-#curriculum.board_wrap.cr2 .list.box li {
-  padding: 10px;
 }
 
 #inform.board_wrap h3 {
