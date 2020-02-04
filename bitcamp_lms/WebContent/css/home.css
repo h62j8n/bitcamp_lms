@@ -526,6 +526,68 @@ input[type=checkbox]:checked + label:after {
   float: left;
 }
 
+#curriculum .list.box {
+  border-top: 2px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+#curriculum .list.box li {
+  position: relative;
+  padding: 10px 100px 10px 10px;
+  border-top: 1px solid #ddd;
+}
+
+#curriculum .list.box li:first-child {
+  border: none;
+}
+
+#curriculum .list.box a {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#curriculum .list.box a:hover {
+  text-decoration: underline;
+  color: #0b5098;
+}
+
+#curriculum .list.box span {
+  display: block;
+  font-size: 14px;
+  color: #666;
+}
+
+#curriculum .list.box .cr_count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 80px;
+  text-align: center;
+}
+
+#curriculum .list.box .cr_end, #curriculum .list.box button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 80px;
+  height: 30px;
+  font-size: 13px;
+}
+
+#curriculum .list.box .cr_end {
+  line-height: 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 1px solid #ddd;
+  background: #eee;
+  text-align: center;
+}
+
+#curriculum .list.box button {
+  background: #0b5098;
+  color: #fff;
+}
+
 /* header */
 #header {
   position: relative;
