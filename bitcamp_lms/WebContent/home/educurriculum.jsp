@@ -68,20 +68,25 @@
 		<div class="container">
 			<h2>모집공고</h2>
 			<div class="board_wrap list">
+				<%
+				ArrayList<EducurriculumDto> list=null;
+				list = (ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+				%>
 				<div class="top box">
 					<p>총 게시물 : 000</p>
 				</div>
 				<ul class="list box">
 					<%
-					ArrayList<EducurriculumDto> list=null;
-					list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
-					
 					for(int i=0; i<list.size(); i++){
 						EducurriculumDto bean=list.get(i);
 					%>
 					<li>
 						<a href="educurridetail.html?idx=<%= bean.getRecr_no() %>"><%= bean.getLec_name() %></a>
-						<span><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %>　|　<%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></span>
+						<span>
+							<%= bean.getLec_start() %> ~ <%=bean.getLec_end() %>　|　
+							<%= bean.getRecr_count() %>
+						</span>
+						<span class="cr_count">모집인원<br>(<%= bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %>)</span>
 					</li>
 					<%
 					}
