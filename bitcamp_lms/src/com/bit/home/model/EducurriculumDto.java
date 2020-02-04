@@ -10,6 +10,8 @@ public class EducurriculumDto {
 	private Date recr_date;
 	private String lec_code;
 	private String lec_name;
+	private Date lec_start;
+	private Date lec_end;
 	private Date lec_appl_start;
 	private Date lec_appl_end;
 	private int lec_lecnum;
@@ -25,7 +27,22 @@ public class EducurriculumDto {
 	public void setLec_name(String lec_name) {
 		this.lec_name = lec_name;
 	}
+	public Date getLec_start() {
+		return lec_start;
+	}
 
+	public void setLec_start(Date lec_start) {
+		this.lec_start = lec_start;
+	}
+
+	public Date getLec_end() {
+		return lec_end;
+	}
+
+	public void setLec_end(Date lec_end) {
+		this.lec_end = lec_end;
+	}
+	
 	public Date getLec_appl_start() {
 		return lec_appl_start;
 	}

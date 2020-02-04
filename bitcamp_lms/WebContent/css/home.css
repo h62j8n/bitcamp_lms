@@ -480,6 +480,12 @@ input[type=checkbox]:checked + label:after {
   color: #0b5098;
 }
 
+.board_wrap.list .table.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
+}
+
 .board_wrap.detail .title.box, .board_wrap.detail .content.box {
   padding: 10px;
   -webkit-box-sizing: border-box;
@@ -637,8 +643,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
-#curriculum.cr2 .list.box li {
-  padding: 10px;
+#curriculum .list.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
 }
 
 /* header */
@@ -919,6 +927,54 @@ input[type=checkbox]:checked + label:after {
   font-family: "noto-sans-scott-l";
 }
 
+.lnb_area {
+  background: #083c72;
+}
+
+.lnb_area ul {
+  display: table;
+  margin: 0 auto;
+}
+
+.lnb_area li {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-family: "noto-sans-scott-l";
+}
+
+.lnb_area li:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: 0;
+  bottom: 0;
+  background: #0b5098;
+  -webkit-transition: height .2s linear;
+  transition: height .2s linear;
+}
+
+.lnb_area li:hover:before {
+  height: 50px;
+}
+
+.lnb_area li.on {
+  background: #0b5098;
+  font-family: "noto-sans-scott-r";
+}
+
+.lnb_area a {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 50px;
+  color: #fff;
+  z-index: 1;
+}
+
 .content_area {
   margin: 50px auto 80px;
 }
@@ -948,8 +1004,13 @@ input[type=checkbox]:checked + label:after {
   max-width: 775px;
 }
 
-#curriculum .cr2 .list.box li {
-  padding: 10px;
+#curriculum .list.box .cr_count {
+  top: 50%;
+  height: 38px;
+  line-height: 1.3em;
+  margin-top: -19px;
+  overflow: hidden;
+  color: #333;
 }
 
 #curriculum .bottom.box .bd_btns {

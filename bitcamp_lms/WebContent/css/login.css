@@ -480,6 +480,12 @@ input[type=checkbox]:checked + label:after {
   color: #0b5098;
 }
 
+.board_wrap.list .table.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
+}
+
 .board_wrap.detail .title.box, .board_wrap.detail .content.box {
   padding: 10px;
   -webkit-box-sizing: border-box;
@@ -637,8 +643,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
-#curriculum.cr2 .list.box li {
-  padding: 10px;
+#curriculum .list.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
 }
 
 /* header , footer */

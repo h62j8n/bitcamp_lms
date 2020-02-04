@@ -1,68 +1,29 @@
-<%@page import="java.util.ArrayList,com.bit.home.model.HireDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList,com.bit.home.model.HireDto" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<style type="text/css">
-	h2.page-title{
-		border-bottom:1px solid #666666;
-		padding-bottom:20px;
-		margin-bottom:40px;
-		line-height:50px;
-		color:#222222;
-		font-size:30px;
-	}
-	.table{
-		border-top:2px solid #444444;
-		margin-bottom:25px;
-	}
-	table>tbody>tr>td{
-		border-bottom: 1px solid #ddd;
-		width:1024px;
-	}
-	table>tbody>tr>th{
-		border-bottom: 1px solid #ddd;
-	}
-	.paging{
-		width:100px;
-		margin:0px auto;
-		padding:0;
-		list-style:none;
-		font-size:15px;
-		color:#666666;
-	}
-	.paging >a{
-		width:36px;
-		heigth:36px;
-		line-height:35px;
-		text-align: center;
-		margin : 0 3px;
-	}
-	
-</style>
-<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-<script type="text/javascript" src="../js/main.js"></script>
-<script type="text/javascript" src="../js/swiper.min.js"></script>
-<link href="../css/swiper.min.css" rel="stylesheet" type="text/css">
-<link href="../css/home.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-<link rel="shortcut icon" href="/favicon.ico">
-<title>비트캠프 구리센터</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+	<link href="../css/home.css" rel="stylesheet" type="text/css">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<title>비트캠프 구리센터</title>
 </head>
 <body>
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms"><img src="../images/comm/logo.png" alt="비트캠프 구리센터"></a></h1>
-		<ul id="gnb"><!-- Global Navigation Bar -->
+		<h1><a href="/bitcamp_lms"><img src="../images/ico/logo.png" alt="비트캠프 구리센터"></a></h1>
+		<ul id="gnb">
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
 				<ul>
-					<li><a href="/bitcamp_lms/home/educenter.html">센터 소개</a></li>
+					<li><a href="/bitcamp_lms/home/educenter.html">교육센터 소개</a></li>
 				</ul>
 			</li>
 			<li>
@@ -95,53 +56,91 @@
 	</div>
 </div>
 <div id="container">
-	<div class="container">
-		<h2 class="page-title">채용공고 목록</h2>
-		<div class="table">
-			<table>
-				<tbody>
-					<tr>
-						<th>번호</th>
-						<th>업체명</th>
-						<th>지역</th>
-						<th>모집인원</th>
-						<th>고용형태</th>
-						<th>마감날짜</th>
-					</tr>
-					<%
-					ArrayList<HireDto> list=null;
-					list=(ArrayList<HireDto>)request.getAttribute("hirelist");
-					for(int i=0; i<list.size(); i++){
-						HireDto bean=list.get(i);
-					%>
-					<tr>
-						<td align="center"><%=bean.getJob_no()%></td>
-						<td align="center"><a href="hiredetail.html?idx=<%=bean.getJob_no()%>"><%=bean.getJob_compname() %></a></td>
-						<td align="center"><%=bean.getJob_loc()%></td>
-						<td align="center"><%=bean.getJob_recrnum()%></td>
-						<td align="center"><%=bean.getJob_emptype()%></td>
-						<td align="center"><%=bean.getJob_enddate()%></td>
-					</tr>
-					<%} %>
-				</tbody>
-			</table>
-			<div class="paging">
-			<jsp:include page="/util/paging.jsp">
-				<jsp:param value="${paging.page}" name="page"/>
-		        <jsp:param value="${paging.beginPage}" name="begin"/>
-		        <jsp:param value="${paging.endPage}" name="end"/>
-		        <jsp:param value="${paging.prev}" name="prev"/>
-		        <jsp:param value="${paging.next}" name="next"/>
-			</jsp:include>
+	<section class="title_area">
+		<div class="container">
+			<div>
+				<h3>취업지원</h3>
+				<p>전문 역량을 가진 취업 조직을 활용한 체계적인 맞춤 취업 지원</p>
 			</div>
-			<br>
 		</div>
-	</div>
+	</section>
+	<section class="content_area">
+		<div class="container">
+			<h2>채용공고</h2>
+			<div id="recruit" class="board_wrap list">
+				<%
+				ArrayList<HireDto> list=null;
+				list=(ArrayList<HireDto>)request.getAttribute("hirelist");
+				%>
+				<div class="top box">
+					<p>총 게시물 : <%= String.format("%03d", list.size()) %></p>
+				</div>
+				<table class="table box">
+					<tbody>
+						<tr>
+							<th>번호</th>
+							<th>업체명</th>
+							<th>지역</th>
+							<th>모집인원</th>
+							<th>고용형태</th>
+							<th>마감날짜</th>
+						</tr>
+						<%
+						if (list.size() > 0) {
+							for(int i=0; i<list.size(); i++){
+								HireDto bean=list.get(i);
+						%>
+						<tr>
+							<td><%= bean.getJob_no() %></td>
+							<td><a href="hiredetail.html?idx=<%= bean.getJob_no() %>"><%=bean.getJob_compname() %></a></td>
+							<td><%= bean.getJob_loc()%></td>
+							<td><%= bean.getJob_recrnum() %></td>
+							<td><%= bean.getJob_emptype() %></td>
+							<td><%= bean.getJob_enddate() %></td>
+						</tr>
+						<%
+							}
+						} else {
+						%>
+						<tr>
+							<td class="bd_empty" colspan="6">등록된 게시물이 없습니다.</td>
+						</tr>
+						<%
+						}
+						%>
+					</tbody>
+				</table>
+				<div class="bottom box">
+					<!-- <ul class="bd_pages">
+						<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
+						<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
+						<li><a href="">1</a></li>
+						<li><a href="">2</a></li>
+						<li><b>3</b></li>
+						<li><a href="">4</a></li>
+						<li><a href="">5</a></li>
+						<li><a href="" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
+						<li><a href="" class="pg_end"><span class="hidden">마지막 페이지</span></a></li>
+					</ul> -->
+				</div>
+				<div class="paging">
+					<jsp:include page="/util/paging.jsp">
+						<jsp:param value="${paging.page}" name="page"/>
+				        <jsp:param value="${paging.beginPage}" name="begin"/>
+				        <jsp:param value="${paging.endPage}" name="end"/>
+				        <jsp:param value="${paging.prev}" name="prev"/>
+				        <jsp:param value="${paging.next}" name="next"/>
+				        <jsp:param value="${paging.totalPage}" name="total"/>
+					</jsp:include>
+				</div>
+			</div>
+		</div>
+	</section>
 </div>
 <div id="footer">
 	<div class="container">
 		<p class="foot_logo">
-			<img src="../images/comm/logo.png" alt="비트캠프 구리센터">
+			<img src="../images/ico/logo_w.png" alt="비트캠프 구리센터">
 		</p>
 		<div class="foot_info">
 			<p>

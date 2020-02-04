@@ -18,7 +18,7 @@
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms"><img alt="비트캠프 구리센터" src="../images/ico/logo.png"></a></h1>
+		<h1><a href="/bitcamp_lms"><img src="../images/ico/logo.png" alt="비트캠프 구리센터"></a></h1>
 		<ul id="gnb">
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
@@ -73,21 +73,27 @@
 				list = (ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
 				%>
 				<div class="top box">
-					<p>총 게시물 : 000</p>
+					<p>총 게시물 : <%= String.format("%03d", list.size()) %></p>
 				</div>
 				<ul class="list box">
 					<%
-					for(int i=0; i<list.size(); i++){
-						EducurriculumDto bean=list.get(i);
+					if (list.size() > 0) {
+						for(int i=0; i<list.size(); i++){
+							EducurriculumDto bean=list.get(i);
 					%>
 					<li>
 						<a href="educurridetail.html?idx=<%= bean.getRecr_no() %>"><%= bean.getLec_name() %></a>
 						<span>
 							<%= bean.getLec_start() %> ~ <%=bean.getLec_end() %>　|　
-							<%= bean.getRecr_count() %>
+							<%= String.format("%03d", bean.getRecr_count()) %>
 						</span>
 						<span class="cr_count">모집인원<br>(<%= bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %>)</span>
 					</li>
+					<%
+						}
+					} else {
+					%>
+					<li class="bd_empty">등록된 게시물이 없습니다.</li>
 					<%
 					}
 					%>

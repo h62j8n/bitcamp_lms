@@ -17,7 +17,7 @@
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms"><img alt="비트캠프 구리센터" src="../images/ico/logo.png"></a></h1>
+		<h1><a href="/bitcamp_lms"><img src="../images/ico/logo.png" alt="비트캠프 구리센터"></a></h1>
 		<ul id="gnb"><!-- Global Navigation Bar -->
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
