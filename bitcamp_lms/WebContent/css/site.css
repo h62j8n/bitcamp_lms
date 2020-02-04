@@ -1140,11 +1140,11 @@ body {
 }
 
 .dashboard_wrap .attend.box dd button.in:hover {
-  background: #ba0000;
+  background: #b10000;
 }
 
 .dashboard_wrap .attend.box dd button.out {
-  background: #0b5098;
+  background: #7030a0;
 }
 
 .dashboard_wrap .attend.box dd button.out span:before {
@@ -1152,7 +1152,7 @@ body {
 }
 
 .dashboard_wrap .attend.box dd button.out:hover {
-  background: #094b90;
+  background: #6a2d97;
 }
 
 .dashboard_wrap .board.box ul .bd_empty {
@@ -1226,12 +1226,18 @@ body {
   margin: 0;
 }
 
+.dashboard_wrap .status.box li:first-child .progress {
+  background-color: #0098ca;
+  background-image: linear-gradient(145deg, #43c6f1 0%, #0f4d75 50%, #43c6f1 100%);
+}
+
 .dashboard_wrap .status.box .progress {
   position: relative;
   width: 100%;
   height: 20px;
   margin-top: 5px;
-  background: red;
+  background-color: #00be8b;
+  background-image: linear-gradient(145deg, #1feab4 0%, #1d8468 50%, #1feab4 100%);
   overflow: hidden;
 }
 
@@ -1622,11 +1628,11 @@ body {
 }
 
 #my.board_wrap.attend .table.box .atd_status1 {
-  background: #0070c0;
+  background: #0098ca;
 }
 
 #my.board_wrap.attend .table.box .atd_status2 {
-  background: #009d47;
+  background: #00be8b;
 }
 
 #my.board_wrap.attend .table.box .atd_status3 {

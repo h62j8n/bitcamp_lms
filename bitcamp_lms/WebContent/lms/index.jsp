@@ -14,6 +14,7 @@ if(login!=null){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/util.js"></script>
 	<script type="text/javascript" src="../js/site.js"></script>
 	<link href="../css/site.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
@@ -36,13 +37,13 @@ if(login!=null){
 				<ul>
 					<li>
 						<a href="mycurriculum.html?no=${login.mbNo }">
-							<i class="xi-emoticon"></i>
+							<i class="xi-book-o"></i>
 							<span>나의 교육과정</span>
 						</a>
 					</li>
 					<li>
 						<a href="">
-							<i class="xi-book-o"></i>
+							<i class="xi-calendar-check"></i>
 							<span>나의 출결현황</span>
 						</a>
 					</li>
@@ -54,7 +55,7 @@ if(login!=null){
 					</li>
 					<li>
 						<a href="teachernotice.html">
-							<i class="xi-info-o"></i>
+							<i class="xi-list-square"></i>
 							<span>강의실 공지사항</span>
 						</a>
 					</li>
@@ -76,14 +77,13 @@ if(login!=null){
 							<p class="btn_go"><a href="lock.html">내 정보 수정 <i class="xi-arrow-right"></i></a></p>
 						</div>
 						<div class="class box">
-						
 							<h3>나의 교육과정</h3>
 							<div>
 								<p class="status">과정 진행 중</p>
 								<p>${mycurriculum.lec_name }</p>
 								<p>${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</p>
-								<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 							</div>
+							<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 						</div>
 						<div class="attend box">
 							<h3>오늘의 출결관리</h3>
@@ -120,11 +120,11 @@ if(login!=null){
 								<ul>
 									<li>
 										나의 출석률 (<span>45.2</span>%)
-										<p></p>
+										<p class="progress"><b></b></p>
 									</li>
 									<li>
 										과정 진행률 (<span>51.4</span>%)
-										<p></p>
+										<p class="progress"><b></b></p>
 									</li>
 								</ul>
 							</div>
