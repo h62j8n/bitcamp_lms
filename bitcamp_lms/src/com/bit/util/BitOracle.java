@@ -8,7 +8,7 @@ public class BitOracle {
 	
 	private static Connection conn;                                         
 	private final static String driver = "oracle.jdbc.OracleDriver";        
-	private final static String url = "jdbc:oracle:thin:@192.168.3.8:1521:xe";
+	private final static String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	private final static String user = "hr";                             
 	private final static String password = "hr";                         
 	
