@@ -20,12 +20,8 @@
 				<h1><a href="../lms"><img src="../images/ico/logo_big.png" alt="" width="300"></a></h1>
 			</div>
 			<div id="container">
-				<form class="form_join" method="post">
+				<form class="form_join" method="post" id="formFindpw" onsubmit="return validationFindpw1()">
 					<h2>비밀번호 찾기/변경</h2>
-					<input type="hidden" id="hiddenfindpw" value="${findpwID.id }">
-					<input type="hidden" id="hiddenfindpwID" value="${param.result_id }">
-					<input type="hidden" id="hiddenfindpwQA" value="${param.result_qa }">
-					<input type="hidden" id="hiddenfindpwPW" value="${param.result_pw }">
 					<ul class="list_ipts">
 						<li>
 							<label for="logId" class="hidden">아이디(이메일)</label>
@@ -36,11 +32,18 @@
 							<label for="logQuest" class="hidden">비밀번호 확인 질문</label>
 							<select id="logQuest" name="findpw_question">
 								<option value="">비밀번호 확인 질문</option>
+								<option value="자신의 인생 좌우명은?">자신의 인생 좌우명은?</option>
+								<option value="자신이 두번째로 존경하는 인물은?">자신이 두번째로 존경하는 인물은?</option>
+								<option value="인상 깊게 읽은 책 이름은?">인상 깊게 읽은 책 이름은?</option>
+								<option value="내가 좋아하는 캐릭터는?">내가 좋아하는 캐릭터는?</option>
+								<option value="다시 태어나면 되고 싶은 것은?">다시 태어나면 되고 싶은 것은?</option>
 							</select>
+							<p class="msg err"></p>
 						</li>
 						<li class="step2">
 							<label for="logAnswer" class="hidden">비밀번호 확인 답변</label>
 							<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변" name="findpw_answer">
+							<p class="msg err"></p>
 						</li>
 						<li class="step3">
 							<label for="logPw1" class="hidden">비밀번호</label>
@@ -55,16 +58,17 @@
 					</ul>
 					<p class="msg err"></p>
 					<ul class="list_btns">
-						<li><button type="button" onclick="history.back(-1);">취소</button></li>
+						<li><button type="button" onclick="location.href='login.html'">취소</button></li>
 						<li><button type="submit">확인</button></li>
 					</ul>
+					<input type="hidden" id="hiddenfindpw" value="${findpwID.id }">
+					<input type="hidden" id="hiddenfindpwID" value="${param.result_id }">
+					<input type="hidden" id="hiddenfindpwQA" value="${param.result_qa }">
+					<input type="hidden" id="hiddenfindpwPW" value="${param.result_pw }">
 				</form>
 			</div>
 		</div>
 	</div>
-	<button class="btn_pop">팝업창</button>
-	<button onclick="step2()">step2</button>
-	<button onclick="step3()">step3</button>
 	<div id="footer">
 		<p>Copyright &copy; 비트캠프 All rights reserved.</p>
 	</div>

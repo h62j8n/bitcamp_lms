@@ -44,22 +44,16 @@ public class JoinController extends HttpServlet{
 		JoinDto beanId=dao.selectID(id);
 		session.setAttribute("dupliId", beanId);
 		System.out.println(beanId.getCnt());
-		System.out.println("1");
 		if(beanId.getCnt()<=0){
-			System.out.println("2");
 			int result=dao.insertJoin(name, id, pw, tel, question, answer);
 			if(result>0){
-				System.out.println("3");
 				JoinDto beanName=dao.selectOne(name);
 				session.setAttribute("joinName", beanName);
 				resp.sendRedirect("join.html?result="+result);
 			}else{
-				System.out.println("4");
-				//유효성 검사 후 삭제?
 				resp.sendRedirect("join.html?result="+result);
 			}
 		}else{
-			System.out.println("5");
 			resp.sendRedirect("join.html");
 		}
 	}

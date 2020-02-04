@@ -50,7 +50,7 @@
 					<li>
 						<label for="logQuest" class="hidden">비밀번호 확인 질문</label>
 						<select id="logQuest" name="join_question">
-							<option value="x">비밀번호 확인 질문</option>
+							<option value="">비밀번호 확인 질문</option>
 							<option value="자신의 인생 좌우명은?">자신의 인생 좌우명은?</option>
 							<option value="자신이 두번째로 존경하는 인물은?">자신이 두번째로 존경하는 인물은?</option>
 							<option value="인상 깊게 읽은 책 이름은?">인상 깊게 읽은 책 이름은?</option>

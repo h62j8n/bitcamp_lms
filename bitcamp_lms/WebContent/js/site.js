@@ -33,10 +33,17 @@ function termsView() {
 /* 유효성검사 */
 function validation() {
 	var id = $("#logId"),
-		pwAll = $("input[type=password]");
+		pwAll = $("input[type=password]"),
 		pw1 = $("#logPw1"),
-		pw2 = $("#logPw2");
-	
+		pw2 = $("#logPw2"),
+		tel= $("#logNum"),
+		quest = $("#logQuest"),
+		answer = $("#logAnswer"),
+		name1 = $("#logName"),
+		ch1= $("#logTerms1"),
+		ch2= $("#logTerms2");
+		
+		
 	function msgInit(tooltip) {
 		tooltip.text("");
 		tooltip.css("opacity", 0);
@@ -102,7 +109,7 @@ function validation() {
 	quest.on("change", function(){
 		var tooltip = $(this).siblings(".msg");
 		var value = quest.val();
-		if (value == "x") {
+		if (value == "") {
 			tooltip.text("질문을 선택해주세요.");
 			tooltip.css("opacity", 1);
 		} else {
@@ -174,7 +181,7 @@ function validJoin() {
 		tooltip.css("opacity", 1);
 		return false;
 	}
-	if(jquest.val() == "x"){
+	if(jquest.val() == ""){
 		var tooltip = jquest.siblings(".msg");
 		tooltip.text("질문을 선택해주세요");
 		tooltip.css("opacity", 1);
@@ -209,6 +216,51 @@ function validationFindid() {
 	if(!re.test(tel.val())){
 		var tooltip = tel.siblings(".msg");
 		tooltip.text("연락처 형식이 올바르지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+}
+
+/* 비밀번호찾기 submit*/
+function validationFindpw1(){
+	var id = $("#logId");
+	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+	if(!re.test(id.val())){
+		var tooltip = id.siblings(".msg");
+		tooltip.text("이메일주소 형식이 올바르지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+}
+function validationFindpw2(){
+    var	quest = $("#logQuest"),
+		answer = $("#logAnswer");
+	if(quest.val() == ""){
+		var tooltip = quest.siblings(".msg");
+		tooltip.text("질문을 선택해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(answer.val() == ""){
+		var tooltip = answer.siblings(".msg");
+		tooltip.text("답변을 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+}
+function validationFindpw3(){
+	var pw1= $("#logPw1"),
+		pw2= $("#logPw2");
+	var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+	if(!re.test(pw1.val())){
+		var tooltip = pw1.siblings(".msg");
+		tooltip.text("8~20자 영문과 숫자를 조합한 비밀번호를 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(pw1.val() != pw2.val()){
+		var tooltip = pw2.siblings(".msg");
+		tooltip.text("비밀번호가 일치하지 않습니다.");
 		tooltip.css("opacity", 1);
 		return false;
 	}
@@ -308,16 +360,35 @@ $(document).ready(function() {
 		popupResult();
 	}
 	/* 비밀번호 찾기*/
-	if($("#hiddenfindpwID").val == "1"){
-		("#logId").val("#hiddenfindpw".val());
+	if($("#hiddenfindpwID").val() == "1"){
+		$("#formFindpw").attr("onsubmit", "return validationFindpw2()");
+		$("#logId").val($("#hiddenfindpw").val());
 		$(".step2").slideDown(300);
 		$("#logId").addClass("block").prop("readonly", true);
+	}else if($("#hiddenfindpwID").val() == "0"){
+		var tooltip = $("#logId").siblings(".msg");
+		tooltip.text("가입되지 않은 이메일입니다. 다시 입력해주세요.");
+		tooltip.css("opacity", 1);
 	}
-	if($("#hiddenfindpwPW").val == "1"){
+	if($("#hiddenfindpwQA").val() == "1"){
+		$("#formFindpw").attr("onsubmit", "return validationFindpw3()");
+		$("#logId").val($("#hiddenfindpw").val());
+		$(".step2").slideDown(300);
+		$("#logId").addClass("block").prop("readonly", true);
 		$(".step2").slideUp(300);
 		$(".step3").slideDown(300);
+	}else if($("#hiddenfindpwQA").val() == "0"){
+		$("#formFindpw").attr("onsubmit", "return validationFindpw2()");
+		$("#logId").val($("#hiddenfindpw").val());
+		$(".step2").slideDown(300);
+		$("#logId").addClass("block").prop("readonly", true);
+		var tooltip = $("#logAnswer").siblings(".msg");
+		tooltip.text("질문 또는 답변이 일치하지 않습니다. 다시 입력해주세요.");
+		tooltip.css("opacity", 1);
 	}
-
+	if($("#hiddenfindpwPW").val() == "1"){
+		popupResult();
+	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {
 		popup();
