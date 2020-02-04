@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.bit.lms.model.LoginDto" %>
+<%
+LoginDto login =(LoginDto)session.getAttribute("login");
+if(login!=null){
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -19,7 +24,7 @@
 			<h1><a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 			<ul class="quick">
 				<li><a href="lock.html"><i class="xi-profile-o"></i></a></li>
-				<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
+				<li><button type="button" class="btn_logout" onclick="popup()"><i class="xi-log-out"></i></button></li>
 			</ul>
 		</div>
 	</div>
@@ -102,3 +107,8 @@
 </div>
 </body>
 </html>
+<%
+}else{
+	response.sendRedirect("login.html?msg=AccessDenied");
+}
+%>
