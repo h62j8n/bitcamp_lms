@@ -412,8 +412,10 @@ input[type=checkbox]:checked + label:after {
   background-image: url(../images/ico/shp_end.png);
 }
 
-.board_wrap .bd_btns {
-  overflow: hidden;
+.board_wrap .bd_btns:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .board_wrap .bd_btns a, .board_wrap .bd_btns button {

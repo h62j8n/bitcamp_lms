@@ -411,8 +411,10 @@ input[type=checkbox]:checked + label:after {
   background-image: url(../images/ico/shp_end.png);
 }
 
-.board_wrap .bd_btns {
-  overflow: hidden;
+.board_wrap .bd_btns:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .board_wrap .bd_btns a, .board_wrap .bd_btns button {
@@ -1005,7 +1007,7 @@ input[type=checkbox]:checked + label:after {
   max-width: 775px;
 }
 
-#curriculum .list.box .cr_count {
+#curriculum.list .list.box .cr_count {
   top: 50%;
   height: 38px;
   line-height: 1.3em;
@@ -1014,18 +1016,22 @@ input[type=checkbox]:checked + label:after {
   color: #333;
 }
 
-#curriculum .bottom.box .bd_btns {
+#curriculum .bottom.box p.bd_btns {
   overflow: visible;
 }
 
-#curriculum .bottom.box .bd_btns:after {
+#curriculum .bottom.box p.bd_btns:after {
   content: "";
   display: table;
   clear: both;
 }
 
-#curriculum .bottom.box .bd_btns a {
+#curriculum .bottom.box p.bd_btns a {
   float: right;
+}
+
+#curriculum .btn_go {
+  display: block;
   width: 200px;
   height: 40px;
   line-height: 40px;
@@ -1044,11 +1050,11 @@ input[type=checkbox]:checked + label:after {
 }
 
 #recruit.board_wrap.list .table.box th:nth-child(3), #recruit.board_wrap.list .table.box th:nth-child(4), #recruit.board_wrap.list .table.box th:nth-child(5) {
-  width: 100px;
+  width: 110px;
 }
 
 #recruit.board_wrap.list .table.box th:nth-child(6) {
-  width: 120px;
+  width: 150px;
 }
 
 #recruit.board_wrap.list .table.box td {
@@ -1056,7 +1062,7 @@ input[type=checkbox]:checked + label:after {
 }
 
 #recruit.board_wrap.list .table.box td a {
-  max-width: 525px;
+  max-width: 240px;
 }
 
 #container .banner_area {

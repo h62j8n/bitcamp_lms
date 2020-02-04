@@ -67,7 +67,7 @@
 	<section id="curriculum" class="content_area">
 		<div class="container">
 			<h2>모집공고</h2>
-			<div class="board_wrap list">
+			<div class="board_wrap">
 				<%
 				ArrayList<EducurriculumDto> list=null;
 				list = (ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
@@ -99,7 +99,7 @@
 					%>
 				</ul>
 				<div class="bottom box">
-					<p class="bd_btns"><a href="../lms/login.html">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
+					<p class="bd_btns"><a href="../lms/login.html" class="btn_go">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
 					<ul class="bd_pages">
 						<jsp:include page="/util/paging.jsp">
 							<jsp:param value="${paging.page}" name="page"/>

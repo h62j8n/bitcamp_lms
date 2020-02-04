@@ -27,6 +27,7 @@ public class EducurriculumDto {
 	public void setLec_name(String lec_name) {
 		this.lec_name = lec_name;
 	}
+	
 	public Date getLec_start() {
 		return lec_start;
 	}

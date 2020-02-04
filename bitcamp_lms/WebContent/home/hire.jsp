@@ -83,7 +83,7 @@
 							<th>지역</th>
 							<th>모집인원</th>
 							<th>고용형태</th>
-							<th>마감날짜</th>
+							<th>모집마감</th>
 						</tr>
 						<%
 						if (list.size() > 0) {
@@ -94,7 +94,7 @@
 							<td><%= bean.getJob_no() %></td>
 							<td><a href="hiredetail.html?idx=<%= bean.getJob_no() %>"><%=bean.getJob_compname() %></a></td>
 							<td><%= bean.getJob_loc()%></td>
-							<td><%= bean.getJob_recrnum() %></td>
+							<td><%= bean.getJob_recrnum() %> 명</td>
 							<td><%= bean.getJob_emptype() %></td>
 							<td><%= bean.getJob_enddate() %></td>
 						</tr>
