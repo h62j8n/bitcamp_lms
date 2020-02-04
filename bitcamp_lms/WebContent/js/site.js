@@ -460,7 +460,17 @@ $(document).ready(function() {
 		popupAttend();
 	});
 	historyBack();
+	pagination();
 });
+
+/* 페이지네이션 */
+function pagination() {
+	var pg = $(".bd_pages").find("li"),
+		pgNum = pg.length;
+	if (pgNum < 2) {
+		pg.hide();
+	}
+}
 
 /* datepicker */
 function datepick() {

@@ -100,27 +100,16 @@
 				</ul>
 				<div class="bottom box">
 					<p class="bd_btns"><a href="../lms/login.html">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
-					<!-- <ul class="bd_pages">
-						<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
-						<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><b>3</b></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li><a href="" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
-						<li><a href="" class="pg_end"><span class="hidden">마지막 페이지</span></a></li>
-					</ul> -->
-				</div>
-				<div class="paging">
-					<jsp:include page="/util/paging.jsp">
-						<jsp:param value="${paging.page}" name="page"/>
-				        <jsp:param value="${paging.beginPage}" name="begin"/>
-				        <jsp:param value="${paging.endPage}" name="end"/>
-				        <jsp:param value="${paging.prev}" name="prev"/>
-				        <jsp:param value="${paging.next}" name="next"/>
-				        <jsp:param value="${paging.totalPage}" name="total"/>
-					</jsp:include>
+					<ul class="bd_pages">
+						<jsp:include page="/util/paging.jsp">
+							<jsp:param value="${paging.page}" name="page"/>
+							<jsp:param value="${paging.beginPage}" name="begin"/>
+							<jsp:param value="${paging.endPage}" name="end"/>
+							<jsp:param value="${paging.prev}" name="prev"/>
+							<jsp:param value="${paging.next}" name="next"/>
+							<jsp:param value="${paging.totalPage}" name="total"/>
+						</jsp:include>
+					</ul>
 				</div>
 			</div>
 		</div>
