@@ -44,28 +44,34 @@ if(login!=null){
 							<p>총 게시물 : 000</p>
 						</div>
 						<ul class="list box">
-						<%
-						ArrayList<EducurriculumDto> list=null;
-						list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
-						
-						for(int i=0; i<list.size(); i++){
-							EducurriculumDto bean=list.get(i);
-						%>
+						<%-- <c:forEach items="${alist }" var="bean">
 							<li>
-								<a href="">${list.lec_name }</a>
-								<span>2020. 01. 01 ~ 2020. 01. 02　|　000</span>
+								<a href="">${bean.lec_name }</a>
+								<span>${bean.lec_appl_start } ~ ${bean.lec_appl_end }　|　000</span>
 								<span class="cr_count">(0/30)</span>
 								<button>수강신청</button>
 							</li>
-						<%
-						}
-						%>
+						</c:forEach> --%>
+<%
+ArrayList<EducurriculumDto> list=null;
+list=(ArrayList<EducurriculumDto>)request.getAttribute("alist");
+
+for(int i=0; i<list.size(); i++){
+	EducurriculumDto bean=list.get(i);
+%>
+							<li>
+								<a href=""><%=bean.getLec_name() %></a>
+								<span><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %>　|　000</span>
+								<span class="cr_count">(<%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %>)</span>
+								<button>수강신청</button>
+							</li>
+<%} %>
 						</ul>
 						<div class="bottom box">
 							<p class="bd_btns">
 								<a href="" class="btn_submit">글 작성</a>
 							</p>
-							<ul class="bd_pages">
+							<!-- <ul class="bd_pages">
 								<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
 								<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
 								<li><a href="">1</a></li>
@@ -75,7 +81,15 @@ if(login!=null){
 								<li><a href="">5</a></li>
 								<li><a href="" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
 								<li><a href="" class="pg_end"><span class="hidden">마지막 페이지</span></a></li>
-							</ul>
+							</ul> -->
+							<jsp:include page="/util/curriculum_list_paging.jsp">
+								<jsp:param value="${paging.page}" name="page"/>
+						        <jsp:param value="${paging.beginPage}" name="begin"/>
+						        <jsp:param value="${paging.endPage}" name="end"/>
+						        <jsp:param value="${paging.prev}" name="prev"/>
+						        <jsp:param value="${paging.next}" name="next"/>
+						        <jsp:param value="${paging.totalPage}" name="total"/>
+							</jsp:include>
 						</div>
 					</form>
 				</div>

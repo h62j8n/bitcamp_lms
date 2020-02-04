@@ -1,6 +1,7 @@
 package com.bit.lms.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -20,6 +21,7 @@ public class CurriculumListController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		//MODEL,paging
 		EducurriculumDao dao=new EducurriculumDao();
 		
 		int page=1;
@@ -32,9 +34,8 @@ public class CurriculumListController extends HttpServlet {
 		paging.setPage(page);
 		paging.setTotalCount(count);
 		
-		ArrayList<EducurriculumDto> list=dao.selectAll(paging);
-		
-		req.setAttribute("educurriculumlist", list);
+		req.setAttribute("alist", dao.selectAll(paging));
+		req.setAttribute("paging", paging);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("curriculum_list.jsp");
 		rd.forward(req, resp);
