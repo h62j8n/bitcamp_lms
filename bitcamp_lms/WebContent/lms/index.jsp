@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="com.bit.lms.model.LoginDto" %>
 <%
 LoginDto login =(LoginDto)session.getAttribute("login");
 if(login!=null){
 %>
+<c:set var="bean"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -34,7 +35,7 @@ if(login!=null){
 			<div id="gnb" class="gnb_area">
 				<ul>
 					<li>
-						<a href="">
+						<a href="mycurriculum.html?no=${login.mbNo }">
 							<i class="xi-emoticon"></i>
 							<span>나의 교육과정</span>
 						</a>
@@ -52,7 +53,7 @@ if(login!=null){
 						</a>
 					</li>
 					<li>
-						<a href="">
+						<a href="teachernotice.html">
 							<i class="xi-info-o"></i>
 							<span>강의실 공지사항</span>
 						</a>
@@ -67,19 +68,20 @@ if(login!=null){
 							<h3>나의 프로필</h3>
 							<div>
 								<dl>
-									<dt><b>홍길동</b> 님, 환영합니다</dt>
-									<dd>이메일 : user01@email.com</dd>
-									<dd>연락처 : 010-0000-0000</dd>
+									<dt><b>${login.name }</b> 님, 환영합니다</dt>
+									<dd>이메일 : ${login.id }</dd>
+									<dd>연락처 : ${login.tel }</dd>
 								</dl>
 							</div>
 							<p class="btn_go"><a href="lock.html">내 정보 수정 <i class="xi-arrow-right"></i></a></p>
 						</div>
 						<div class="class box">
+						
 							<h3>나의 교육과정</h3>
 							<div>
 								<p class="status">과정 진행 중</p>
-								<p>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</p>
-								<p>2020.01.01 ~ 2020.03.31</p>
+								<p>${mycurriculum.lec_name }</p>
+								<p>${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</p>
 								<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 							</div>
 						</div>
@@ -110,7 +112,7 @@ if(login!=null){
 									<li class="bd_empty">등록된 게시물이 없습니다.</li>
 								</ul>
 							</div>
-							<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p>
+							<p class="btn_go"><a href="teachernotice.html">자세히 보기 <i class="xi-arrow-right"></i></a></p>
 						</div>
 						<div class="status box">
 							<h3>나의 출결현황</h3>

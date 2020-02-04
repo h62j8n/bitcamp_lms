@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import com.bit.util.BitOracle;
 
 public class MyCurriculumDao {
-	public ArrayList<MyCurriculumDto> selectOne(int mbNo){
-		/*String sql="SELECT * FROM LEC WHERE LEC_CODE=(SELECT A.LEC_CODE FROM APPL A INNER JOIN MB ON (A.MB_NO = ?))";*/
+	public MyCurriculumDto selectOne(int mbNo){
 		String sql="SELECT * FROM LEC WHERE LEC_CODE=(SELECT LEC_CODE FROM APPL WHERE MB_NO = ?)";
-		ArrayList<MyCurriculumDto> list = new ArrayList<MyCurriculumDto>();
+		MyCurriculumDto bean = new MyCurriculumDto();
 		Connection conn=BitOracle.getConnection();
 		PreparedStatement pstmt=null;
 		ResultSet rs=null;
@@ -20,8 +19,7 @@ public class MyCurriculumDao {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, mbNo);
 			rs=pstmt.executeQuery();
-			while(rs.next()){
-				MyCurriculumDto bean = new MyCurriculumDto();
+			if(rs.next()){
 				bean.setLec_name(rs.getString("LEC_NAME"));
 				bean.setLec_start(rs.getDate("LEC_START"));
 				bean.setLec_end(rs.getDate("LEC_END"));
@@ -31,7 +29,6 @@ public class MyCurriculumDao {
 				bean.setLec_applnum(rs.getInt("LEC_APPLNUM"));
 				bean.setLec_lecnum(rs.getInt("LEC_LECNUM"));
 				bean.setLec_content(rs.getString("LEC_CONTENT"));
-				list.add(bean);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -44,6 +41,6 @@ public class MyCurriculumDao {
 				e.printStackTrace();
 			}
 		}
-		return list;
+		return bean;
 	}
 }
