@@ -36,17 +36,26 @@ public class LoginController extends HttpServlet{
 		String id=req.getParameter("loginid").trim();
 		String pw=req.getParameter("loginpw").trim();
 		
+		System.out.println(id);
+		System.out.println(pw);
+		HttpSession session=req.getSession();
 		LoginDao dao=new LoginDao();
 		LoginDto bean=dao.login(id, pw);
-		HttpSession session=req.getSession();
+		System.out.println("1");
+		if(bean.getCateNo()>0){
+			System.out.println("2");
+			LoginDto dept=dao.selectDept(bean.getMbNo(), bean.getCateNo());
+			bean.setDeptNo(dept.getDeptNo());
+			System.out.println("3");
+		}
+		System.out.println(bean.getMbNo());
+		System.out.println(bean.getCateNo());
+		System.out.println(bean.getDeptNo());
 		if(bean.getCnt()>0){
 			session.setAttribute("login", bean);
-			
-			//회원 직원 수정 해야함
 			resp.sendRedirect("login.html?result="+bean.getCnt());
 		}else{
 			resp.sendRedirect("login.html?result="+bean.getCnt());
 		}
-		
 	}
 }
