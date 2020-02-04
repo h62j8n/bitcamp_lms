@@ -27,7 +27,7 @@
 				<ul id="gnb">
 					<li><a href="/bitcamp_lms/home/educenter.html">교육센터</a>
 						<ul>
-							<li><a href="/bitcamp_lms/home/educenter.html">센터 소개</a></li>
+							<li><a href="/bitcamp_lms/home/educenter.html">교육센터 소개</a></li>
 						</ul></li>
 					<li><a href="/bitcamp_lms/home/educurriculum.html">교육과정</a>
 						<ul>
