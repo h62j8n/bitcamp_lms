@@ -7,6 +7,7 @@ public class LoginDto {
 	private String question;
 	private String answer;
 	private int cnt;
+	private int mbNo;
 	
 	public LoginDto() {
 	}
@@ -57,6 +58,14 @@ public class LoginDto {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+
+	public int getMbNo() {
+		return mbNo;
+	}
+
+	public void setMbNo(int mbNo) {
+		this.mbNo = mbNo;
 	}
 	
 }

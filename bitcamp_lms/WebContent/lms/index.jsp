@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.bit.lms.model.LoginDto,java.util.ArrayList" %>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+<%@ page import="com.bit.lms.model.LoginDto" %>
 <%
 LoginDto login =(LoginDto)session.getAttribute("login");
 if(login!=null){
@@ -80,7 +80,7 @@ if(login!=null){
 								<p class="status">과정 진행 중</p>
 								<p>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</p>
 								<p>2020.01.01 ~ 2020.03.31</p>
-								<p class="btn_go"><a href="my_curriculum.html">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
+								<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 							</div>
 						</div>
 						<div class="attend box">
