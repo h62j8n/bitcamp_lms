@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -33,20 +34,22 @@
 					<div id="my" class="board_wrap curriculum list">
 						<h2>나의 교육과정</h2>
 						<h3>기본 정보</h3>
-						<div class="top box">
-							<dl>
-								<dt>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</dt>
-								<dd>교육기간 : 2020. 01. 01. ~ 2020. 01. 01.</dd>
-								<dd>강의코드 : LEC1000</dd>
-								<dd>강의실 : 제 1강의실</dd>
-								<dd>교육강사 : 설민석</dd>
-								<dd>수강인원 : 1/30</dd>
-							</dl>
-						</div>
-						<h3>상세 내용</h3>
-						<div class="content box">
-							<p>상세상세</p>
-						</div>
+						<c:forEach items="${mycurriculum }" var="bean">
+							<div class="top box">
+								<dl>
+									<dt>${bean.lec_name }</dt>
+									<dd>교육기간 : ${bean.lec_start } ~ ${bean.lec_end }</dd>
+									<dd>강의코드 : ${bean.lec_code }</dd>
+									<dd>강의실 : 제 ${bean.lec_roomno }강의실</dd>
+									<dd>교육강사 : ${bean.lec_instructor }</dd>
+									<dd>수강인원 : ${bean.lec_applnum }/${bean.lec_lecnum }</dd>
+								</dl>
+							</div>
+							<h3>상세 내용</h3>
+							<div class="content box">
+								<p>${bean.lec_content }</p>
+							</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
