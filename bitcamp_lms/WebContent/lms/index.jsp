@@ -208,27 +208,9 @@ if(login!=null){
 		</div>
 	</div>
 </div>
-<div id="popupAttend">
-	<p class="alert">
-		현재 시간 : [2020년 01월 01일 08:59:00]<br>
-		입/퇴실 체크하시겠습니까?<br>
-		※ 한 번 처리된 기록은 수정할 수 없습니다.
-	</p>
-	<div class="btns">
-		<button type="button" class="btn_off yes">확인</button>
-		<button type="button" class="btn_off no">확인</button>
-	</div>
-</div>
 <div id="popup">
-	<p class="alert">
-		로그아웃 하시겠습니까?
-	</p>
-	<div class="btns">
-		<form method="POST">
-			<button type="submit" class="yes">예</button>
-			<button type="button" class="btn_off no">아니오</button>
-		</form>
-	</div>
+	<p class="alert"></p>
+	<div class="btns"></div>
 </div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 <script type="text/javascript">
