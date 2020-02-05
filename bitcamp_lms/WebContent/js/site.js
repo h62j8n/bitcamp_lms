@@ -457,7 +457,7 @@ $(document).ready(function() {
 	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {
-		popupAttend();
+		popup();
 	});
 	historyBack();
 	pagination();
@@ -465,6 +465,11 @@ $(document).ready(function() {
 	/* 로그아웃팝업 */
 	$(".btn_logout").on("click", function() {
 		popLogout();
+	});
+	
+	/* 출결 팝업 */
+	$("#btnAttend").on("click", function() {
+		popAttend();
 		popup();
 	});
 });
@@ -539,7 +544,7 @@ function popAttend() {
 	var times = year+"년 "+month+"월 "+date+"일 "+hours+"시 "+minutes+"분";
 
 	// 인풋 값
-	var dateVal = year+"/"+month+"/"+date,
+	var dateVal = year+"-"+month+"-"+date,
 		statusVal = status;
 	$("#atDate").val(dateVal);
 	$("#atStatus").val(statusVal);
