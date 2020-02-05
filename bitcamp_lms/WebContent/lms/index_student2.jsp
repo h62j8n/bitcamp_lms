@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.bit.lms.model.LoginDto" %>
+<%@ page import="com.bit.lms.model.LoginDto,com.bit.lms.model.MyCurriculumDao" %>
 <%
 LoginDto login =(LoginDto)session.getAttribute("login");
 if(login!=null){
@@ -60,11 +60,18 @@ if(login!=null){
 							<div class="class box">
 								<h3>나의 교육과정</h3>
 								<div>
-									<dl>
-										<dd class="cl_empty">
-											등록된 교육과정이 없습니다.<br>수강신청을 먼저 진행해주세요.
-										</dd>
-									</dl>
+								<%-- <%
+								MyCurriculumDao dao=new MyCurriculumDao();
+								if(dao.selectSta(login.getMbNo()).getSta_code()==0){ // 수강 신청 전 
+								%> --%>
+								<dl>
+									<dd class="cl_empty">
+										등록된 교육과정이 없습니다.<br>수강신청을 먼저 진행해주세요.
+									</dd>
+								</dl>
+								<%-- <%
+								}
+								%> --%>
 								</div>
 								<p class="btn_go">
 									<a href="">수강신청 바로가기 <i class="xi-arrow-right"></i>

@@ -43,4 +43,31 @@ public class MyCurriculumDao {
 		}
 		return bean;
 	}
+	public MyCurriculumDto selectSta(int mbNo){
+		String sql="SELECT STA_CODE FROM APPL WHERE MB_NO =?";
+		MyCurriculumDto bean = new MyCurriculumDto();
+		Connection conn=BitOracle.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, mbNo);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				bean.setSta_code(rs.getInt("STA_CODE"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally{
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bean;
+	}
 }

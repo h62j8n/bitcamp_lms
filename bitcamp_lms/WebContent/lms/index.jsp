@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.bit.lms.model.LoginDto" %>
+<%@ page import="com.bit.lms.model.LoginDto,com.bit.lms.model.MyCurriculumDao" %>
 <%
 LoginDto login =(LoginDto)session.getAttribute("login");
 if(login!=null){
@@ -89,11 +89,36 @@ if(login!=null){
 						<div class="class box">
 							<h3>나의 교육과정</h3>
 							<div>
+								<%
+								MyCurriculumDao dao=new MyCurriculumDao();
+								if(dao.selectSta(login.getMbNo()).getSta_code()==1){
+								%>
+								<p class="status">신청대기</p>
+								<%
+								}else if(dao.selectSta(login.getMbNo()).getSta_code()==2){
+								%>
+								<p class="status">수강대기</p>
+								<p>${mycurriculum.lec_name }</p>
+								<p>${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</p>
+								<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
+								<%
+								}else if(dao.selectSta(login.getMbNo()).getSta_code()==3){
+								%>
 								<p class="status">과정 진행 중</p>
 								<p>${mycurriculum.lec_name }</p>
 								<p>${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</p>
+								<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
+								<%
+								}else if(dao.selectSta(login.getMbNo()).getSta_code()==4){
+								%>
+								<p class="status">수료완료</p>
+								<p>${mycurriculum.lec_name }</p>
+								<p>${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</p>
+								<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
+								<%
+								}
+								%>
 							</div>
-							<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 						</div>
 						<div class="attend box">
 							<h3>오늘의 출결관리</h3>

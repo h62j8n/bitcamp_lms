@@ -71,9 +71,11 @@
 				<%
 				ArrayList<EducurriculumDto> list=null;
 				list = (ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+				
 				%>
 				<div class="top box">
-					<p>총 게시물 : <%= String.format("%03d", list.size()) %></p>
+					<%-- <p>총 게시물 : <%= String.format("%03d", total) %></p> --%>
+					<p>총 게시물 : ${paging.totalCount}</p>
 				</div>
 				<ul class="list box">
 					<%

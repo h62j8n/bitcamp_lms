@@ -12,6 +12,7 @@ public class MyCurriculumDto {
 	private int lec_applnum;
 	private int lec_lecnum;
 	private String lec_content;
+	private int sta_code;
 	
 	public String getLec_name() {
 		return lec_name;
@@ -67,6 +68,11 @@ public class MyCurriculumDto {
 	public void setLec_content(String lec_content) {
 		this.lec_content = lec_content;
 	}
-	
-	
+	public int getSta_code() {
+		return sta_code;
+	}
+	public void setSta_code(int sta_code) {
+		this.sta_code = sta_code;
+	}
+		
 }
