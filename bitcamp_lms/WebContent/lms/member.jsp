@@ -45,40 +45,115 @@ if(login!=null){
 						</select>
 					</div>
 					<form>
-						<table class="table box">
-							<thead>
-								<tr>
-									<th>구분</th>
-									<th>이름</th>
-									<th>이메일(ID)</th>
-									<th colspan="2">연락처</th>
-									<th rowspan="2">관리</th>
-								</tr>
-								<tr>
-									<th>수강상태</th>
-									<th>강의코드</th>
-									<th>교육과정명</th>
-									<th>출석률</th>
-									<th>성적평균</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>
+						<dl class="list head box">
+							<dt>
+								<ul>
+									<li>구분</li>
+									<li>이름</li>
+									<li>이메일(ID)</li>
+									<li>연락처</li>
+									<li>관리<button type="button" class="btn_more"></button></li>
+								</ul>
+							</dt>
+							<dd>
+								<ul>
+									<li>강의코드</li>
+									<li>강의실</li>
+									<li>교육과정명</li>
+									<li>1회차</li>
+									<li>2회차</li>
+									<li>3회차</li>
+									<li>출석률</li>
+								</ul>
+							</dd>
+						</dl>
+						<dl class="list body box">
+							<dt>
+								<ul>
+									<li>
+										<select>
+											<option value="">관리자</option>
+											<option value="">회원</option>
+										</select>
+										<select>
+											<option value="">행정팀</option>
+											<option value="">영업팀</option>
+											<option value="">취업팀</option>
+											<option value="">회계팀</option>
+											<option value="">강사팀</option>
+										</select>
+									</li>
+									<li>홍길동</li>
+									<li>user01@email.com</li>
+									<li>010-0000-0000</li>
+									<li><button type="submit">적용</button></li>
+								</ul>
+							</dt>
+							<dd>
+								<ul>
+									<li class="mb_empty">등록된 교육과정 정보가 없습니다.</li>
+								</ul>
+							</dd>
+							<dt>
+								<ul>
+									<li>
 										<select>
 											<option value="">회원</option>
 											<option value="">관리자</option>
 										</select>
-									</td>
-									<td>홍길동</td>
-									<td>user01@email.com</td>
-									<td colspan="2">010-0000-0000</td>
-									<td rowspan="2">
-										<button type="submit">적용</button>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+										<select>
+											<option value="">수강신청</option>
+											<option value="">수강등록</option>
+											<option value="">신청취소</option>
+										</select>
+									</li>
+									<li>홍길동</li>
+									<li>user01@email.com</li>
+									<li>010-0000-0000</li>
+									<li><button type="submit">적용</button></li>
+								</ul>
+							</dt>
+							<dd>
+								<ul>
+									<li>LEC1000</li>
+									<li>제 1강의실</li>
+									<li class="mb_curriculum">
+										<p>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</p>
+										<span></span>
+									</li>
+									<li>0.00</li>
+									<li>0.00</li>
+									<li>0.00</li>
+									<li>0%</li>
+								</ul>
+							</dd>
+							<dt>
+								<ul>
+									<li>
+										<p>회원</p>
+										<p>수강 진행 중</p>
+									</li>
+									<li>홍길동</li>
+									<li>user01@email.com</li>
+									<li>010-0000-0000</li>
+									<li><button type="submit">적용</button></li>
+								</ul>
+							</dt>
+							<dd>
+								<ul>
+									<li>LEC1000</li>
+									<li>제 1강의실</li>
+									<li class="mb_curriculum">
+										<p>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</p>
+										<span></span>
+									</li>
+									<li>0.00</li>
+									<li>0.00</li>
+									<li>0.00</li>
+									<li>0%</li>
+								</ul>
+							</dd>
+						</dl>
 					</form>
 					<div class="bottom box">
 						<ul class="bd_pages">
