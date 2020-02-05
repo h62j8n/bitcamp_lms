@@ -45,9 +45,14 @@ public class JoinController extends HttpServlet{
 		if(beanId.getCnt()<=0){
 			int result=dao.insertJoin(name, id, pw, tel, question, answer);
 			if(result>0){
-				JoinDto beanName=dao.selectOne(name);
+				JoinDto beanName=dao.selectOne(name,id);
 				session.setAttribute("joinName", beanName);
-				resp.sendRedirect("join.html?result="+result);
+				if(beanName.getCnt2()>0){
+					dao.insertAppl(beanName.getNo());
+					resp.sendRedirect("join.html?result="+result);
+				}else{
+					resp.sendRedirect("join.html?result="+result);
+				}
 			}else{
 				resp.sendRedirect("join.html?result="+result);
 			}

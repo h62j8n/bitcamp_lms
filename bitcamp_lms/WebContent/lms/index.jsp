@@ -34,6 +34,13 @@ if(login!=null){
 	<div id="container">
 		<div class="container">
 			<div id="gnb" class="gnb_area">
+				
+				<c:if test="${login.cateNo eq 1}">
+					123
+				</c:if>
+				<c:if test="${login.cateNo eq 0}">
+					456
+				</c:if>
 				<ul>
 					<li>
 						<a href="mycurriculum.html?no=${login.mbNo }">
@@ -59,6 +66,9 @@ if(login!=null){
 							<span>강의실 공지사항</span>
 						</a>
 					</li>
+				</ul>
+				<ul>
+					<li><a href="curriculum_list.html"> <i class="xi-school"></i> <span>모집공고</span></a></li>
 				</ul>
 			</div>
 			<div class="content_area">

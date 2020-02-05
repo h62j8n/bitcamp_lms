@@ -47,10 +47,16 @@ public class LoginController extends HttpServlet{
 			LoginDto dept=dao.selectDept(bean.getMbNo(), bean.getCateNo());
 			bean.setDeptNo(dept.getDeptNo());
 			System.out.println("3");
+		}else{
+			System.out.println("4");
+			LoginDto state=dao.selectState(bean.getMbNo());
+			bean.setStaNo(state.getStaNo());
+			System.out.println("5");
 		}
 		System.out.println(bean.getMbNo());
 		System.out.println(bean.getCateNo());
 		System.out.println(bean.getDeptNo());
+		System.out.println(bean.getStaNo());
 		if(bean.getCnt()>0){
 			session.setAttribute("login", bean);
 			resp.sendRedirect("login.html?result="+bean.getCnt());

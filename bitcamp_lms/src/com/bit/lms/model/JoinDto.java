@@ -1,6 +1,7 @@
 package com.bit.lms.model;
 
 public class JoinDto {
+	private int no;
 	private String name;
 	private String id;
 	private String pw;
@@ -8,8 +9,17 @@ public class JoinDto {
 	private String question;
 	private String answer;
 	private int cnt;
+	private int cnt2;
 	
 	public JoinDto() {
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public String getName() {
@@ -66,6 +76,14 @@ public class JoinDto {
 
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+
+	public int getCnt2() {
+		return cnt2;
+	}
+
+	public void setCnt2(int cnt2) {
+		this.cnt2 = cnt2;
 	}
 	
 }

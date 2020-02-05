@@ -81,4 +81,33 @@ public class LoginDao {
 		}
 		return bean;
 	}
+	
+	public LoginDto selectState(int no){
+		String sql="select sta_code from appl where mb_no=?";
+		
+		LoginDto bean=new LoginDto();
+		Connection conn=BitOracle.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs=pstmt.executeQuery();
+			if(rs.next()){
+				bean.setStaNo(rs.getInt("sta_code"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return bean;
+	}
 }

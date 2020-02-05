@@ -10,6 +10,7 @@ public class LoginDto {
 	private int mbNo;
 	private int cateNo;
 	private int deptNo;
+	private int staNo;
 	
 	public LoginDto() {
 	}
@@ -84,6 +85,14 @@ public class LoginDto {
 
 	public void setDeptNo(int deptNo) {
 		this.deptNo = deptNo;
+	}
+
+	public int getStaNo() {
+		return staNo;
+	}
+
+	public void setStaNo(int staNo) {
+		this.staNo = staNo;
 	}
 	
 }
