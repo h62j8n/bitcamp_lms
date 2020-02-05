@@ -34,13 +34,6 @@ if(login!=null){
 	<div id="container">
 		<div class="container">
 			<div id="gnb" class="gnb_area">
-				
-				<c:if test="${login.cateNo eq 1}">
-					123
-				</c:if>
-				<c:if test="${login.cateNo eq 0}">
-					456
-				</c:if>
 				<ul>
 					<li>
 						<a href="mycurriculum.html?no=${login.mbNo }">
@@ -49,13 +42,13 @@ if(login!=null){
 						</a>
 					</li>
 					<li>
-						<a href="">
+						<a href="myattend.html">
 							<i class="xi-calendar-check"></i>
 							<span>나의 출결현황</span>
 						</a>
 					</li>
 					<li>
-						<a href="">
+						<a href="mygrade.html">
 							<i class="xi-presentation"></i>
 							<span>나의 성적조회</span>
 						</a>
