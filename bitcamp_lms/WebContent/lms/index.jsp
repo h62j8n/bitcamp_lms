@@ -130,8 +130,8 @@ if(login!=null){
 								</dt>
 								<dd>
 									<form id="atForm" action="" method="post">
-										<input type="hidden" id="atDate">
-										<input type="hidden" id="atStatus">
+										<input type="hidden" id="atDate" name="atdate">
+										<input type="hidden" id="atStatus" name="atStatus">
 										<button type="button" id="btnAttend" class="btn_pop in"><span></span></button>
 									</form>
 								</dd>
