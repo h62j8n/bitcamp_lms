@@ -11,22 +11,22 @@
 <!-- 한페이지에 게시글이 5개씩있는 페이지의 페이징 -->
 <c:url value="/lms/curriculum_list.html" var="root"/>
 <c:if test="${param.prev }">
-<a href="${root }?page=1">맨앞으로</a>
-<a href="${root }?page=${param.begin-1}">prev</a>
+<li><a href="${root }?page=1" class="pg_start"><span class="hidden">맨 앞으로</span></a></li>
+<li><a href="${root }?page=${param.begin-1}" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
 </c:if>
 <c:forEach begin="${param.begin }" end="${param.end }" step="1" var="index">
 	<c:choose>
 		<c:when test="${param.page==index }">
-			${index }
+			<li><b>${index }</b></li>
 		</c:when>
 		<c:otherwise>
-			<a href="${root }?page=${index}">${index }</a>
+			<li><a href="${root }?page=${index}">${index }</a></li>
 		</c:otherwise>
 	</c:choose>
 </c:forEach>
 <c:if test="${param.next }">
-<a href="${root }?page=${param.end+1}">next</a>
-<a href="${root }?page=${param.total}">맨뒤로</a>
+<li><a href="${root }?page=${param.end+1}" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
+<li><a href="${root }?page=${param.total}" class="pg_end"><span class="hidden">맨 뒤로</span></a></li>
 </c:if>
 </body>
 </html>

@@ -40,8 +40,12 @@ if(login!=null){
 				<div id="curriculum" class="board_wrap list">
 					<h2>모집공고</h2>
 					<form>
+						<%
+						ArrayList<EducurriculumDto> list=null;
+						list=(ArrayList<EducurriculumDto>)request.getAttribute("alist");
+						%>
 						<div class="top box">
-							<p>총 게시물 : 000</p>
+							<p>총 게시물 : ${paging.totalCount}</p>
 						</div>
 						<ul class="list box">
 						<%-- <c:forEach items="${alist }" var="bean">
@@ -52,44 +56,43 @@ if(login!=null){
 								<button>수강신청</button>
 							</li>
 						</c:forEach> --%>
-<%
-ArrayList<EducurriculumDto> list=null;
-list=(ArrayList<EducurriculumDto>)request.getAttribute("alist");
-
-for(int i=0; i<list.size(); i++){
-	EducurriculumDto bean=list.get(i);
-%>
+							<%
+							if (list.size() > 0) {
+								for(int i=0; i<list.size(); i++){
+									EducurriculumDto bean=list.get(i);
+							%>
 							<li>
-								<a href=""><%=bean.getLec_name() %></a>
-								<span><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %>　|　000</span>
+								<a href="curriculum_detail.html?idx=<%= bean.getRecr_no() %>"><%=bean.getLec_name() %></a>
+								<span>
+									<%= bean.getLec_start() %> ~ <%=bean.getLec_end() %>　|　
+									<%= String.format("%03d", bean.getRecr_count()) %>
+								</span>
 								<span class="cr_count">(<%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %>)</span>
 								<button>수강신청</button>
 							</li>
-<%} %>
+							<%
+								}
+							} else {
+							%>
+							<li class="bd_empty">등록된 게시물이 없습니다.</li>
+							<%
+							}
+							%>
 						</ul>
 						<div class="bottom box">
 							<p class="bd_btns">
 								<a href="" class="btn_submit">글 작성</a>
 							</p>
-							<!-- <ul class="bd_pages">
-								<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
-								<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
-								<li><a href="">1</a></li>
-								<li><a href="">2</a></li>
-								<li><b>3</b></li>
-								<li><a href="">4</a></li>
-								<li><a href="">5</a></li>
-								<li><a href="" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
-								<li><a href="" class="pg_end"><span class="hidden">마지막 페이지</span></a></li>
-							</ul> -->
-							<jsp:include page="/util/curriculum_list_paging.jsp">
-								<jsp:param value="${paging.page}" name="page"/>
-						        <jsp:param value="${paging.beginPage}" name="begin"/>
-						        <jsp:param value="${paging.endPage}" name="end"/>
-						        <jsp:param value="${paging.prev}" name="prev"/>
-						        <jsp:param value="${paging.next}" name="next"/>
-						        <jsp:param value="${paging.totalPage}" name="total"/>
-							</jsp:include>
+							<ul class="bd_pages">
+								<jsp:include page="/util/curriculum_list_paging.jsp">
+									<jsp:param value="${paging.page}" name="page"/>
+									<jsp:param value="${paging.beginPage}" name="begin"/>
+									<jsp:param value="${paging.endPage}" name="end"/>
+									<jsp:param value="${paging.prev}" name="prev"/>
+									<jsp:param value="${paging.next}" name="next"/>
+									<jsp:param value="${paging.totalPage}" name="total"/>
+								</jsp:include>
+							</ul>
 						</div>
 					</form>
 				</div>
