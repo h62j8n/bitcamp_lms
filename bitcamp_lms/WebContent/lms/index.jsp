@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page import="com.bit.lms.model.LoginDto,java.util.ArrayList" %>
+<%@ page import="com.bit.lms.model.LoginDto" %>
 <%
 LoginDto login =(LoginDto)session.getAttribute("login");
 if(login!=null){
 %>
+<c:set var="bean"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -13,6 +14,7 @@ if(login!=null){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/util.js"></script>
 	<script type="text/javascript" src="../js/site.js"></script>
 	<link href="../css/site.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
@@ -25,7 +27,7 @@ if(login!=null){
 			<h1><a href="index.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 			<ul class="quick">
 				<li><a href="lock.html"><i class="xi-profile-o"></i></a></li>
-				<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
+				<li><button type="button" class="btn_logout" onclick="popup()"><i class="xi-log-out"></i></button></li>
 			</ul>
 		</div>
 	</div>
@@ -34,14 +36,14 @@ if(login!=null){
 			<div id="gnb" class="gnb_area">
 				<ul>
 					<li>
-						<a href="">
-							<i class="xi-emoticon"></i>
+						<a href="mycurriculum.html?no=${login.mbNo }">
+							<i class="xi-book-o"></i>
 							<span>나의 교육과정</span>
 						</a>
 					</li>
 					<li>
 						<a href="">
-							<i class="xi-book-o"></i>
+							<i class="xi-calendar-check"></i>
 							<span>나의 출결현황</span>
 						</a>
 					</li>
@@ -52,8 +54,8 @@ if(login!=null){
 						</a>
 					</li>
 					<li>
-						<a href="">
-							<i class="xi-info-o"></i>
+						<a href="teachernotice.html">
+							<i class="xi-list-square"></i>
 							<span>강의실 공지사항</span>
 						</a>
 					</li>
@@ -67,9 +69,9 @@ if(login!=null){
 							<h3>나의 프로필</h3>
 							<div>
 								<dl>
-									<dt><b>홍길동</b> 님, 환영합니다</dt>
-									<dd>이메일 : user01@email.com</dd>
-									<dd>연락처 : 010-0000-0000</dd>
+									<dt><b>${login.name }</b> 님, 환영합니다</dt>
+									<dd>이메일 : ${login.id }</dd>
+									<dd>연락처 : ${login.tel }</dd>
 								</dl>
 							</div>
 							<p class="btn_go"><a href="lock.html">내 정보 수정 <i class="xi-arrow-right"></i></a></p>
@@ -78,10 +80,10 @@ if(login!=null){
 							<h3>나의 교육과정</h3>
 							<div>
 								<p class="status">과정 진행 중</p>
-								<p>디지털컨버전스 기반 자바 Open Source Web application 전문 개발자 양성과정 - 3월</p>
-								<p>2020.01.01 ~ 2020.03.31</p>
-								<p class="btn_go"><a href="my_curriculum.html">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
+								<p>${mycurriculum.lec_name }</p>
+								<p>${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</p>
 							</div>
+							<p class="btn_go"><a href="mycurriculum.html?no=${login.mbNo }">자세히 보기 <i class="xi-arrow-right"></i></a></p class="btn_go">
 						</div>
 						<div class="attend box">
 							<h3>오늘의 출결관리</h3>
@@ -110,7 +112,7 @@ if(login!=null){
 									<li class="bd_empty">등록된 게시물이 없습니다.</li>
 								</ul>
 							</div>
-							<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p>
+							<p class="btn_go"><a href="teachernotice.html">자세히 보기 <i class="xi-arrow-right"></i></a></p>
 						</div>
 						<div class="status box">
 							<h3>나의 출결현황</h3>
@@ -118,11 +120,11 @@ if(login!=null){
 								<ul>
 									<li>
 										나의 출석률 (<span>45.2</span>%)
-										<p></p>
+										<p class="progress"><b></b></p>
 									</li>
 									<li>
 										과정 진행률 (<span>51.4</span>%)
-										<p></p>
+										<p class="progress"><b></b></p>
 									</li>
 								</ul>
 							</div>
@@ -167,7 +169,7 @@ if(login!=null){
 		</div>
 	</div>
 </div>
-<div id="popup">
+<div id="popupAttend">
 	<p class="alert">
 		현재 시간 : [2020년 01월 01일 08:59:00]<br>
 		입/퇴실 체크하시겠습니까?<br>
@@ -176,6 +178,17 @@ if(login!=null){
 	<div class="btns">
 		<button type="button" class="btn_off yes">확인</button>
 		<button type="button" class="btn_off no">확인</button>
+	</div>
+</div>
+<div id="popup">
+	<p class="alert">
+		로그아웃 하시겠습니까?
+	</p>
+	<div class="btns">
+		<form method="POST">
+			<button type="submit" class="yes">예</button>
+			<button type="button" class="btn_off no">아니오</button>
+		</form>
 	</div>
 </div>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>

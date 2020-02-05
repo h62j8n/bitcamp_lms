@@ -373,6 +373,7 @@ input[type=checkbox]:checked + label:after {
 .board_wrap .bd_pages li {
   display: table-cell;
   vertical-align: middle;
+  padding: 0 2px;
   text-align: center;
 }
 
@@ -411,8 +412,10 @@ input[type=checkbox]:checked + label:after {
   background-image: url(../images/ico/shp_end.png);
 }
 
-.board_wrap .bd_btns {
-  overflow: hidden;
+.board_wrap .bd_btns:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .board_wrap .bd_btns a, .board_wrap .bd_btns button {
@@ -479,6 +482,12 @@ input[type=checkbox]:checked + label:after {
 .board_wrap.list .table.box td a:hover {
   text-decoration: underline;
   color: #0b5098;
+}
+
+.board_wrap.list .table.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
 }
 
 .board_wrap.detail .title.box, .board_wrap.detail .content.box {
@@ -638,8 +647,10 @@ input[type=checkbox]:checked + label:after {
   color: #fff;
 }
 
-#curriculum.cr2 .list.box li {
-  padding: 10px;
+#curriculum .list.box .bd_empty {
+  padding: 100px 0;
+  text-align: center;
+  color: #666;
 }
 
 /*
@@ -1129,11 +1140,11 @@ body {
 }
 
 .dashboard_wrap .attend.box dd button.in:hover {
-  background: #ba0000;
+  background: #b10000;
 }
 
 .dashboard_wrap .attend.box dd button.out {
-  background: #0b5098;
+  background: #7030a0;
 }
 
 .dashboard_wrap .attend.box dd button.out span:before {
@@ -1141,7 +1152,7 @@ body {
 }
 
 .dashboard_wrap .attend.box dd button.out:hover {
-  background: #094b90;
+  background: #6a2d97;
 }
 
 .dashboard_wrap .board.box ul .bd_empty {
@@ -1215,12 +1226,18 @@ body {
   margin: 0;
 }
 
+.dashboard_wrap .status.box li:first-child .progress {
+  background-color: #0098ca;
+  background-image: linear-gradient(145deg, #43c6f1 0%, #0f4d75 50%, #43c6f1 100%);
+}
+
 .dashboard_wrap .status.box .progress {
   position: relative;
   width: 100%;
   height: 20px;
   margin-top: 5px;
-  background: red;
+  background-color: #00be8b;
+  background-image: linear-gradient(145deg, #1feab4 0%, #1d8468 50%, #1feab4 100%);
   overflow: hidden;
 }
 
@@ -1410,61 +1427,119 @@ body {
   height: 150px;
 }
 
-.member.board_wrap.list .table.box tr {
+.member.board_wrap .list.box.head {
+  border-top: 2px solid #333;
+  border-bottom: 1px solid #bbb;
+}
+
+.member.board_wrap .list.box.head dt {
+  border-bottom: 1px solid #ddd;
+}
+
+.member.board_wrap .list.box.head li {
+  min-height: 35px;
+  line-height: 25px;
+  font-family: "noto-sans-scott-m";
+}
+
+.member.board_wrap .list.box.body {
+  border-bottom: 1px solid #333;
+}
+
+.member.board_wrap .list.box.body ul {
+  border-top: 1px solid #ddd;
+}
+
+.member.board_wrap .list.box.body dt:first-child ul {
   border: none;
 }
 
-.member.board_wrap.list .table.box thead tr {
-  background: none !important;
+.member.board_wrap .list.box.body dt li {
+  height: 65px;
 }
 
-.member.board_wrap.list .table.box th, .member.board_wrap.list .table.box td {
-  border: 1px solid #ddd;
+.member.board_wrap .list.box.body dt li:nth-child(2), .member.board_wrap .list.box.body dt li:nth-child(3), .member.board_wrap .list.box.body dt li:nth-child(4) {
+  line-height: 55px;
 }
 
-.member.board_wrap.list .table.box th:first-child, .member.board_wrap.list .table.box td:first-child {
+.member.board_wrap .list.box.body dt button {
+  margin-top: 13px;
+}
+
+.member.board_wrap .list.box dt li:nth-child(4) {
+  width: 200px;
+}
+
+.member.board_wrap .list.box dt li:nth-child(5) {
+  position: relative;
+  width: 100px;
+  border-bottom: none;
+}
+
+.member.board_wrap .list.box dd li:nth-child(4), .member.board_wrap .list.box dd li:nth-child(6) {
+  width: 67px;
+}
+
+.member.board_wrap .list.box dd li:nth-child(5) {
+  width: 66px;
+}
+
+.member.board_wrap .list.box dd li:nth-child(7) {
+  width: 100px;
+}
+
+.member.board_wrap .list.box ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.member.board_wrap .list.box li {
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-left: 1px solid #ddd;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.member.board_wrap .list.box li:first-child {
   border-left: none;
 }
 
-.member.board_wrap.list .table.box th:last-child, .member.board_wrap.list .table.box td:last-child {
-  border-right: none;
+.member.board_wrap .list.box li:first-child p:first-child {
+  margin-top: 7px;
 }
 
-.member.board_wrap.list .table.box th {
-  padding: 5px 0;
+.member.board_wrap .list.box li:first-child p:last-child {
+  font-size: 13px;
+  color: #666;
 }
 
-.member.board_wrap.list .table.box th:nth-child(1) {
+.member.board_wrap .list.box li:nth-child(1) {
   width: 120px;
 }
 
-.member.board_wrap.list .table.box th:nth-child(2) {
+.member.board_wrap .list.box li:nth-child(2) {
   width: 100px;
 }
 
-.member.board_wrap.list .table.box th:nth-child(3) {
+.member.board_wrap .list.box li:nth-child(3) {
   width: 280px;
 }
 
-.member.board_wrap.list .table.box th:nth-child(5) {
-  width: 100px;
-}
-
-.member.board_wrap.list .table.box td {
-  text-align: center;
-}
-
-.member.board_wrap.list .table.box td select {
+.member.board_wrap .list.box select {
   width: 100px;
   height: 25px;
   margin-top: 5px;
 }
 
-.member.board_wrap.list .table.box td select:first-child {
+.member.board_wrap .list.box select:first-child {
   margin: 0;
 }
 
-.member.board_wrap.list .table.box td button {
+.member.board_wrap .list.box button[type=submit] {
   width: 80px;
   height: 30px;
   background: #fff;
@@ -1472,12 +1547,82 @@ body {
   color: #333;
 }
 
-.member.board_wrap.list .table.box .mb_curriculum {
+.member.board_wrap .list.box .btn_more {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+  margin-top: -7px;
+  background: none;
+  border: none;
+  -webkit-transition: margin .2s;
+  transition: margin .2s;
+}
+
+.member.board_wrap .list.box .btn_more:focus {
+  outline: none;
+}
+
+.member.board_wrap .list.box .btn_more:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-right: 2px solid #083c72;
+  border-bottom: 2px solid #083c72;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.member.board_wrap .list.box .btn_more:after {
+  content: '교육과정 정보 보기';
+  position: absolute;
+  top: 20px;
+  right: -5px;
+  border: 1px solid #0b5098;
+  padding: 5px 8px;
+  background: #fff;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-family: "noto-sans-scott-r";
+  font-size: 15px;
+  color: #333;
+  opacity: 0;
+  -webkit-transition: opacity .2s linear;
+  transition: opacity .2s linear;
+}
+
+.member.board_wrap .list.box .btn_more.on {
+  margin-top: -5px;
+}
+
+.member.board_wrap .list.box .btn_more.on:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.member.board_wrap .list.box .btn_more:hover:after {
+  opacity: 1;
+}
+
+.member.board_wrap .list.box .mb_empty {
+  float: none;
+  width: 100% !important;
+}
+
+.member.board_wrap .list.box .mb_curriculum {
   position: relative;
   cursor: default;
 }
 
-.member.board_wrap.list .table.box .mb_curriculum p {
+.member.board_wrap .list.box .mb_curriculum p {
   width: 280px;
   padding: 0 10px;
   -webkit-box-sizing: border-box;
@@ -1487,34 +1632,47 @@ body {
   white-space: nowrap;
 }
 
-.member.board_wrap.list .table.box .mb_curriculum span {
+.member.board_wrap .list.box .mb_curriculum span {
   position: absolute;
   left: 0;
   padding: 5px 8px;
-  border: 1px solid #ddd;
-  background: #083c72;
-  font-family: "noto-sans-scott-l";
-  color: #fff;
+  line-height: 1.2em;
+  border: 1px solid #0b5098;
+  border-radius: 5px;
+  background: #fff;
   white-space: nowrap;
   -webkit-transition: opacity .1s linear;
   transition: opacity .1s linear;
   opacity: 0;
+  z-index: 1;
 }
 
-#member.board_wrap .table.box tr:nth-child(4n+1), #member.board_wrap .table.box tr:nth-child(4n+2) {
-  background: #f7f7f7;
+#member.board_wrap .list.box.body dt:nth-child(4n+1), #member.board_wrap .list.box.body dt:nth-child(4n+2), #member.board_wrap .list.box.body dd:nth-child(4n+1), #member.board_wrap .list.box.body dd:nth-child(4n+2), #member3.board_wrap .list.box.body dt:nth-child(4n+1), #member3.board_wrap .list.box.body dt:nth-child(4n+2), #member3.board_wrap .list.box.body dd:nth-child(4n+1), #member3.board_wrap .list.box.body dd:nth-child(4n+2) {
+  background: #f0f0f0;
 }
 
-#member.board_wrap .table.box th:nth-child(4) {
+#member2.board_wrap .list.box.head dt {
+  border: none;
+}
+
+#member2.board_wrap .list.box.body dt:nth-child(odd) {
+  background: #f0f0f0;
+}
+
+#member3.board_wrap .list.box dd li:nth-child(2) {
   width: 100px;
 }
 
-#member2.board_wrap .table.box tr:nth-child(2n+1) {
-  background: #f7f7f7;
+#member3.board_wrap .list.box dd li:nth-child(3) {
+  width: 580px;
 }
 
-#member2.board_wrap .table.box th:nth-child(4) {
-  width: 200px;
+#member3.board_wrap .list.box .mb_curriculum p {
+  width: 580px;
+}
+
+#member3.board_wrap .list.box select:first-child {
+  margin-top: 15px;
 }
 
 #my.board_wrap .top.box {
@@ -1611,11 +1769,11 @@ body {
 }
 
 #my.board_wrap.attend .table.box .atd_status1 {
-  background: #0070c0;
+  background: #0098ca;
 }
 
 #my.board_wrap.attend .table.box .atd_status2 {
-  background: #009d47;
+  background: #00be8b;
 }
 
 #my.board_wrap.attend .table.box .atd_status3 {
@@ -1725,6 +1883,10 @@ body {
   background: #fff;
   border-color: #999;
   color: #333;
+}
+
+#curriculum.cr2 .list.box li {
+  padding: 10px;
 }
 
 .lock_wrap h2, .profile_wrap h2 {

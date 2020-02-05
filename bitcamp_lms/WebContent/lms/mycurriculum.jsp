@@ -17,7 +17,7 @@
 	<div id="wrap">
 		<div id="header">
 			<div class="container">
-				<h1><a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
+				<h1><a href="index.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 				<ul class="quick">
 					<li><a href="lock.html"><i class="xi-profile-o"></i></a></li>
 					<li><button type="button" class="btn_logout"><i class="xi-log-out"></i></button></li>
@@ -34,22 +34,20 @@
 					<div id="my" class="board_wrap curriculum list">
 						<h2>나의 교육과정</h2>
 						<h3>기본 정보</h3>
-						<c:forEach items="${mycurriculum }" var="bean">
 							<div class="top box">
 								<dl>
-									<dt>${bean.lec_name }</dt>
-									<dd>교육기간 : ${bean.lec_start } ~ ${bean.lec_end }</dd>
-									<dd>강의코드 : ${bean.lec_code }</dd>
-									<dd>강의실 : 제 ${bean.lec_roomno }강의실</dd>
-									<dd>교육강사 : ${bean.lec_instructor }</dd>
-									<dd>수강인원 : ${bean.lec_applnum }/${bean.lec_lecnum }</dd>
+									<dt>${mycurriculum.lec_name }</dt>
+									<dd>교육기간 : ${mycurriculum.lec_start } ~ ${mycurriculum.lec_end }</dd>
+									<dd>강의코드 : ${mycurriculum.lec_code }</dd>
+									<dd>강의실 : 제 ${mycurriculum.lec_roomno }강의실</dd>
+									<dd>교육강사 : ${mycurriculum.lec_instructor }</dd>
+									<dd>수강인원 : ${mycurriculum.lec_applnum }/${mycurriculum.lec_lecnum }</dd>
 								</dl>
 							</div>
 							<h3>상세 내용</h3>
 							<div class="content box">
-								<p>${bean.lec_content }</p>
+								<p>${mycurriculum.lec_content }</p>
 							</div>
-						</c:forEach>
 					</div>
 				</div>
 			</div>

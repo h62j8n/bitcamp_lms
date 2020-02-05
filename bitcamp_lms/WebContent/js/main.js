@@ -23,6 +23,22 @@ function mainSlider() {
 	});
 }
 
+function pagination() {
+	var pg = $(".bd_pages").find("li"),
+		pgNum = pg.length;
+	if (pgNum < 2) {
+		pg.hide();
+	}
+}
+
+function historyBack() {
+	$(".btn_back").on("click", function() {
+		history.back();
+	});
+}
+
 $(document).ready(function() {
 	mainGnb();
+	historyBack();
+	pagination();
 });

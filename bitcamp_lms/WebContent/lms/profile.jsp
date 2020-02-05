@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.bit.lms.model.LoginDto" %>
+<%
+LoginDto login =(LoginDto)session.getAttribute("login");
+if(login!=null){
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -56,21 +61,21 @@
 			<div class="content_area">
 				<div class="profile_wrap">
 					<h2>회원정보수정</h2>
-					<form>
+					<form method="post" onsubmit="return validationProfile()">
 						<ul class="list_ipts">
 							<li>
 								<label for="logName">이름</label>
-								<input type="hidden" id="logName" value="홍길동">
-								<span>홍길동</span>
+								<input type="hidden" id="logName" value="${login.name }" name="profileId">
+								<span>${login.name }</span>
 							</li>
 							<li>
 								<label for="logId">아이디(이메일)</label>
-								<input type="hidden" id="logId" value="user01@email.com">
-								<span>user01@email.com</span>
+								<input type="hidden" id="logId" value="${login.id }" name="profileName">
+								<span>${login.id }</span>
 							</li>
 							<li>
 								<label for="logPw1">비밀번호</label>
-								<input type="password" id="logPw1">
+								<input type="password" id="logPw1" name="profilePw">
 								<p class="msg err"></p>
 							</li>
 							<li>
@@ -80,26 +85,33 @@
 							</li>
 							<li>
 								<label for="logNum">연락처</label>
-								<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)" value="010-0000-0000">
+								<input type="text" id="logNum" placeholder="연락처 (010-0000-0000)" value="${login.tel }" name="profileTel">
 								<p class="msg err"></p>
 							</li>
 							<li>
 								<label for="logQuest">비밀번호 확인 질문</label>
-								<select id="logQuest">
+								<input type="hidden" id="hiddenProfileQuest" value="${login.question }">
+								<select id="logQuest" class="profileSelect" name="profileQuestion">
 									<option value="">비밀번호 확인 질문</option>
-									<option value="" selected="true">내가 좋아하는 캐릭터는?</option>
+									<option value="자신의 인생 좌우명은?">자신의 인생 좌우명은?</option>
+									<option value="자신이 두번째로 존경하는 인물은?">자신이 두번째로 존경하는 인물은?</option>
+									<option value="인상 깊게 읽은 책 이름은?">인상 깊게 읽은 책 이름은?</option>
+									<option value="내가 좋아하는 캐릭터는?">내가 좋아하는 캐릭터는?</option>
+									<option value="다시 태어나면 되고 싶은 것은?">다시 태어나면 되고 싶은 것은?</option>
 								</select>
+								<p class="msg err"></p>
 							</li>
 							<li>
 								<label for="logAnswer">비밀번호 확인 답변</label>
-								<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변" value="둘리">
+								<input type="text" id="logAnswer" placeholder="비밀번호 확인 답변" value="${login.answer }" name="profileAnswer">
 								<p class="msg err"></p>
 							</li>
 						</ul>
 						<ul class="list_btns">
-							<li><button type="button">취소</button></li>
+							<li><button type="button" onclick="history.back(-2)">취소</button></li>
 							<li><button type="submit">확인</button></li>
 						</ul>
+						<input type="hidden" id="hiddenProfile" value="${param.result }">
 					</form>
 				</div>
 			</div>
@@ -129,5 +141,22 @@
 		</div>
 	</div>
 </div>
+<div id="popup">
+	<p class="alert">
+		회원정보 수정이 완료되었습니다.<br>
+		확인을 누르시면 메인 페이지로 이동합니다.
+	</p>
+	<div class="btns">
+		<button type="button" class="btn_off yes">확인</button>
+	</div>
+</div>
+<script type="text/javascript">
+	validation();
+</script>
 </body>
 </html>
+<%
+}else{
+	response.sendRedirect("login.html?msg=AccessDenied");
+}
+%>

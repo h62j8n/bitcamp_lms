@@ -18,7 +18,7 @@
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms"><img alt="비트캠프 구리센터" src="../images/ico/logo.png"></a></h1>
+		<h1><a href="/bitcamp_lms"><img src="../images/ico/logo.png" alt="비트캠프 구리센터"></a></h1>
 		<ul id="gnb">
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
@@ -67,49 +67,49 @@
 	<section id="curriculum" class="content_area">
 		<div class="container">
 			<h2>모집공고</h2>
-			<div class="board_wrap list">
+			<div class="board_wrap">
+				<%
+				ArrayList<EducurriculumDto> list=null;
+				list = (ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
+				%>
 				<div class="top box">
-					<p>총 게시물 : 000</p>
+					<p>총 게시물 : <%= String.format("%03d", list.size()) %></p>
 				</div>
 				<ul class="list box">
 					<%
-					ArrayList<EducurriculumDto> list=null;
-					list=(ArrayList<EducurriculumDto>)request.getAttribute("educurriculumlist");
-					
-					for(int i=0; i<list.size(); i++){
-						EducurriculumDto bean=list.get(i);
+					if (list.size() > 0) {
+						for(int i=0; i<list.size(); i++){
+							EducurriculumDto bean=list.get(i);
 					%>
 					<li>
 						<a href="educurridetail.html?idx=<%= bean.getRecr_no() %>"><%= bean.getLec_name() %></a>
-						<span><%=bean.getLec_appl_start() %> ~ <%=bean.getLec_appl_end() %>　|　<%=bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %></span>
+						<span>
+							<%= bean.getLec_start() %> ~ <%=bean.getLec_end() %>　|　
+							<%= String.format("%03d", bean.getRecr_count()) %>
+						</span>
+						<span class="cr_count">모집인원<br>(<%= bean.getLec_applnum() %>/<%=bean.getLec_lecnum() %>)</span>
 					</li>
+					<%
+						}
+					} else {
+					%>
+					<li class="bd_empty">등록된 게시물이 없습니다.</li>
 					<%
 					}
 					%>
 				</ul>
 				<div class="bottom box">
-					<p class="bd_btns"><a href="../lms/login.html">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
-					<!-- <ul class="bd_pages">
-						<li><a href="" class="pg_start"><span class="hidden">첫 페이지</span></a></li>
-						<li><a href="" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
-						<li><a href="">1</a></li>
-						<li><a href="">2</a></li>
-						<li><b>3</b></li>
-						<li><a href="">4</a></li>
-						<li><a href="">5</a></li>
-						<li><a href="" class="pg_next"><span class="hidden">다음 페이지</span></a></li>
-						<li><a href="" class="pg_end"><span class="hidden">마지막 페이지</span></a></li>
-					</ul> -->
-				</div>
-				<div class="paging">
-					<jsp:include page="/util/paging.jsp">
-						<jsp:param value="${paging.page}" name="page"/>
-				        <jsp:param value="${paging.beginPage}" name="begin"/>
-				        <jsp:param value="${paging.endPage}" name="end"/>
-				        <jsp:param value="${paging.prev}" name="prev"/>
-				        <jsp:param value="${paging.next}" name="next"/>
-				        <jsp:param value="${paging.totalPage}" name="total"/>
-					</jsp:include>
+					<p class="bd_btns"><a href="../lms/login.html" class="btn_go">수강신청 바로가기 &nbsp; <i class="xi-arrow-right"></i></a></p>
+					<ul class="bd_pages">
+						<jsp:include page="/util/paging.jsp">
+							<jsp:param value="${paging.page}" name="page"/>
+							<jsp:param value="${paging.beginPage}" name="begin"/>
+							<jsp:param value="${paging.endPage}" name="end"/>
+							<jsp:param value="${paging.prev}" name="prev"/>
+							<jsp:param value="${paging.next}" name="next"/>
+							<jsp:param value="${paging.totalPage}" name="total"/>
+						</jsp:include>
+					</ul>
 				</div>
 			</div>
 		</div>

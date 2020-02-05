@@ -138,70 +138,69 @@ function validation() {
 
 /* 유효성검사 Submit */
 function validJoin() {
-	var jname = $("#logName"),
-		jid = $("#logId"),
-		jpw1= $("#logPw1"),
-		jpw2= $("#logPw2"),
-		jtel= $("#logNum"),
-		jquest = $("#logQuest"),
-		janswer = $("#logAnswer"),
-		jch1= $("#logTerms1"),
-		jch2= $("#logTerms2");
+	var name = $("#logName"),
+		id = $("#logId"),
+		pw1= $("#logPw1"),
+		pw2= $("#logPw2"),
+		tel= $("#logNum"),
+		quest = $("#logQuest"),
+		answer = $("#logAnswer"),
+		ch1= $("#logTerms1"),
+		ch2= $("#logTerms2");
 
-	if(jname.val() == ""){
-		var tooltip = jname.siblings(".msg");
+	if(name.val() == ""){
+		var tooltip = name.siblings(".msg");
 		tooltip.text("이름을 입력해주세요");
 		tooltip.css("opacity", 1);
 		return false;
 	}
 	var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
-	if(!re.test(jid.val())){
-		var tooltip = jid.siblings(".msg");
+	if(!re.test(id.val())){
+		var tooltip = id.siblings(".msg");
 		tooltip.text("이메일주소 형식이 올바르지 않습니다.");
 		tooltip.css("opacity", 1);
 		return false;
 	}
 	var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
-	if(!re.test(jpw1.val())){
-		var tooltip = jpw1.siblings(".msg");
+	if(!re.test(pw1.val())){
+		var tooltip = pw1.siblings(".msg");
 		tooltip.text("8~20자 영문과 숫자를 조합한 비밀번호를 입력해주세요");
 		tooltip.css("opacity", 1);
 		return false;
 	}
-	if(jpw1.val() != jpw2.val()){
-		var tooltip = jpw2.siblings(".msg");
+	if(pw1.val() != pw2.val()){
+		var tooltip = pw2.siblings(".msg");
 		tooltip.text("비밀번호가 일치하지 않습니다.");
 		tooltip.css("opacity", 1);
 		return false;
 	}
 	var re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
-	if(!re.test(jtel.val())){
-		var tooltip = jtel.siblings(".msg");
+	if(!re.test(tel.val())){
+		var tooltip = tel.siblings(".msg");
 		tooltip.text("연락처 형식이 올바르지 않습니다.");
 		tooltip.css("opacity", 1);
 		return false;
 	}
-	if(jquest.val() == ""){
-		var tooltip = jquest.siblings(".msg");
+	if(quest.val() == ""){
+		var tooltip = quest.siblings(".msg");
 		tooltip.text("질문을 선택해주세요");
 		tooltip.css("opacity", 1);
 		return false;
 	}
-	if(janswer.val() == ""){
-		var tooltip = janswer.siblings(".msg");
+	if(answer.val() == ""){
+		var tooltip = answer.siblings(".msg");
 		tooltip.text("답변을 입력해주세요");
 		tooltip.css("opacity", 1);
 		return false;
 	}
-	if(!jch1.prop("checked") || !jch2.prop("checked")){
-		var tooltip = jch1.parents("li").siblings(".msg");
+	if(!ch1.prop("checked") || !ch2.prop("checked")){
+		var tooltip = ch1.parents("li").siblings(".msg");
 		console.log(tooltip);
 		tooltip.text("약관에 동의해주세요");
 		tooltip.css("opacity", 1);
 		return false;
 	}
 }
-
 /* 아이디 찾기 submit */
 function validationFindid() {
 	var tel = $("#logNum"),
@@ -265,28 +264,58 @@ function validationFindpw3(){
 		return false;
 	}
 }
-
-/* 임시 (완료 후 삭제 예정) { */
-function addCommMsg(msg) {
-	var commMsg = $(".msg");
-	$(".btn_temp").on("click", function() {
-		commMsg.text(msg);
-		commMsg.css("opacity", 1);
-	});
+/* 회원정보 수정 submit*/
+function validationProfile(){
+	var pw1= $("#logPw1"),
+		pw2= $("#logPw2"),
+		tel = $("#logNum"),
+		quest = $("#logQuest"),
+		answer = $("#logAnswer");
+	
+	var re = /^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/;
+	if(!re.test(pw1.val())){
+		var tooltip = pw1.siblings(".msg");
+		tooltip.text("8~20자 영문과 숫자를 조합한 비밀번호를 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(pw1.val() != pw2.val()){
+		var tooltip = pw2.siblings(".msg");
+		tooltip.text("비밀번호가 일치하지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	var re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+	if(!re.test(tel.val())){
+		var tooltip = tel.siblings(".msg");
+		tooltip.text("연락처 형식이 올바르지 않습니다.");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(quest.val() == ""){
+		var tooltip = quest.siblings(".msg");
+		tooltip.text("질문을 선택해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
+	if(answer.val() == ""){
+		var tooltip = answer.siblings(".msg");
+		tooltip.text("답변을 입력해주세요");
+		tooltip.css("opacity", 1);
+		return false;
+	}
 }
-function step2() {
-	$(".step2").slideDown(300);
-	$("#logId").addClass("block").prop("readonly", true);
-}
-function step3() {
-	$(".step2").slideUp(300);
-	$(".step3").slideDown(300);
-}
-/* } 임시 (완료 후 삭제 예정=) */
 
 /* 레이어팝업 */
 function popup() {
 	$("#popup").bPopup({
+		closeClass: "btn_off",
+		modalClose: false,
+		positionStyle: 'fixed',
+	});
+}
+function popupAttend() {
+	$("#popupAttend").bPopup({
 		closeClass: "btn_off",
 		modalClose: false,
 		positionStyle: 'fixed',
@@ -301,7 +330,15 @@ function popupResult() {
 		onClose:function(){location.href="login.html";}
 	});
 }
-
+/* 팝업 후 메인페이지*/
+function popupResultProf() {
+	$("#popup").bPopup({
+		closeClass: "btn_off",
+		modalClose: false,
+		positionStyle: 'fixed',
+		onClose:function(){location.href="index.html";}
+	});
+}
 /* 메인 { */
 function progress() {
 	var bar = $(".progress b");
@@ -334,67 +371,106 @@ function attend() {
 /* } 메인 */
 
 $(document).ready(function() {
-	/* 회원가입*/
+	/* 회원가입 아이디 중복*/
 	if($("#hiddenDupliID").val() =="1"){
 		var tooltip = $("#logId").siblings(".msg");
 		tooltip.text("이미 사용중인 아이디입니다. 다시 입력해주세요");
 		tooltip.css("opacity", 1);
+	/* 회원가입 성공 */
 	}else if($("#hiddenDupliID").val() =="0" && $("#hiddenJoinName").val() == "1"){
 		popupResult();
 	}
-	
-	/* 로그인  */
+	/* 로그인 실패*/
 	if($("#hiddenLogin").val() == "0"){
 		var tooltip = $("#hiddenLogin").siblings(".msg");
 		tooltip.text("아이디 또는 비밀번호가 일치하지 않습니다.");
 		tooltip.css("opacity", 1);
+	/* 로그인 성공 */
 	}else if ($("#hiddenLogin").val() == "1"){
 		location.href="index.html";
 	}
-	/* 아이디 찾기 */
+	/* 아이디 찾기 실패 */
 	if($("#hiddenFindid").val() == "0"){
 		var tooltip = $("#hiddenFindid").siblings(".msg");
 		tooltip.text("이름 또는 연락처가 일치하지 않습니다.");
 		tooltip.css("opacity", 1);
+	/* 아이디 찾기 성공 */
 	}else if ($("#hiddenFindid").val() == "1"){
 		popupResult();
 	}
-	/* 비밀번호 찾기*/
+	/* 비번찾기 아이디 입력 성공*/
 	if($("#hiddenfindpwID").val() == "1"){
 		$("#formFindpw").attr("onsubmit", "return validationFindpw2()");
 		$("#logId").val($("#hiddenfindpw").val());
 		$(".step2").slideDown(300);
 		$("#logId").addClass("block").prop("readonly", true);
+	/* 비번찾기 아이디 입력 실패*/
 	}else if($("#hiddenfindpwID").val() == "0"){
 		var tooltip = $("#logId").siblings(".msg");
 		tooltip.text("가입되지 않은 이메일입니다. 다시 입력해주세요.");
 		tooltip.css("opacity", 1);
 	}
+	/* 비번찾기 질문답변 입력 성공*/
 	if($("#hiddenfindpwQA").val() == "1"){
 		$("#formFindpw").attr("onsubmit", "return validationFindpw3()");
 		$("#logId").val($("#hiddenfindpw").val());
-		$(".step2").slideDown(300);
+		$(".step2").show();
 		$("#logId").addClass("block").prop("readonly", true);
 		$(".step2").slideUp(300);
 		$(".step3").slideDown(300);
+	/* 비번찾기 질문답변 입력 실패*/
 	}else if($("#hiddenfindpwQA").val() == "0"){
 		$("#formFindpw").attr("onsubmit", "return validationFindpw2()");
 		$("#logId").val($("#hiddenfindpw").val());
-		$(".step2").slideDown(300);
+		$(".step2").show();
 		$("#logId").addClass("block").prop("readonly", true);
 		var tooltip = $("#logAnswer").siblings(".msg");
 		tooltip.text("질문 또는 답변이 일치하지 않습니다. 다시 입력해주세요.");
 		tooltip.css("opacity", 1);
 	}
+	/* 비번찾기 비밀번호 변경 성공*/
 	if($("#hiddenfindpwPW").val() == "1"){
 		popupResult();
 	}
+	/* 회원정보수정 비밀번호 입력 실패*/
+	if($("#hiddenLockResult").val() == "0"){
+		var tooltip = $("#logPw2").siblings(".msg");
+		tooltip.text("비밀번호가 일치하지 않습니다.");
+		tooltip.css("opacity", 1);
+	/* 회원정보수정 비밀번호 입력 성공*/
+	}else if($("#hiddenLockResult").val() == "1"){
+		location.href="profile.html";
+	}
+	/* 회원정보수정 질문 선입력*/
+	if($("#hiddenProfileQuest") != null){
+		$(".profileSelect option").each(function(){
+			if($(this).val() == $("#hiddenProfileQuest").val()){
+				$(this).attr("selected", true);
+			}
+		});
+	}
+	/* 회원정보 수정 성공 */
+	if($("#hiddenProfile").val() == "1"){
+		popupResultProf();
+	}else if($("#hiddenProfile").val() == "0"){
+		location.href="profile.html";
+	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {
-		popup();
+		popupAttend();
 	});
 	historyBack();
+	pagination();
 });
+
+/* 페이지네이션 */
+function pagination() {
+	var pg = $(".bd_pages").find("li"),
+		pgNum = pg.length;
+	if (pgNum < 2) {
+		pg.hide();
+	}
+}
 
 /* datepicker */
 function datepick() {

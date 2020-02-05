@@ -37,13 +37,11 @@ public class JoinController extends HttpServlet{
 		String question=req.getParameter("join_question").trim();
 		String answer=req.getParameter("join_answer").trim();
 		
-		System.out.println(id);
 		JoinDao dao=new JoinDao();
 		HttpSession session=req.getSession();
 		
 		JoinDto beanId=dao.selectID(id);
 		session.setAttribute("dupliId", beanId);
-		System.out.println(beanId.getCnt());
 		if(beanId.getCnt()<=0){
 			int result=dao.insertJoin(name, id, pw, tel, question, answer);
 			if(result>0){

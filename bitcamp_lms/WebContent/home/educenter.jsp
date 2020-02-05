@@ -6,8 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
 	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 	<link href="../css/home.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" href="/favicon.ico">
@@ -17,8 +17,8 @@
 <div id="wrap">
 <div id="header">
 	<div class="container">
-		<h1><a href="/bitcamp_lms"><img alt="비트캠프 구리센터" src="../images/ico/logo.png"></a></h1>
-		<ul id="gnb"><!-- Global Navigation Bar -->
+		<h1><a href="/bitcamp_lms"><img src="../images/ico/logo.png" alt="비트캠프 구리센터"></a></h1>
+		<ul id="gnb">
 			<li>
 				<a href="/bitcamp_lms/home/educenter.html">교육센터</a>
 				<ul>

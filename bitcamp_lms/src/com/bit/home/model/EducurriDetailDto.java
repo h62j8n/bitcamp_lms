@@ -8,8 +8,11 @@ public class EducurriDetailDto {
 	private Date recr_date;
 	private String lec_name;
 	private String lec_content;
+	private Date lec_start;
+	private Date lec_end;
 	private Date lec_appl_start;
 	private Date lec_appl_end;
+	private String lec_instructor;
 	private int lec_lecnum;
 	private int lec_applnum;
 	
@@ -55,6 +58,22 @@ public class EducurriDetailDto {
 	public void setLec_content(String lec_content) {
 		this.lec_content = lec_content;
 	}
+
+	public Date getLec_start() {
+		return lec_start;
+	}
+
+	public void setLec_start(Date lec_start) {
+		this.lec_start = lec_start;
+	}
+
+	public Date getLec_end() {
+		return lec_end;
+	}
+
+	public void setLec_end(Date lec_end) {
+		this.lec_end = lec_end;
+	}
 	
 	public Date getLec_appl_start() {
 		return lec_appl_start;
@@ -88,5 +107,12 @@ public class EducurriDetailDto {
 		this.lec_applnum = lec_applnum;
 	}
 	
+	public String getLec_instructor() {
+		return lec_instructor;
+	}
+	
+	public void setLec_instructor(String lec_instructor) {
+		this.lec_instructor = lec_instructor;
+	}
 	
 }

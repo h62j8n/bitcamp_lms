@@ -16,7 +16,7 @@ public class MyCurriculumController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+		//parameter setting
 		String param=req.getParameter("no");
 		int mb_no=Integer.parseInt(param);
 		
