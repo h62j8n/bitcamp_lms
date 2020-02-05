@@ -26,6 +26,7 @@ public class TeacherNoticeDetailDao {
 				pstmt.setInt(1, cls_no);
 				rs=pstmt.executeQuery();
 				if(rs.next()){
+					bean.setCls_no(rs.getInt("cls_no"));
 					bean.setCls_subject(rs.getString("cls_subject"));
 					bean.setCls_date(rs.getDate("cls_date"));
 					bean.setCls_count(rs.getInt("cls_count"));

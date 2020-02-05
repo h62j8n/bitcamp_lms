@@ -33,7 +33,7 @@
 			</div>
 			<div class="content_area">
 				<div class="board_wrap list">
-					<h2>게시판명</h2>
+					<h2>강의실 공지사항</h2>
 					<div class="top box">
 						
 					</div>

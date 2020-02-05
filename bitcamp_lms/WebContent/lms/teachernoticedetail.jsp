@@ -63,7 +63,7 @@
 
 				<div class="board_wrap detail">
 
-					<h2>게시판명 글 상세</h2>
+					<h2>강의실 공지사항</h2>
 
 					<form>
 						<div class="title box">
@@ -96,7 +96,7 @@
 
 								<li><a href="teachernotice.html">목록</a></li>
 
-								<li><button type="submit" class="btn_submit">수정</button></li>
+								<li><a href="teachernoticeedit.html?idx=<%=bean.getCls_no() %>" class="btn_submit">수정</a></li>
 
 							</ul>
 
