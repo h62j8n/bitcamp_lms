@@ -61,11 +61,12 @@
 								<dt>
 									<ul>
 										<li>
-											<input type="hidden" id="hiddenlecSta" value="${login.staNo}">
+											<input type="hidden" id="hiddenapplmbno" value="${bean.id}" name="lecId">
+											<input type="hidden" id="hiddenlecSta" value="${bean.staCode}">
 											<select id="lecSta" name="lecSta">
-												<option value="">수강신청</option>
-												<option value="">수강등록</option>
-												<option value="">신청취소</option>
+												<option value="1">수강신청</option>
+												<option value="2">수강등록</option>
+												<option value="0">신청취소</option>
 											</select>
 										</li>
 										<li>${bean.name}</li>

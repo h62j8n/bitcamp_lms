@@ -22,7 +22,6 @@ public class member3Controller extends HttpServlet{
 		Member3Dao dao=new Member3Dao();
 		ArrayList<Member3Dto> list=dao.applListLec();
 		req.setAttribute("recrList", list);
-		
 		RequestDispatcher rd=req.getRequestDispatcher("member3.jsp");
 		rd.forward(req, resp);
 	}
@@ -32,10 +31,14 @@ public class member3Controller extends HttpServlet{
 		
 		String param=req.getParameter("lecSta").trim();
 		int state=Integer.parseInt(param);
+		String id=req.getParameter("lecId").trim();
 		
 		Member3Dao dao=new Member3Dao();
-		int result=dao.updateOne(state);
-		
-		
+		int result=dao.updateOne(state, id);
+		if(result>0){
+			resp.sendRedirect("member3.html?result="+result);
+		}else{
+			resp.sendRedirect("member3.html?result="+result);
+		}
 	}
 }

@@ -11,7 +11,7 @@ import com.bit.util.BitOracle;
 public class Member3Dao {
 
 	public ArrayList<Member3Dto> applListLec(){
-		String sql="select a.mb_name, a.mb_id, a.mb_tel, b.sta_code, b.lec_code, c.lec_roomno, c.lec_name from mb a, appl b, lec c where a.mb_no=b.mb_no and b.lec_code=c.lec_code";
+		String sql="select a.mb_name, a.mb_id, a.mb_tel, b.sta_code, b.lec_code, c.lec_roomno, c.lec_name from mb a, appl b, lec c where a.mb_no=b.mb_no and b.lec_code=c.lec_code and sta_code in(1,2)";
 
 		ArrayList<Member3Dto> list=new ArrayList<Member3Dto>();
 		Connection conn=BitOracle.getConnection();
@@ -46,8 +46,8 @@ public class Member3Dao {
 		return list;
 	}
 	
-	public int updateOne(int staCode){
-		String sql="";
+	public int updateOne(int staCode, String id){
+		String sql="update appl set sta_code=? where mb_id=?";
 		
 		Connection conn=BitOracle.getConnection();
 		PreparedStatement pstmt=null;
@@ -55,8 +55,9 @@ public class Member3Dao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, staCode);
+			pstmt.setString(2, id);
 			result=pstmt.executeUpdate();
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally{

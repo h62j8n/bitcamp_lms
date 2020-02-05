@@ -456,7 +456,7 @@ $(document).ready(function() {
 		location.href="profile.html";
 	}
 	/* 수강상태 변경  */
-	if($("#hiddenlecSta") != null){
+	if($("#hiddenlecSta") == null){
 		$(".lecSta option").each(function(){
 			if($(this).val() == $("#hiddenlecSta").val()){
 				$(this).attr("selected", true);
