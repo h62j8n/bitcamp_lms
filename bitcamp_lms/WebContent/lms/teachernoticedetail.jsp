@@ -34,10 +34,10 @@
 			<div class="board_wrap detail">
 				<h2>강의실 공지사항</h2>
 				<form id="detailForm" method="post" action="../teachernoticedelete.html">
+					<%
+					TeacherNoticeDetailDto bean=(TeacherNoticeDetailDto)request.getAttribute("teachernoticedetail");
+					%>
 					<div class="title box">
-						<%
-						TeacherNoticeDetailDto bean=(TeacherNoticeDetailDto)request.getAttribute("teachernoticedetail");
-						%>
 						<input type="hidden" name="idx" value="<%=bean.getCls_no() %>">
 						<h3>
 							<%=bean.getCls_subject() %>
