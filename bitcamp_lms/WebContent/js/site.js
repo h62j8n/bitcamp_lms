@@ -511,10 +511,12 @@ function popLogout() {
 		quest = "로그아웃 하시겠습니까?";
 	var btnBox = $("#popup .btns"),
 		yes = '<button type="submit" class="yes">확인</button>',
-		no = '<button type="button" class="btn_off no">취소</button>';
+		no = '<button type="button" class="btn_off no">취소</button>',
+		hidden ='<input type="hidden" name="logout" value="logout">';
 	questBox.html(quest);
 	btnBox.html('<form id="lgForm" method="POST"></form>');
 	var form = $("#lgForm");
+	form.append(hidden);
 	form.append(yes);
 	form.append(no);
 }
@@ -579,4 +581,20 @@ function popAttend() {
 			$("#atForm").submit();
 		}
 	});
+}
+/* 게시글 삭제 팝업 */
+function popPostDel() {
+   var questBox = $("#popup .alert"),
+   btnBox = $("#popup .btns");
+   var yes = '<button type="button" class="btn_off yes">확인</button>',
+      no = '<button type="button" class="btn_off no">취소</button>';
+   var quest = "삭제하시겠습니까?<br>삭제된 자료는 복구할 수 없습니다.";
+   questBox.html(quest);
+   btnBox.html(yes);
+   btnBox.append(no);
+   popup();
+   
+   $(".yes").on("click", function() {
+      $("#detailForm").submit();
+   });
 }
