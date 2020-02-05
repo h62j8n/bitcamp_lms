@@ -582,11 +582,11 @@ function popAttend() {
 	$(".yes").on("click", function() {
 		if (btnIn) {
 			$("#btnAttend").removeClass("in").addClass("out");
-			$("#atForm").submit();
+//			$("#atForm").submit();
 		}
 		if (btnOut) {
 			$("#btnAttend").removeClass("out");
-			$("#atForm").submit();
+//			$("#atForm").submit();
 		}
 	});
 }

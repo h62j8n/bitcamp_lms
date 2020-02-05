@@ -32,7 +32,7 @@
 
 		<div class="container">
 
-			<h1><a href=""><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
+			<h1><a href="index.html"><img src="../images/ico/logo_w.png" alt="비트캠프 구리센터"></a></h1>
 
 			<ul class="quick">
 
