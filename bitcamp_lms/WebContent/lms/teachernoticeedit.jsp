@@ -1,4 +1,4 @@
-<%@page import="com.bit.lms.model.TeacherNoticeDetailDto"%>
+<%@page import="com.bit.lms.model.TeacherNoticeEditDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -63,15 +63,21 @@
 
 				<div class="board_wrap detail">
 
-					<h2>게시판명 글 상세</h2>
+					<h2>공지사항 수정</h2>
 
 					<form method="post">
 						<div class="title box">
 						<%
-						TeacherNoticeDetailDto bean=(TeacherNoticeDetailDto)request.getAttribute("teachernoticedetail");
+						TeacherNoticeEditDto bean=(TeacherNoticeEditDto)request.getAttribute("teachernoticeedit");
 						%>
-							<h3><%=bean.getCls_subject() %></h3>
-
+						<div>
+						<span>글번호</span>
+						<span><%=bean.getCls_no() %></span>
+						<input type="hidden" name="cls_no" id="cls_no" value="<%=bean.getCls_no() %>"/>
+						</div>
+							<h3>
+							<input type="text" name="cls_subject" id="cls_subject" value="<%=bean.getCls_subject() %>"/>
+							</h3>
 							<ul>
 
 								<li><%=bean.getCls_date() %></li>
@@ -86,7 +92,9 @@
 
 						<div class="content box">
 
-							<p><%=bean.getCls_content() %></p>
+							<p>
+							<input type="text" name="cls_content" id="cls_content" value="<%=bean.getCls_content() %>"/>
+							</p>
 
 						</div>
 
@@ -94,9 +102,8 @@
 
 							<ul class="bd_btns">
 
-								<li><a href="teachernotice.html">목록</a></li>
-
-								<li><button type="submit" class="btn_submit">수정</button></li>
+								<li><button type="submit" class="btn_submit">수정 완료</button></li>
+								<li><a href="teachernoticedetail.html">취소</a></li>
 
 							</ul>
 

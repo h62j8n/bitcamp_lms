@@ -66,7 +66,7 @@
 
 						</a></li>
 
-						<li><a href=""> <i class="xi-presentation"></i> <span>수강생
+						<li><a href="teacherscore.html"> <i class="xi-presentation"></i> <span>수강생
 									성적 관리</span>
 
 						</a></li>
@@ -176,7 +176,7 @@
 
 								<h3 class="hidden">수강생 성적 관리</h3>
 
-								<a href=""> <i class="xi-presentation"></i> <b>수강생 성적 관리<br>바로가기
+								<a href="teacherscore.html"> <i class="xi-presentation"></i> <b>수강생 성적 관리<br>바로가기
 								</b>
 
 								</a>
