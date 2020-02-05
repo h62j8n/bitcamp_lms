@@ -61,49 +61,49 @@
 
 			<div class="content_area">
 
-				<div class="board_wrap detail">
+				<div class="board_wrap write">
 
 					<h2>공지사항 수정</h2>
 
 					<form method="post">
-						<div class="title box">
 						<%
 						TeacherNoticeEditDto bean=(TeacherNoticeEditDto)request.getAttribute("teachernoticeedit");
 						%>
-						<div>
-						<span>글번호</span>
-						<span><%=bean.getCls_no() %></span>
-						<input type="hidden" name="cls_no" id="cls_no" value="<%=bean.getCls_no() %>"/>
-						</div>
-							<h3>
-							<input type="text" name="cls_subject" id="cls_subject" value="<%=bean.getCls_subject() %>"/>
-							</h3>
-							<ul>
 
-								<li><%=bean.getCls_date() %></li>
+						<table class="table box">
 
-								<li><%=bean.getCls_count() %></li>
+							<tr>
+								<th><label for="postName">제목</label></th>
+								<input type="hidden" name="cls_no" id="cls_no" value="<%=bean.getCls_no() %>"/>
 
-							</ul>
+								<td>
 
-						</div>
+									<input type="text" name="cls_subject" id="cls_subject" value="<%=bean.getCls_subject() %>">
 
+								</td>
 
+							</tr>
 
-						<div class="content box">
+							<tr>
 
-							<p>
-							<input type="text" name="cls_content" id="cls_content" value="<%=bean.getCls_content() %>"/>
-							</p>
+								<th><label for="postContent">내용</label></th>
 
-						</div>
+								<td>
+
+									<textarea name="cls_content" id="cls_content"><%=bean.getCls_content() %></textarea>
+
+								</td>
+
+							</tr>
+
+						</table>
 
 						<div class="bottom box">
 
 							<ul class="bd_btns">
 
 								<li><button type="submit" class="btn_submit">수정 완료</button></li>
-								<li><a href="teachernoticedetail.html">취소</a></li>
+								<li><a href="teachernotice.html">취소</a></li>
 
 							</ul>
 

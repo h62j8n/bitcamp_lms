@@ -24,4 +24,5 @@ protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 	 RequestDispatcher rd=req.getRequestDispatcher("teachernoticedetail.jsp");
 	 rd.forward(req, resp);
  }
+
 }
