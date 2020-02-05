@@ -129,7 +129,11 @@ if(login!=null){
 									<span>퇴실 &nbsp; : &nbsp; <b>18:31</b></span>
 								</dt>
 								<dd>
-									<button type="button" id="btnAttend" class="btn_pop in"><span></span></button>
+									<form id="atForm" action="" method="post">
+										<input type="hidden" id="atDate">
+										<input type="hidden" id="atStatus">
+										<button type="button" id="btnAttend" class="btn_pop in"><span></span></button>
+									</form>
 								</dd>
 							</dl>
 							<p class="btn_go"><a href="">자세히 보기 <i class="xi-arrow-right"></i></a></p>

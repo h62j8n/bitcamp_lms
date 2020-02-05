@@ -461,6 +461,12 @@ $(document).ready(function() {
 	});
 	historyBack();
 	pagination();
+
+	/* 로그아웃팝업 */
+	$(".btn_logout").on("click", function() {
+		popLogout();
+		popup();
+	});
 });
 
 /* 페이지네이션 */
@@ -491,5 +497,79 @@ function ref() {
 		$(this).on("mouseleave", function() {
 			tooltip.css("opacity", 0);
 		});
+	});
+}
+
+/* 로그아웃 팝업 */
+function popLogout() {
+	var questBox = $("#popup .alert"),
+		quest = "로그아웃 하시겠습니까?";
+	var btnBox = $("#popup .btns"),
+		yes = '<button type="button" class="yes">확인</button>',
+		no = '<button type="button" class="btn_off no">취소</button>';
+	questBox.html(quest);
+	btnBox.html(yes);
+	btnBox.append(no);
+}
+
+/* 숫자포멧 */
+function pad(n, width) {
+	n = n + '';
+	return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+}
+
+/* 출결관리 팝업 */
+function popAttend() {
+	// 버튼 기능 체크
+	var btnIn = $("#btnAttend").hasClass("in"),
+		btnOut = $("#btnAttend").hasClass("out");
+	var status;
+	if (btnIn) {
+		status = "입실";
+	} else if (btnOut) {
+		status = "퇴실";
+	}
+	// 현재 시간
+	var day = new Date(),
+		year = day.getFullYear(),
+		month = pad(day.getMonth()+1, 2),
+		date = pad(day.getDate(), 2),
+		hours = pad(day.getHours(), 2),
+		minutes = pad(day.getMinutes(), 2);
+	var times = year+"년 "+month+"월 "+date+"일 "+hours+"시 "+minutes+"분";
+
+	// 인풋 값
+	var dateVal = year+"/"+month+"/"+date,
+		statusVal = status;
+	$("#atDate").val(dateVal);
+	$("#atStatus").val(statusVal);
+
+	// 팝업 세팅
+	var questBox = $("#popup .alert"),
+		btnBox = $("#popup .btns");
+	var yes = '<button type="button" class="btn_off yes">확인</button>',
+		no = '<button type="button" class="btn_off no">취소</button>';
+	var quest = "["+times+"]<br>";
+	// 입/퇴실 팝업창
+	if (btnIn || btnOut) {
+		quest += status+" 기록을 체크하시겠습니까?<br>※ 한 번 처리된 기록은 수정할 수 없습니다.";
+		questBox.html(quest);
+		btnBox.html(yes);
+		btnBox.append(no);
+	} else {
+		quest += "지금은 출결관리 시간이 아닙니다.";
+		questBox.html(quest);
+		btnBox.html(yes);
+	}
+
+	$(".yes").on("click", function() {
+		if (btnIn) {
+			$("#btnAttend").removeClass("in").addClass("out");
+			$("#atForm").submit();
+		}
+		if (btnOut) {
+			$("#btnAttend").removeClass("out");
+			$("#atForm").submit();
+		}
 	});
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="com.bit.lms.model.LoginDto" %>
+<%@ page import="com.bit.lms.model.LoginDto, com.bit.lms.model.MemberDto, java.util.ArrayList" %>
 <%
 LoginDto login =(LoginDto)session.getAttribute("login");
 if(login!=null){
