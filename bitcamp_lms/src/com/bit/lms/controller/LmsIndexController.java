@@ -43,8 +43,12 @@ public class LmsIndexController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		String param1=req.getParameter("logout").trim();
+		if(param1.equals("logout")){
 		HttpSession session = req.getSession();
 		session.invalidate();//세션갱신
 		resp.sendRedirect("login.html");
+		}
 	}
 }
