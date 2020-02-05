@@ -1,3 +1,5 @@
+<%@page import="com.bit.lms.model.TeacherScoreDto"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -169,147 +171,26 @@
 							</thead>
 
 							<tbody>
-
+							<%
+							ArrayList<TeacherScoreDto> list=null;
+							list=(ArrayList<TeacherScoreDto>)request.getAttribute("teacherscorelist");
+							for(int i=0; i<list.size(); i++){
+								TeacherScoreDto bean=list.get(i);
+							%>
 								<tr>
 
 									<td>홍길동</td>
 
-									<td><input type="text" value="0"></td>
+									<td><input type="text" value="<%=bean.getScore_java()%>"></td>
 
-									<td><input type="text" value="0"></td>
+									<td><input type="text" value="<%=bean.getScore_fw()%>"></td>
 
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
+									<td><input type="text" value="<%=bean.getScore_db()%>"></td>
 
 									<td><button type="submit">입력</button></td>
 
 								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
-								<tr>
-
-									<td>홍길동</td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><input type="text" value="0"></td>
-
-									<td><button type="submit">입력</button></td>
-
-								</tr>
-
+							<%} %>
 							</tbody>
 
 						</table>
