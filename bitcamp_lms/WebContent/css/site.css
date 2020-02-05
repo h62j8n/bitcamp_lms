@@ -1415,6 +1415,14 @@ body {
   display: none;
 }
 
+.board_wrap.detail .bd_btns li {
+  margin-left: 10px;
+}
+
+.board_wrap.detail .bd_btns li:first-child {
+  margin: 0;
+}
+
 #inform.board_wrap h3 {
   margin-top: 50px;
 }
