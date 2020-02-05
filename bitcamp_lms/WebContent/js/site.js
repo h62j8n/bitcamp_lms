@@ -510,11 +510,13 @@ function popLogout() {
 	var questBox = $("#popup .alert"),
 		quest = "로그아웃 하시겠습니까?";
 	var btnBox = $("#popup .btns"),
-		yes = '<button type="button" class="yes">확인</button>',
+		yes = '<button type="submit" class="yes">확인</button>',
 		no = '<button type="button" class="btn_off no">취소</button>';
 	questBox.html(quest);
-	btnBox.html(yes);
-	btnBox.append(no);
+	btnBox.html('<form id="lgForm" method="POST"></form>');
+	var form = $("#lgForm");
+	form.append(yes);
+	form.append(no);
 }
 
 /* 숫자포멧 */
