@@ -455,6 +455,14 @@ $(document).ready(function() {
 	}else if($("#hiddenProfile").val() == "0"){
 		location.href="profile.html";
 	}
+	/* 수강상태 변경  */
+	if($("#hiddenlecSta") != null){
+		$(".lecSta option").each(function(){
+			if($(this).val() == $("#hiddenlecSta").val()){
+				$(this).attr("selected", true);
+			}
+		});
+	}
 	/* 레이어팝업 */
 	$(".btn_pop").on("click", function() {
 		popupAttend();

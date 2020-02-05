@@ -215,7 +215,6 @@ INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'C1000');
 INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'D1000');
 INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'E1000');
 INSERT INTO recr_bbs VALUES(recr_seq.nextval,10001,1001,0,sysdate,'F1000');
-select * from mb;
 commit;
 -- BIN$ 테이블 삭제
 -- PURGE RECYCLEBIN;
