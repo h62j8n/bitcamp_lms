@@ -157,9 +157,9 @@ CREATE TABLE appl(
 );
 CREATE TABLE atte(
    mb_no                 NUMBER  NOT NULL ,
-   atte_date             DATE  NOT NULL ,
-   atte_in               DATE  NOT NULL ,
-   atte_out              DATE ,
+   atte_date             VARCHAR2(8)  NOT NULL ,
+   atte_in               VARCHAR2(8)  NOT NULL ,
+   atte_out              VARCHAR2(8) ,
    atte_result           VARCHAR2(6) ,
    CONSTRAINT atte_mbno_fk FOREIGN KEY(mb_no) references appl(mb_no)
 );

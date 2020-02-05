@@ -23,24 +23,32 @@ public class LmsIndexController extends HttpServlet{
 		HttpSession session=req.getSession();
 		System.out.println(session.getId());
 		
+		
+		//MODEL
+		try{
 		//parameter setting
 		LoginDto login =(LoginDto)session.getAttribute("login");
 		int mb_no=login.getMbNo();
-		
-		//MODEL
 		MyCurriculumDao dao=new MyCurriculumDao();
 		req.setAttribute("mycurriculum", dao.selectOne(mb_no));
-		
 		//VIEW
 		RequestDispatcher rd=req.getRequestDispatcher("index.jsp");
 		rd.forward(req, resp);
+		} catch(NullPointerException e){
+			resp.sendRedirect("login.html");
+		}
+		
 		
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		req.setCharacterEncoding("utf-8");
+		String param1=req.getParameter("logout").trim();
+		if(param1.equals("logout")){
 		HttpSession session = req.getSession();
 		session.invalidate();//세션갱신
 		resp.sendRedirect("login.html");
+		}
 	}
 }

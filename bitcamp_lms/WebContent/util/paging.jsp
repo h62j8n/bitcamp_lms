@@ -11,7 +11,7 @@
 <!-- 한페이지에 게시글이 5개씩있는 페이지의 페이징 -->
 <c:url value="/home/educurriculum.html" var="root"/>
 <c:if test="${param.prev }">
-<li><a href="${root }?page=1" class="pg_start"><span class="hidden">맨 앞으로</span></a>
+<li><a href="${root }?page=1" class="pg_start"><span class="hidden">맨 앞으로</span></a></li>
 <li><a href="${root }?page=${param.begin-1}" class="pg_prev"><span class="hidden">이전 페이지</span></a></li>
 </c:if>
 <c:forEach begin="${param.begin }" end="${param.end }" step="1" var="index">
