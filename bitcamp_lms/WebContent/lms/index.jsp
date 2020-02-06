@@ -34,6 +34,13 @@ if(login!=null){
 	<div id="container">
 		<div class="container">
 			<div id="gnb" class="gnb_area">
+				
+				<c:if test="${login.cateNo eq 1}">
+					123
+				</c:if>
+				<c:if test="${login.cateNo eq 0}">
+					456
+				</c:if>
 				<ul>
 					<li>
 						<a href="mycurriculum.html?no=${login.mbNo }">
@@ -42,13 +49,13 @@ if(login!=null){
 						</a>
 					</li>
 					<li>
-						<a href="myattend.html">
+						<a href="">
 							<i class="xi-calendar-check"></i>
 							<span>나의 출결현황</span>
 						</a>
 					</li>
 					<li>
-						<a href="mygrade.html">
+						<a href="">
 							<i class="xi-presentation"></i>
 							<span>나의 성적조회</span>
 						</a>
@@ -123,9 +130,20 @@ if(login!=null){
 								</dt>
 								<dd>
 									<form id="atForm" action="" method="post">
-										<input type="hidden" id="atDate" name="atdate">
+										<input type="hidden" id="atDate" name="atDate">
 										<input type="hidden" id="atStatus" name="atStatus">
+										<%-- <%
+										if(입실시간이없음){
+										%>
 										<button type="button" id="btnAttend" class="btn_pop in"><span></span></button>
+										<%}else if(입실시간이있음&&퇴실시간이있음){%>
+										<button type="button" id="btnAttend" class="btn_pop"><span></span></button>											
+										<%
+										}else if(입실시간만있음){%>
+										<button type="button" id="btnAttend" class="btn_pop out"><span></span></button>																					
+										<%
+										}
+										%> --%>
 									</form>
 								</dd>
 							</dl>
